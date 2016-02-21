@@ -1,0 +1,5 @@
+nbproject/
+*.iml
+.idea
+.vagrant
+.DS_Store

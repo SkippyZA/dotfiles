@@ -1,0 +1,105 @@
+set nocp
+syntax enable
+filetype plugin indent on
+
+" Basic settigns to start off with
+set nocompatible
+set backspace=start,indent,eol
+set autoindent
+set smartindent
+set history=500
+set undolevels=500
+
+set splitright
+set splitbelow
+set guioptions-=T
+set guioptions-=m
+set guioptions-=rL
+set diffopt=filler,vertical
+
+" alter search behaviour
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch " hightlight search results
+
+" no backup or swap files. 
+set nobackup
+set noswapfile
+set nowritebackup
+
+" Show line numbers and lenght
+set number
+set nowrap
+
+" Since I use a dark background
+set background=dark
+
+" Inorder to allow me to easily paste without loosing format. <F2> gets me into
+" paste mode.
+set pastetoggle=<F2>
+
+" Leave Ex Mode, for good (http://www.bestofvim.com/tip/leave-ex-mode-good/)
+nnoremap Q <nop>
+
+" Use spaces instead of tabs
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set shiftround
+set expandtab
+
+" Use UNIX (\n) line endings for new files (be friendly to existing ones)
+au BufNewFile *.py,*.java,*.php, *.html set fileformat=unix
+
+" Enable spell checking for git commits.
+autocmd FileType gitcommit setlocal spell
+
+" Easier moving of code blocks. Vim will no longer loose selection when
+" indenting
+vnoremap < <gv " better indentation
+vnoremap > >gv " better indenation
+
+" Set the colorscheme
+colorscheme mustang
+
+" install the patch font: https://github.com/scotu/ubuntu-mono-powerline
+" let g:Powerline_symbols = "fancy"
+
+" Always show at least one line above/below the cursor.
+if !&scrolloff
+    set scrolloff=1
+endif
+if !&sidescrolloff
+    set sidescrolloff=5
+endif
+set display+=lastline
+
+" list trailing characters.
+if &listchars ==# 'eol:$'
+    set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+endif
+
+" Allow color schemes to do bright colors without forcing bold.
+if &t_Co == 8 && $TERM !~# '^linux'
+  set t_Co=16
+endif
+
+" Fix the mess made by tmux
+if &term =~ '^screen'
+    " tmux will send xterm-style keys when its xterm-keys option is on
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+endif
+
+" Always display the status line
+set laststatus=2
+
+" Make Pathogen plugin work
+execute pathogen#infect()
+execute pathogen#helptags()
+
+" map 't' to open NERDTree
+map t :NERDTree<CR>

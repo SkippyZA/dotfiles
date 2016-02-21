@@ -1,0 +1,7 @@
+auto-pairs|git@github.com:jiangmiao/auto-pairs.git
+ctrlp|git@github.com:kien/ctrlp.vim.git
+nerdtree|git@github.com:scrooloose/nerdtree.git
+nerdtree-tabs|https://github.com/jistr/vim-nerdtree-tabs.git
+fugitive|git@github.com:tpope/vim-fugitive.git
+vim-powerline|git@github.com:Lokaltog/vim-powerline
+vim-surround|git@github.com:tpope/vim-surround.git
