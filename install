@@ -23,9 +23,8 @@ fail () {
 }
 
 install_oh_my_zsh() {
-  OH_MY_ZSH="$DOTFILES_ROOT/zsh/oh-my-zsh"
-  if [ ! -d "$OH_MY_ZSH" ]; then
-    git clone https://github.com/robbyrussell/oh-my-zsh.git $OH_MY_ZSH
+  if [ ! -d "~/.oh-my-zsh" ]; then
+    git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
     success 'Checked out oh-my-zsh'
   else
     success 'Folder for oh-my-zsh already exists'
@@ -84,7 +83,7 @@ ignore_ssh_authenticity () {
         touch ~/.ssh.config
     fi
     if ! grep -Fxq "Host github.com" ~/.ssh/config; then
-        echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+        echo -e "\nHost github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
     fi
     success 'StrictHostKeyChecking disabled for github.com'
 }

@@ -1,3 +1,4 @@
+
 # ==============================================================
 # Git aliases
 # ==============================================================
@@ -5,7 +6,7 @@ alias gcob="git checkout -b"
 alias gc="git cola"
 alias gco="git checkout"
 alias gs="git status -sb"
-alias gs="git status -sb"
+alias gst="git status -sb"
 alias gd="git diff --color-words"
 alias gpf="git pull --ff-only"
 alias gp="git pull"
