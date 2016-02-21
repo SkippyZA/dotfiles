@@ -1,43 +1,8 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/steven/.oh-my-zsh
-export ZSH2=/Users/steven/.dotfiles/zsh
-
-# your project folder that we can `c [tab]` to
-export DEV=/Users/steven/Development
+export ZSH=/Users/steven/.dotfiles/zsh/oh-my-zsh
 
 # Oh-my-zsh theme
 ZSH_THEME="agnoster"
-
-# all of our zsh files
-typeset -U config_files
-config_files=($ZSH2/**/*.zsh)
-
-# load the path files
-for file in ${(M)config_files:#*/path.zsh}
-do
-  source $file
-done
-
-# load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
-do
-  source $file
-done
-
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
-
-# tab completion from both ends
-setopt completeinword
-
-# load every completion after autocomplete loads
-for file in ${(M)config_files:#*/completion.zsh}
-do
-  source $file
-done
-
-unset config_files
 
 plugins=(git, osx, composer, docker, docker-compose, colorize)
 
@@ -47,10 +12,22 @@ export LANG=en_US.UTF-8
 
 source $ZSH/oh-my-zsh.sh
 
-# use .localrc for SUPER SECRET CRAP that you don't
-# want in your public, versioned repo.
-if [[ -a ~/.localrc  ]]
+# use .localrc for SUPER SECRET CRAP that you don't want in your public, versioned repo.
+if [[ -a ~/.localrc ]]
 then
   source ~/.localrc
 fi
 
+# All of our zsh files
+##################################
+typeset -U config_files
+config_files=($ZSH/**/*.zsh)
+
+# Load the path files
+##################################
+for file in ${(M)config_files:#*/path.zsh}
+do
+  source $file
+done
+
+unset config_files

@@ -5,6 +5,7 @@ alias gcob="git checkout -b"
 alias gc="git cola"
 alias gco="git checkout"
 alias gs="git status -sb"
+alias gs="git status -sb"
 alias gd="git diff --color-words"
 alias gpf="git pull --ff-only"
 alias gp="git pull"
@@ -15,8 +16,3 @@ alias gm="git merge"
 alias gl="git lg"
 alias gb="git branch"
 alias ga="git add"
-
-# ==============================================================
-# Arc aliases
-# ==============================================================
-alias arcd="git fetch origin && arc diff origin/master"

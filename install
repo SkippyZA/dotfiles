@@ -22,6 +22,12 @@ fail () {
   exit
 }
 
+install_oh_my_zsh() {
+  git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.dotfiles/zsh/oh-my-zsh
+
+  success 'Checked out oh-my-zsh'
+}
+
 install_vim_pathogen() {
   mkdir -p ~/.vim/autoload ~/.vim/bundle
   if [ ! -f ~/.vim/autoload/pathogen.vim ]; then
@@ -166,6 +172,7 @@ install_dotfiles () {
 ignore_ssh_authenticity
 setup_gitconfig
 install_dotfiles
+install_oh_my_zsh
 install_patched_mono_font
 install_vim_pathogen
 install_vim_plugins
