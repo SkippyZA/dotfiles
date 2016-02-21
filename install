@@ -23,9 +23,13 @@ fail () {
 }
 
 install_oh_my_zsh() {
-  git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.dotfiles/zsh/oh-my-zsh
-
-  success 'Checked out oh-my-zsh'
+  OH_MY_ZSH="$DOTFILES_ROOT/zsh/oh-my-zsh"
+  if [ ! -d "$OH_MY_ZSH" ]; then
+    git clone https://github.com/robbyrussell/oh-my-zsh.git $OH_MY_ZSH
+    success 'Checked out oh-my-zsh'
+  else
+    success 'Folder for oh-my-zsh already exists'
+  fi
 }
 
 install_vim_pathogen() {
@@ -172,8 +176,8 @@ install_dotfiles () {
 ignore_ssh_authenticity
 setup_gitconfig
 install_dotfiles
-install_oh_my_zsh
 install_patched_mono_font
+install_oh_my_zsh
 install_vim_pathogen
 install_vim_plugins
 install_vim_theme
