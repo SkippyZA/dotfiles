@@ -2,9 +2,7 @@
 
 ## dotfiles
 
-These are my dotfiles. The repository is a dumbed down version of Zack Holman's repository (found [here](https://github.com/holman/dotfiles).
-
-I have adapted it to fit my needs and added a few changes to make it play nice with my linux installation.
+These are my dotfiles. The repository is a copy of Jaco Nel's repository (found [here](https://github.com/jaconel/dotfiles).
 
 Maybe should have forked his repo...oh well, to late now. :)
 
@@ -23,7 +21,7 @@ chsh -s /bin/zsh
 Run this:
 
 ```sh
-git clone git@github.com:jaconel/dotfiles.git ~/.dotfiles
+git clone git@github.com:SkippyZA/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 script/bootstrap
 ```
