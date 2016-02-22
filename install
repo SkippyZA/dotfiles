@@ -23,8 +23,9 @@ fail () {
 }
 
 install_oh_my_zsh() {
-  if [ ! -d "~/.oh-my-zsh" ]; then
+  if [ ! -d ~/.oh-my-zsh ]; then
     git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+    ln -s ~/.dotfiles/zsh/mytheme.zsh-theme ~/.oh-my-zsh/themes/mytheme.zsh-theme
     success 'Checked out oh-my-zsh'
   else
     success 'Folder for oh-my-zsh already exists'

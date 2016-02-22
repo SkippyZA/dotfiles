@@ -3,7 +3,7 @@ export ZSH=~/.oh-my-zsh
 export DOT_FILES=~/.dotfiles
 
 # Oh-my-zsh theme
-ZSH_THEME="agnoster"
+ZSH_THEME="mytheme"
 
 plugins=(git, osx, composer, docker, docker-compose, colorize)
 
