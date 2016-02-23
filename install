@@ -100,6 +100,8 @@ setup_gitconfig () {
     sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" git/gitconfig.symlink.example > git/gitconfig.symlink
 
     success 'gitconfig installed'
+    
+    git config --global core.excludesfile '~/.gitignore'
   fi
 }
 
@@ -178,6 +180,7 @@ setup_gitconfig
 install_dotfiles
 install_patched_mono_font
 install_oh_my_zsh
+setup_gitconfig
 install_vim_pathogen
 install_vim_plugins
 install_vim_theme
