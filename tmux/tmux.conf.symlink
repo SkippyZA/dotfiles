@@ -19,12 +19,21 @@ set -g renumber-windows on
 # Keep your finger on ctrl, or don't
 bind-key ^D detach-client
 
+# Start pane index from 1
+set -g base-index 1
+setw -g pane-base-index 1
+
 # Pane resize in all four directions using vi bindings.
-# Can use these raw but I map them to shift-ctrl-<h,j,k,l> in iTerm.
-bind-key -n M-Up resize-pane -U 1
-bind-key -n M-Down resize-pane -D 1
-bind-key -n M-Right resize-pane -R 1
-bind-key -n M-Left resize-pane -L 1
+# Resize panes using Ctrl+B - <h,j,k,l> resizes by 5
+#                    Ctrl+B - <h,j,k,l> resizes by 2
+bind j resize-pane -D 5
+bind k resize-pane -U 5
+bind l resize-pane -L 5
+bind h resize-pane -R 5
+bind J resize-pane -D 2
+bind K resize-pane -U 2
+bind L resize-pane -L 2
+bind H resize-pane -R 2
 
 # easily toggle synchronization (mnemonic: e is for echo)
 # sends input to all panes in a given window.
