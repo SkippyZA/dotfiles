@@ -5,3 +5,4 @@ nerdtree-tabs|https://github.com/jistr/vim-nerdtree-tabs.git
 fugitive|git@github.com:tpope/vim-fugitive.git
 vim-powerline|git@github.com:Lokaltog/vim-powerline
 vim-surround|git@github.com:tpope/vim-surround.git
+tern_for_vim|git@github.com:ternjs/tern_for_vim.git

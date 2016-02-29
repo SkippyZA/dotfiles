@@ -65,6 +65,11 @@ install_vim_plugins () {
         success "$name installed"
 
     done < $DOTFILES_ROOT/vim/plugins
+
+    cd $HOME/.vim/bundle/tern_for_vim
+    npm install
+    cd -
+
     success 'vim plugins installed'
 }
 

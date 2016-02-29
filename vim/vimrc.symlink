@@ -85,6 +85,11 @@ if &t_Co == 8 && $TERM !~# '^linux'
   set t_Co=16
 endif
 
+" Tern -> enable keyboard shortcuts
+let g:tern_map_keys=1
+" Tern -> show argument hints
+let g:tern_show_argument_hunts="on_hold"
+
 " Fix the mess made by tmux
 if &term =~ '^screen'
     " tmux will send xterm-style keys when its xterm-keys option is on
