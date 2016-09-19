@@ -12,4 +12,4 @@ alias restart='sudo shutdown –r now'
 alias mounted='mount | column –t'
 alias tar-gz='tar -zcvf'
 alias untar-gz='tar -zxvf'
-alias docker-rm-all="docker ps -a | grep 'Exited' | awk '{print $1}'"
+alias docker-rm-all="docker ps -a | grep 'Exited' | awk '{print $1}' | xargs docker rm"
