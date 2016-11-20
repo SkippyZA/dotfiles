@@ -13,3 +13,5 @@ alias mounted='mount | column –t'
 alias tar-gz='tar -zcvf'
 alias untar-gz='tar -zxvf'
 alias docker-rm-all="docker ps -a | grep 'Exited' | awk '{print $1}' | xargs docker rm"
+alias dc="docker-compose"
+alias lsDir="find . -maxdepth 1 -type d -mindepth 1 -exec du -hs {} \;"
