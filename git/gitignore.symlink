@@ -3,3 +3,15 @@ nbproject/
 .idea
 .vagrant
 .DS_Store
+Thumbs.db
+*~
+*.swp
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+.vimrc.local
+tscommand*.txt
+.nvmrc

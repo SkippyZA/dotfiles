@@ -1,5 +1,4 @@
 oh-my-zsh/
-git/gitconfig.symlink
 resources/**
 !resources/**/*.terminfo
 
