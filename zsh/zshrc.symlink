@@ -5,10 +5,11 @@ export DOT_FILES=~/.dotfiles
 # Oh-my-zsh theme
 ZSH_THEME="mytheme"
 
-([[ -e ~/.terminfo ]] || [[ -L ~/.terminfo ]] ) && export TERMINFO_DIRS=~/.terminfo:/usr/share/terminfo
-
 plugins=(git, osx, composer, docker, docker-compose, colorize)
 source $ZSH/oh-my-zsh.sh
+
+# Terminfo
+([[ -e ~/.terminfo ]] || [[ -L ~/.terminfo ]] ) && export TERMINFO_DIRS=~/.terminfo:/usr/share/terminfo
 
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.dotfiles/bin"
@@ -17,10 +18,12 @@ export LANG=en_US.UTF-8
 # source all .zsh files inside of the zsh/ directory
 for config ($DOT_FILES/zsh/**/*.zsh) source $config
 
+# source in our super secret stuff
 if [[ -a ~/.localrc ]]; then
   source ~/.localrc
 fi
 
+# Make the terminal fancy with 256 colours and italics
 [ -z "$TMUX" ] && export TERM=xterm-256color-italic
 
 # Load nvm if it exists
