@@ -1,15 +1,15 @@
-# -- # ensure we support 256 color
-# -- set -g default-terminal "screen-256color"
-# -- 
-# -- # fix ctrl+arrow keys
-# -- set -g xterm-keys on
-# -- 
-# -- # Allow copying to global clipboard using 'y'
-# -- bind -t vi-copy y copy-pipe 'pbcopy'
-# -- 
-# -- # Ring the bell if any background window rang a bell
-# -- set -g bell-action none
-# -- 
+# ensure we support 256 color
+set -g default-terminal "screen-256color"
+
+# fix ctrl+arrow keys
+set -g xterm-keys on
+
+# Allow copying to global clipboard using 'y'
+bind -t vi-copy y copy-pipe 'pbcopy'
+
+# Ring the bell if any background window rang a bell
+set -g bell-action none
+
 # Renumber windows when you close one
 set -g renumber-windows on
 
@@ -19,6 +19,11 @@ bind-key ^D detach-client
 # Start pane index from 1
 set -g base-index 1
 setw -g pane-base-index 1
+
+# unbind default prefix and set it to Ctrl+a
+unbind C-b
+set -g prefix C-a
+bind C-a send-prefix
 
 # -- # Pane resize in all four directions using vi bindings.
 # -- # Resize panes using Ctrl+B - <h,j,k,l> resizes by 5
@@ -39,20 +44,20 @@ bind-key P command-prompt -p 'save history to filename:' -I '~/tmux.history' 'ca
 bind e setw synchronize-panes en
 bind E setw synchronize-panes off
 
-# -- # tmux-powerline styling
-# -- set -g status on
-# -- set -g status-interval 2
-# -- set -g status-left-length 45
-# -- set -g status-right-length 90
-# -- set -g status-fg white
-# -- set -g status-bg colour234
-# -- set -g window-status-activity-attr bold
-# -- set -g pane-border-fg colour245
-# -- set -g pane-active-border-fg colour39
+# tmux-powerline styling
+set -g status on
+set -g status-interval 2
+set -g status-left-length 45
+set -g status-right-length 90
+set -g status-fg white
+set -g status-bg colour234
+set -g window-status-activity-attr bold
+set -g pane-border-fg colour245
+set -g pane-active-border-fg colour39
 
-# -- set -g status-left '#[fg=colour235,bg=colour252,bold] ❐ #S #[fg=colour252,bg=colour238,nobold]#[fg=colour248,bg=colour238,bold] #(whoami) #[fg=colour240,bg=colour234,nobold] '
-# -- set -g window-status-format "#[fg=white,bg=colour234] #I #W "
-# -- set -g window-status-current-format "#[fg=colour234,bg=colour39]#[fg=colour20,bg=colour39] #I  #W #[fg=colour39,bg=colour234]"
+set -g status-left '#[fg=colour235,bg=colour252,bold] ❐ #S #[fg=colour252,bg=colour238,nobold]#[fg=colour248,bg=colour238,bold] #(whoami) #[fg=colour240,bg=colour234,nobold] '
+set -g window-status-format "#[fg=white,bg=colour234] #I #W "
+set -g window-status-current-format "#[fg=colour234,bg=colour39]#[fg=colour20,bg=colour39] #I  #W #[fg=colour39,bg=colour234]"
 
 # -- # No escape time for vi mode
 # -- set -sg escape-time 0
@@ -66,4 +71,3 @@ bind c new-window -c "#{pane_current_path}"
 # force a reload of the config file
 unbind r
 bind r source-file ~/.tmux.conf \; display "Reloaded!"
-
