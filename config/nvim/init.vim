@@ -41,8 +41,9 @@ let g:onedark_termcolors=16
 let g:onedark_terminal_italics=1
 
 syntax on
-" set t_Co=256                " Explicitly tell vim that the terminal supports 256 colors"
-colorscheme onedark         " Set the colorscheme
+set t_Co=256                " Explicitly tell vim that the terminal supports 256 colors"
+" colorscheme onedark         " Set the colorscheme
+colorscheme mustang
 
 " make the highlighting of tabs and other non-text less annoying
 highlight SpecialKey ctermbg=none ctermfg=8
@@ -167,14 +168,7 @@ map <leader>eg :e! ~/.gitconfig<cr>
 " remove extra whitespace
 nmap <leader><space> :%s/\s\+$<cr>
 
-
 " -- nmap <leader>l :set list!<cr>
-
-" Textmate style indentation
-" -- vmap <leader>[ <gv
-" -- vmap <leader>] >gv
-" -- nmap <leader>[ <<
-" -- nmap <leader>] >>
 
 " switch between current and last buffer
 nmap <leader>. <c-^>
@@ -201,6 +195,15 @@ nnoremap <silent> j gj
 nnoremap <silent> k gk
 nnoremap <silent> ^ g^
 nnoremap <silent> $ g$
+
+" Shortcuts for dealing with tabs
+nnoremap th :tabnext<CR>
+nnoremap tl :tabprev<CR>
+nnoremap tn :tabnew<CR>
+nnoremap H gT
+nnoremap L gt
+"map <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+"map <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 
 " search for word under the cursor
 " -- nnoremap <leader>/ "fyiw :/<c-r>f<cr>
@@ -331,7 +334,7 @@ nmap <leader>* *<c-o>:%s///gn<cr>
 let g:airline_powerline_fonts=1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_theme='onedark'
+let g:airline_theme='luna'
 let g:airline#extensions#tabline#enabled = 1 " enable airline tabline
 let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs are being used (more than 1 tab open)
 let g:airline#extensions#tabline#show_buffers = 0 " do not show open buffers in tabline
