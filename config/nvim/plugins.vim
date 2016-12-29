@@ -54,6 +54,7 @@ Plug 'moll/vim-node', { 'for': 'javascript' } " node support
 Plug 'othree/yajs.vim', { 'for': 'javascript' } " JavaScript syntax plugin
 Plug 'othree/es.next.syntax.vim', { 'for': 'javascript' } " ES6 and beyond syntax
 Plug 'mxw/vim-jsx', { 'for': ['jsx', 'javascript'] } " JSX support
+Plug 'posva/vim-vue', { 'for': ['vue', 'javascript'] }
 
 " TypeScript
 Plug 'Quramy/tsuquyomi', { 'for': 'typescript', 'do': 'npm install' } " extended typescript support - works as a client for TSServer
