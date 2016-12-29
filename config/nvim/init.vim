@@ -17,8 +17,8 @@ set textwidth=120
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
-" -- let g:python_host_prog = '/usr/local/bin/python'
-" -- let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python2_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 " }}}
 
@@ -85,10 +85,10 @@ set backspace=indent,eol,start
 " -- set completeopt+=longest
 
 " code folding settings
-" -- set foldmethod=syntax       " fold based on indent
-" -- set foldnestmax=10          " deepest fold is 10 levels
-" -- set nofoldenable            " don't fold by default
-" -- set foldlevel=1
+set foldmethod=syntax       " fold based on indent
+set foldnestmax=10          " deepest fold is 10 levels
+set nofoldenable            " don't fold by default
+set foldlevel=1
 
 set clipboard=unnamed
 
@@ -157,13 +157,13 @@ map <leader>ev :e! ~/.config/nvim/init.vim<cr>
 map <leader>eg :e! ~/.gitconfig<cr>
 
 " clear highlighted search
-" -- noremap <space> :set hlsearch! hlsearch?<cr>
+noremap <space> :set hlsearch! hlsearch?<cr>
 
 " activate spell-checking alternatives
 " -- nmap ;s :set invspell spelllang=en<cr>
 
 " markdown to html
-" -- nmap <leader>md :%!markdown --html4tags <cr>
+nmap <leader>md :%!markdown --html4tags <cr>
 
 " remove extra whitespace
 nmap <leader><space> :%s/\s\+$<cr>
@@ -181,7 +181,7 @@ map <silent> <C-j> :call functions#WinMove('j')<cr>
 map <silent> <C-k> :call functions#WinMove('k')<cr>
 map <silent> <C-l> :call functions#WinMove('l')<cr>
 
-" -- map <leader>wc :wincmd q<cr>
+map <leader>wc :wincmd q<cr>
 
 " toggle cursor line
 " -- nnoremap <leader>i :set cursorline!<cr>
@@ -206,7 +206,7 @@ nnoremap L gt
 "map <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 
 " search for word under the cursor
-" -- nnoremap <leader>/ "fyiw :/<c-r>f<cr>
+nnoremap <leader>/ "fyiw :/<c-r>f<cr>
 
 " inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 
@@ -215,12 +215,10 @@ nnoremap L gt
 " -- let g:silent_custom_command = 0
 
 " helpers for dealing with other people's code
-" -- nmap \t :set ts=4 sts=4 sw=4 noet<cr>
-" -- nmap \s :set ts=4 sts=4 sw=4 et<cr>
+nmap \t :set ts=2 sts=2 sw=2 noet<cr>
+nmap \s :set ts=2 sts=2 sw=2 et<cr>
 
-" -- nmap <leader>w :setf textile<cr> :Goyo<cr>
-
-" -- nnoremap <silent> <leader>u :call functions#HtmlUnEscape()<cr>
+nnoremap <silent> <leader>u :call functions#HtmlUnEscape()<cr>
 
 " }}}
 
@@ -231,8 +229,8 @@ augroup configgroup
 
     " automatically resize panes on resize
     autocmd VimResized * exe 'normal! \<c-w>='
-    autocmd BufWritePost .vimrc,.vimrc.local,init.vim source %
-    autocmd BufWritePost .vimrc.local source %
+    " -- autocmd BufWritePost .vimrc,.vimrc.local,init.vim source %
+    " -- autocmd BufWritePost .vimrc.local source %
     " save all files on focus lost, ignoring warnings about untitled buffers
     autocmd FocusLost * silent! wa
 
