@@ -319,10 +319,12 @@ nmap <leader>m :MarkedOpen!<cr>
 nmap <leader>mq :MarkedQuit<cr>
 nmap <leader>* *<c-o>:%s///gn<cr>
 
-" -- let g:neomake_javascript_jshint_maker = {
-" --     \ 'args': ['--verbose'],
-" --     \ 'errorformat': '%A%f: line %l\, col %v\, %m \(%t%*\d\)',
-" -- \ }
+let g:neomake_javascript_jshint_maker = {
+    \ 'args': ['--verbose'],
+    \ 'errorformat': '%A%f: line %l\, col %v\, %m \(%t%*\d\)',
+\ }
+
+let g:neomake_javascript_enabled_makers = ['jshint']
 
 " -- let g:neomake_typescript_tsc_maker = {
 " --     \ 'args': ['-m', 'commonjs', '--noEmit' ],
@@ -346,8 +348,8 @@ let g:airline#extensions#tabline#show_splits = 0
 
 let g:tsuquyomi_disable_default_mappings = 1
 
-" -- " don't hide quotes in json files
-" -- let g:vim_json_syntax_conceal = 0
+" don't hide quotes in json files
+let g:vim_json_syntax_conceal = 0
 
 " -- let g:SuperTabCrMapping = 0
 

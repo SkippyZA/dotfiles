@@ -26,6 +26,8 @@ fi
 # Make the terminal fancy with 256 colours and italics
 [ -z "$TMUX" ] && export TERM=xterm-256color-italic
 
+export PATH=$PATH:/Users/steven/.nvm/versions/node/v7.3.0/bin/
+
 # Load nvm if it exists
 if [ -d ~/.nvm  ]
 then
