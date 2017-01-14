@@ -145,6 +145,9 @@ inoremap jk <esc>
 " shortcut to save
 nmap <leader>, :w<cr>
 
+" run current file with node
+nmap <leader>n :!node %<cr>
+
 " set paste toggle
 " -- set pastetoggle=<leader>v
 
@@ -219,6 +222,9 @@ nmap \t :set ts=2 sts=2 sw=2 noet<cr>
 nmap \s :set ts=2 sts=2 sw=2 et<cr>
 
 nnoremap <silent> <leader>u :call functions#HtmlUnEscape()<cr>
+
+map <silent> <C-b> :TernDef<cr>
+" map <silent> <C-Y> :TernRefs<cr>
 
 " }}}
 

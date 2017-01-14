@@ -39,6 +39,7 @@ Plug 'sickill/vim-pasta' " context-aware pasting
 "Plug 'junegunn/goyo.vim', { 'on': 'Goyo' } " distraction-free writing
 "Plug 'junegunn/limelight.vim', { 'on': 'Limelight' } " focus tool. Good for presentating with vim
 Plug 'vimwiki/vimwiki' " personal wiki
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 " html / templates
 Plug 'mattn/emmet-vim', { 'for': 'html' } " emmet support for vim - easily create markdup wth CSS-like syntax
@@ -51,6 +52,7 @@ Plug 'digitaltoad/vim-jade', { 'for': ['jade', 'pug'] } " jade support
 " JavaScript
 Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' } " JavaScript indent support
 Plug 'moll/vim-node', { 'for': 'javascript' } " node support
+Plug 'ternjs/tern_for_vim', { 'for': ['jsx', 'javascript'] }
 Plug 'othree/yajs.vim', { 'for': 'javascript' } " JavaScript syntax plugin
 Plug 'othree/es.next.syntax.vim', { 'for': 'javascript' } " ES6 and beyond syntax
 Plug 'mxw/vim-jsx', { 'for': ['jsx', 'javascript'] } " JSX support
