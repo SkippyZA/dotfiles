@@ -101,7 +101,7 @@ set hidden                  " current buffer can be put into background
 set showcmd                 " show incomplete commands
 set noshowmode              " don't show which mode disabled for PowerLine
 set wildmode=list:longest   " complete files like a shell
-set scrolloff=3             " lines of text around cursor
+set scrolloff=5             " lines of text around cursor
 set shell=$SHELL
 set cmdheight=1             " command bar height
 set title                   " set terminal title
@@ -152,7 +152,7 @@ nmap <leader>n :!node %<cr>
 " -- set pastetoggle=<leader>v
 
 " toggle paste mode
-" -- " map <leader>v :set paste!<cr>
+map <leader>v :set paste!<cr>
 
 " edit ~/.config/nvim/init.vim
 map <leader>ev :e! ~/.config/nvim/init.vim<cr>
@@ -190,8 +190,8 @@ map <leader>wc :wincmd q<cr>
 " -- nnoremap <leader>i :set cursorline!<cr>
 
 " scroll the viewport faster
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
+nnoremap <C-e> 5<C-e>
+nnoremap <C-y> 5<C-y>
 
 " moving up and down work as you would expect
 nnoremap <silent> j gj
@@ -223,7 +223,8 @@ nmap \s :set ts=2 sts=2 sw=2 et<cr>
 
 nnoremap <silent> <leader>u :call functions#HtmlUnEscape()<cr>
 
-map <silent> <C-b> :TernDef<cr>
+" TODO: Revisit this
+" map <silent> <C-b> :TernDef<cr>
 " map <silent> <C-Y> :TernRefs<cr>
 
 " }}}
@@ -247,11 +248,7 @@ augroup configgroup
     autocmd BufNewFile,BufReadPost *.md set filetype=markdown
     let g:markdown_fenced_languages = ['css', 'javascript', 'js=javascript', 'json=javascript', 'stylus', 'html']
 
-    " autocmd! BufEnter * call functionsyLocalSettings(expand('<afile>:p:h'))
-
     autocmd BufNewFile,BufRead,BufWrite *.md syntax match Comment /\%^---\_.\{-}---$/
-
-    autocmd! BufWritePost * Neomake
 augroup END
 
 " }}}
@@ -267,8 +264,6 @@ nmap <silent> <leader>k :NERDTreeToggle<cr>
 nmap <silent> <leader>y :NERDTreeFind<cr>
 
 let NERDTreeShowHidden=1
-"let NERDTreeDirArrowExpandable = '▷'
-"let NERDTreeDirArrowCollapsible = '▼'
 
 " -- let g:fzf_layout = { 'down': '~25%' }
 
@@ -307,6 +302,20 @@ let NERDTreeShowHidden=1
 " -- \  'options': '-m -x +s',
 " -- \  'down':    '40%'})
 
+" Unit testing
+"""""""""""""""""""""""""""""""""""""
+let test#strategy = "vimux" " run tests using vimux
+let test#javascript#mocha#options = {
+  \ 'nearest': '-r babel-register --reporter spec',
+  \ 'file':    '-r babel-register --reporter spec',
+  \ 'suite':   '-r babel-register --recursive --reporter spec tests',
+\}
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+
 
 " Fugitive Shortcuts
 """""""""""""""""""""""""""""""""""""
@@ -318,23 +327,6 @@ nmap <silent><leader>gb :Gblame<cr>
 nmap <leader>m :MarkedOpen!<cr>
 nmap <leader>mq :MarkedQuit<cr>
 nmap <leader>* *<c-o>:%s///gn<cr>
-
-let g:neomake_javascript_jshint_maker = {
-    \ 'args': ['--verbose'],
-    \ 'errorformat': '%A%f: line %l\, col %v\, %m \(%t%*\d\)',
-\ }
-
-let g:neomake_javascript_enabled_makers = ['jshint']
-
-" -- let g:neomake_typescript_tsc_maker = {
-" --     \ 'args': ['-m', 'commonjs', '--noEmit' ],
-" --     \ 'append_file': 0,
-" --     \ 'errorformat':
-" --         \ '%E%f %#(%l\,%c): error %m,' .
-" --         \ '%E%f %#(%l\,%c): %m,' .
-" --         \ '%Eerror %m,' .
-" --         \ '%C%\s%\+%m'
-" -- \ }
 
 " airline options
 let g:airline_powerline_fonts=1
@@ -350,8 +342,6 @@ let g:tsuquyomi_disable_default_mappings = 1
 
 " don't hide quotes in json files
 let g:vim_json_syntax_conceal = 0
-
-" -- let g:SuperTabCrMapping = 0
 
 " }}}
 

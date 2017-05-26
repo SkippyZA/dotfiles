@@ -37,4 +37,8 @@ brew install zsh-autosuggestions
 # install neovim
 brew install neovim/neovim/neovim
 
+# install neomutt
+brew install neomutt/homebrew-neomutt/neomutt
+brew install elinks
+
 exit 0
