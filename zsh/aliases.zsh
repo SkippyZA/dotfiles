@@ -14,6 +14,13 @@ alias ll="ls -lFh ${colorflag}"
 alias lld="ls -l | grep ^d"
 alias rmf="rm -rf"
 
+# gcalcli
+alias gcal='gcalcli'
+alias cal='gcal'
+alias oldcal="\cal"
+alias agenda='cal agenda'
+alias week='cal calw 1 --width 20'
+
 # Helpers
 alias grep='grep --color=auto'
 alias df='df -h' # disk free, in Gigabytes, not bytes

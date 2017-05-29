@@ -145,9 +145,6 @@ inoremap jk <esc>
 " shortcut to save
 nmap <leader>, :w<cr>
 
-" run current file with node
-nmap <leader>n :!node %<cr>
-
 " set paste toggle
 " -- set pastetoggle=<leader>v
 
@@ -190,8 +187,8 @@ map <leader>wc :wincmd q<cr>
 " -- nnoremap <leader>i :set cursorline!<cr>
 
 " scroll the viewport faster
-nnoremap <C-e> 5<C-e>
-nnoremap <C-y> 5<C-y>
+nnoremap <C-e> 4<C-e>
+nnoremap <C-y> 4<C-y>
 
 " moving up and down work as you would expect
 nnoremap <silent> j gj
@@ -227,6 +224,21 @@ nnoremap <silent> <leader>u :call functions#HtmlUnEscape()<cr>
 " map <silent> <C-b> :TernDef<cr>
 " map <silent> <C-Y> :TernRefs<cr>
 
+
+" Prompt for a command to run
+map np :VimuxPromptCommand<cr>
+" Run last command executed by RunVimTmuxCommand
+map nn :VimuxRunLastCommand<cr>
+" Inspect runner pane
+map ni :VimuxInspectRunner<cr>
+" Close all other tmux panes in current window
+map nx :VimuxCloseRunner<cr>
+" Interrupt any command running in the runner pane
+map nc :VimuxInterruptRunner<cr>
+
+" reload vim config
+map <leader>r source ~/.config/nvim/init.vim
+
 " }}}
 
 " Section AutoGroups {{{
@@ -236,8 +248,8 @@ augroup configgroup
 
     " automatically resize panes on resize
     autocmd VimResized * exe 'normal! \<c-w>='
-    " -- autocmd BufWritePost .vimrc,.vimrc.local,init.vim source %
-    " -- autocmd BufWritePost .vimrc.local source %
+
+    autocmd BufWritePost .vimrc,.vimrc.local,init.vim source %
     " save all files on focus lost, ignoring warnings about untitled buffers
     autocmd FocusLost * silent! wa
 

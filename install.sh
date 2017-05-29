@@ -17,4 +17,6 @@ source install/zsh.sh
 info "Creating vim directories"
 mkdir -p ~/.vim-tmp
 
+source install/gclacli.sh
+
 info "Done."
