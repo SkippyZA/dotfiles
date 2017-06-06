@@ -184,7 +184,7 @@ map <silent> <C-l> :call functions#WinMove('l')<cr>
 map <leader>wc :wincmd q<cr>
 
 " toggle cursor line
-" -- nnoremap <leader>i :set cursorline!<cr>
+nnoremap <leader>i :set cursorline!<cr>
 
 " scroll the viewport faster
 nnoremap <C-e> 4<C-e>
@@ -210,10 +210,6 @@ nnoremap <leader>/ "fyiw :/<c-r>f<cr>
 
 " inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 
-" -- map <leader>r :call RunCustomCommand()<cr>
-" -- " map <leader>s :call SetCustomCommand()<cr>
-" -- let g:silent_custom_command = 0
-
 " helpers for dealing with other people's code
 nmap \t :set ts=2 sts=2 sw=2 noet<cr>
 nmap \s :set ts=2 sts=2 sw=2 et<cr>
@@ -224,20 +220,16 @@ nnoremap <silent> <leader>u :call functions#HtmlUnEscape()<cr>
 " map <silent> <C-b> :TernDef<cr>
 " map <silent> <C-Y> :TernRefs<cr>
 
-
 " Prompt for a command to run
-map np :VimuxPromptCommand<cr>
+map <leader>np :VimuxPromptCommand<cr>
 " Run last command executed by RunVimTmuxCommand
-map nn :VimuxRunLastCommand<cr>
+map <leader>nn :VimuxRunLastCommand<cr>
 " Inspect runner pane
-map ni :VimuxInspectRunner<cr>
+map <leader>ni :VimuxInspectRunner<cr>
 " Close all other tmux panes in current window
-map nx :VimuxCloseRunner<cr>
+map <leader>nx :VimuxCloseRunner<cr>
 " Interrupt any command running in the runner pane
-map nc :VimuxInterruptRunner<cr>
-
-" reload vim config
-map <leader>r source ~/.config/nvim/init.vim
+map <leader>nc :VimuxInterruptRunner<cr>
 
 " }}}
 
@@ -277,42 +269,42 @@ nmap <silent> <leader>y :NERDTreeFind<cr>
 
 let NERDTreeShowHidden=1
 
-" -- let g:fzf_layout = { 'down': '~25%' }
+let g:fzf_layout = { 'down': '~25%' }
 
-" -- if isdirectory(".git")
-" --     " if in a git project, use :GFiles
-" --     nmap <silent> <leader>t :GFiles<cr>
-" -- else
-" --     " otherwise, use :FZF
-" --     nmap <silent> <leader>t :FZF<cr>
-" -- endif
+if isdirectory(".git")
+    " if in a git project, use :GFiles
+    nmap <silent> <leader>t :GFiles<cr>
+else
+    " otherwise, use :FZF
+    nmap <silent> <leader>t :FZF<cr>
+endif
 
-" -- nmap <silent> <leader>r :Buffers<cr>
-" -- nmap <silent> <leader>e :FZF<cr>
-" -- nmap <leader><tab> <plug>(fzf-maps-n)
-" -- xmap <leader><tab> <plug>(fzf-maps-x)
-" -- omap <leader><tab> <plug>(fzf-maps-o)
+nmap <silent> <leader>r :Buffers<cr>
+nmap <silent> <leader>e :FZF<cr>
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
 
 " Insert mode completion
-" -- imap <c-x><c-k> <plug>(fzf-complete-word)
-" -- imap <c-x><c-f> <plug>(fzf-complete-path)
-" -- imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-" -- imap <c-x><c-l> <plug>(fzf-complete-line)
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
 
-" -- nnoremap <silent> <Leader>C :call fzf#run({
-" -- \   'source':
-" -- \     map(split(globpath(&rtp, "colors/*.vim"), "\n"),
-" -- \         "substitute(fnamemodify(v:val, ':t'), '\\..\\{-}$', '', '')"),
-" -- \   'sink':    'colo',
-" -- \   'options': '+m',
-" -- \   'left':    30
-" -- \ })<CR>
+nnoremap <silent> <Leader>C :call fzf#run({
+\   'source':
+\     map(split(globpath(&rtp, "colors/*.vim"), "\n"),
+\         "substitute(fnamemodify(v:val, ':t'), '\\..\\{-}$', '', '')"),
+\   'sink':    'colo',
+\   'options': '+m',
+\   'left':    30
+\ })<CR>
 
-" -- command! FZFMru call fzf#run({
-" -- \  'source':  v:oldfiles,
-" -- \  'sink':    'e',
-" -- \  'options': '-m -x +s',
-" -- \  'down':    '40%'})
+command! FZFMru call fzf#run({
+\  'source':  v:oldfiles,
+\  'sink':    'e',
+\  'options': '-m -x +s',
+\  'down':    '40%'})
 
 " Unit testing
 """""""""""""""""""""""""""""""""""""
@@ -335,10 +327,6 @@ nmap <silent> <leader>gs :Gstatus<cr>
 nmap <leader>ge :Gedit<cr>
 nmap <silent><leader>gr :Gread<cr>
 nmap <silent><leader>gb :Gblame<cr>
-
-nmap <leader>m :MarkedOpen!<cr>
-nmap <leader>mq :MarkedQuit<cr>
-nmap <leader>* *<c-o>:%s///gn<cr>
 
 " airline options
 let g:airline_powerline_fonts=1

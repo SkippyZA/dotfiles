@@ -15,11 +15,13 @@ alias lld="ls -l | grep ^d"
 alias rmf="rm -rf"
 
 # gcalcli
-alias gcal='gcalcli'
-alias cal='gcal'
+alias gcal="gcalcli"
+alias cal="gcal"
 alias oldcal="\cal"
-alias agenda='cal agenda'
-alias week='cal calw 1 --width 20'
+alias agenda="cal agenda"
+alias week="cal calw 1 --width 20"
+alias myagenda="agenda --calendar $DEFAULT_GOOGLE_CALENDAR"
+alias myweek="week --calendar $DEFAULT_GOOGLE_CALENDAR"
 
 # Helpers
 alias grep='grep --color=auto'
