@@ -16,7 +16,7 @@ Plug 'tpope/vim-surround' " mappings to easily delete, change and add such surro
 Plug 'benmills/vimux' " tmux integration for vim
 Plug 'vim-airline/vim-airline' " fancy statusline
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
-" -- Plug 'benekastah/neomake' " neovim replacement for syntastic using neovim's job control functonality
+" Plug 'benekastah/neomake' " neovim replacement for syntastic using neovim's job control functonality
 Plug 'tpope/vim-fugitive' " amazing git wrapper for vim
 Plug 'tpope/vim-repeat' " enables repeating other supported plugins with the . command
 Plug 'garbas/vim-snipmate' " snippet manager
@@ -32,6 +32,7 @@ Plug 'tpope/vim-sleuth' " detect indent style (tabs vs. spaces)
 Plug 'sickill/vim-pasta' " context-aware pasting
 Plug 'vimwiki/vimwiki' " personal wiki
 
+Plug 'w0rp/ale'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'janko-m/vim-test' " running of unit tests
 Plug 'kannokanno/previm' " preview md in browser with auto updates

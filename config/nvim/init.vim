@@ -314,7 +314,7 @@ let test#javascript#mocha#options = {
   \ 'file':    '-r babel-register --reporter spec',
   \ 'suite':   '-r babel-register --recursive --reporter spec tests',
 \}
-nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>tt :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
@@ -342,6 +342,15 @@ let g:tsuquyomi_disable_default_mappings = 1
 
 " don't hide quotes in json files
 let g:vim_json_syntax_conceal = 0
+
+" Ale
+"""""""""""""""""""""""""""""""""""""
+let g:ale_linters = {
+  \'javascript': ['standard']
+\}
+let g:ale_sign_column_always = 1
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
 
 " }}}
 
