@@ -51,8 +51,8 @@ Plug 'ternjs/tern_for_vim', { 'for': ['jsx', 'javascript'], 'do': 'npm install' 
 Plug 'othree/yajs.vim', { 'for': 'javascript' } " JavaScript syntax plugin
 Plug 'othree/es.next.syntax.vim', { 'for': 'javascript' } " ES6 and beyond syntax
 Plug 'vim-scripts/npm.vim' " run npm commands from inside vim
-" Plug 'mxw/vim-jsx', { 'for': ['jsx', 'javascript'] } " JSX support
-" Plug 'posva/vim-vue', { 'for': ['vue', 'javascript'] }
+Plug 'mxw/vim-jsx', { 'for': ['jsx', 'javascript'] } " JSX support
+Plug 'posva/vim-vue', { 'for': ['vue', 'javascript'] }
 
 " styles
 Plug 'wavded/vim-stylus', { 'for': ['stylus', 'markdown'] } " markdown support
