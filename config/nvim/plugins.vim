@@ -23,7 +23,7 @@ Plug 'garbas/vim-snipmate' " snippet manager
 Plug 'MarcWeber/vim-addon-mw-utils' " interpret a file by function and cache file automatically
 Plug 'tomtom/tlib_vim' " utility functions for vim
 Plug 'editorconfig/editorconfig-vim' " .editorconfig support
-Plug 'sotte/presenting.vim', { 'for': 'markdown' } " a simple tool for presenting slides in vim based on text files
+" Plug 'sotte/presenting.vim', { 'for': 'markdown' } " a simple tool for presenting slides in vim based on text files
 Plug 'ervandew/supertab' " Perform all your vim insert mode completions with Tab
 Plug 'tpope/vim-dispatch' " asynchronous build and test dispatcher
 Plug 'tpope/vim-vinegar'
@@ -33,7 +33,7 @@ Plug 'sickill/vim-pasta' " context-aware pasting
 Plug 'vimwiki/vimwiki' " personal wiki
 
 Plug 'w0rp/ale'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 Plug 'janko-m/vim-test' " running of unit tests
 Plug 'kannokanno/previm' " preview md in browser with auto updates
 
@@ -68,7 +68,7 @@ Plug 'tpope/vim-markdown', { 'for': 'markdown' } " markdown support
 " language-specific plugins
 Plug 'elzr/vim-json', { 'for': 'json' } " JSON support
 Plug 'Shougo/vimproc.vim', { 'do': 'make' } " interactive command execution in vim
-Plug 'tclem/vim-arduino' " arduino support - compile wihtout needing to open the arduino IDE
+" Plug 'tclem/vim-arduino' " arduino support - compile wihtout needing to open the arduino IDE
 
 call plug#end()
 

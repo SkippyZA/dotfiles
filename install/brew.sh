@@ -15,9 +15,9 @@ brew install wget
 brew install htop
 brew install axel
 
-# development server setup
-brew install nginx
-brew install dnsmasq
+# python
+brew install python
+brew install python3
 
 # development tools
 brew install git
@@ -33,6 +33,7 @@ brew install markdown
 brew install diff-so-fancy
 brew install zsh-syntax-highlighting
 brew install zsh-autosuggestions
+Brew install zsh-completions
 
 # install neovim
 brew install neovim/neovim/neovim
