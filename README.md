@@ -1,4 +1,4 @@
-# System Dotfiles
+# Dotfiles for OSX
 
 ## Requirements
 
