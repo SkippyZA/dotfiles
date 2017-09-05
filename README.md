@@ -24,3 +24,9 @@ as there are some plugins that require a `npm install` to be run on them to
 work. (Use nvm to install node)
 
 To install the plugins, run: `:PlugInstall` inside vim
+
+## Switching to zsh shell
+
+```bash
+sudo dscl . -create /Users/$USER UserShell $(brew list zsh | grep bin/zsh$ | head -n 1)
+```
