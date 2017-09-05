@@ -85,3 +85,5 @@
 
 [push]
   default = current
+[cola]
+	spellcheck = false

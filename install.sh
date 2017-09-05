@@ -1,22 +1,20 @@
 #!/usr/bin/env bash
 
-source install/common.sh
+echo -e "Install Skippy's dotfiles"
+echo -e "-------------------------"
 
-info "Installing dotfiles"
+read -r -p "Install brew packages? [y/N] " response
+case "$response" in
+    [yY][eE][sS]|[yY]) 
+        source install/brew.sh
+        ;;
+    *)
+        ;;
+esac
 
+source install/python.sh
 source install/link.sh
-
-if [ "$(uname)" == "Darwin" ]; then
-    info "Running on OSX"
-
-#    source install/brew.sh
-fi
-
 source install/zsh.sh
+source install/fonts.sh
 
-info "Creating vim directories"
-mkdir -p ~/.vim-tmp
-
-source install/gclacli.sh
-
-info "Done."
+echo -e "\nComplete"

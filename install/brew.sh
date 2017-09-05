@@ -1,12 +1,11 @@
 #!/bin/sh
 
+echo -e "\nInstalling homebrew packages..."
+
 if test ! $(which brew); then
     echo "Installing homebrew"
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
-
-echo -e "\n\nInstalling homebrew packages..."
-echo "=============================="
 
 # cli tools
 brew install ack
@@ -20,6 +19,7 @@ brew install python
 brew install python3
 
 # development tools
+brew install cmake
 brew install git
 brew install hub
 brew install fzf
@@ -42,4 +42,3 @@ brew install neovim/neovim/neovim
 brew install neomutt/homebrew-neomutt/neomutt
 brew install elinks
 
-exit 0

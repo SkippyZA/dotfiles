@@ -32,6 +32,7 @@ Plug 'tpope/vim-sleuth' " detect indent style (tabs vs. spaces)
 Plug 'sickill/vim-pasta' " context-aware pasting
 Plug 'vimwiki/vimwiki' " personal wiki
 
+Plug 'ruanyl/coverage.vim' " code coverage
 Plug 'w0rp/ale'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 Plug 'janko-m/vim-test' " running of unit tests
