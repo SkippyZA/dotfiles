@@ -72,4 +72,8 @@ augroup END
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 
+" code-coverage
+let g:coverage_json_report_path = 'coverage/coverage-final.json'
+let g:coverage_interval = 5000
+
 " }}}
