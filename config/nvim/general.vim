@@ -25,22 +25,13 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 " switch cursor to line when in insert mode, and block when not
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
-if &term =~ '256color'
-    " disable background color erase
-    set t_ut=
-endif
-
-" enable 24 bit color support if supported
-if (empty($TMUX) && has("termguicolors"))
-    set termguicolors
-endif
-
 let g:onedark_termcolors=16
 let g:onedark_terminal_italics=1
 
-syntax on
+set t_ut=
 set t_Co=256                " Explicitly tell vim that the terminal supports 256 colors"
-colorscheme mustang
+colorscheme codedark
+syntax on
 
 " make the highlighting of tabs and other non-text less annoying
 highlight SpecialKey ctermbg=none ctermfg=8
@@ -75,10 +66,10 @@ set backspace=indent,eol,start
 " Tab control
 " -- set noexpandtab             " insert tabs rather than spaces for <Tab>
 " -- set smarttab                " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
-" -- set tabstop=4               " the visible width of tabs
-" -- set softtabstop=4           " edit as if the tabs are 4 characters wide
-" -- set shiftwidth=4            " number of spaces to use for indent and unindent
-" -- set shiftround              " round indent to a multiple of 'shiftwidth'
+set tabstop=2               " the visible width of tabs
+set softtabstop=2           " edit as if the tabs are 4 characters wide
+set shiftwidth=2            " number of spaces to use for indent and unindent
+set shiftround              " round indent to a multiple of 'shiftwidth'
 " -- set completeopt+=longest
 
 " code folding settings

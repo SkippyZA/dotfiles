@@ -16,5 +16,6 @@ source install/python.sh
 source install/link.sh
 source install/zsh.sh
 source install/fonts.sh
+source install/node.sh
 
 echo -e "\nComplete"

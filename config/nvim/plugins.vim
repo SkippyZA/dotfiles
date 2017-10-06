@@ -1,6 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " colorschemes
+Plug 'tomasiser/vim-code-dark'
 Plug 'joshdick/onedark.vim'
 Plug 'croaker/mustang-vim'
 
