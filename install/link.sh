@@ -48,18 +48,3 @@ for file in "${VIMFILES[@]}" ; do
       echo "done"
     fi
 done
-
-
-if [ -e $HOME/.terminfo ]; then
-  echo "  ~/.terminfo exists"
-else
-  printf "  ~/.terminfo "
-  ln -s $DOTFILES/resources $HOME/.terminfo &>/dev/null
-  echo "done"
-
-  for file in $DOTFILES/resources/*.terminfo; do
-    printf "  ~${file#$HOME} "
-    tic $file &>/dev/null
-    echo "done"
-  done
-fi
