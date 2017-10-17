@@ -1,5 +1,3 @@
-" Leader shortcuts {{{
-
 " set a map leader for more key combos
 let mapleader = ','
 
@@ -24,9 +22,6 @@ map <leader>ev :e! ~/.config/nvim/init.vim<cr>
 " edit gitconfig
 map <leader>eg :e! ~/.gitconfig<cr>
 
-" markdown to html
-nmap <leader>md :%!markdown --html4tags <cr>
-
 " remove extra whitespace
 nmap <leader><space> :%s/\s\+$<cr>
 
@@ -35,6 +30,9 @@ nmap <leader>. <c-^>
 
 " search for word under the cursor
 nnoremap <leader>/ "fyiw :/<c-r>f<cr>
+
+" fuzzy file search
+nmap <silent> <c-n> :FZF<cr>
 
 " unit testing
 nmap <silent> <leader>tt :TestNearest<CR>
@@ -54,40 +52,18 @@ map <leader>nx :VimuxCloseRunner<cr>
 " interrupt any command running in the runner pane
 map <leader>nc :VimuxInterruptRunner<cr>
 
-" git fugitive shortcuts
-nmap <silent> <leader>gs :Gstatus<cr>
-nmap <silent> <leader>ge :Gedit<cr>
-nmap <silent> <leader>gr :Gread<cr>
-nmap <silent> <leader>gb :Gblame<cr>
-
 nmap <silent> <leader>r :Buffers<cr>
 nmap <silent> <leader>e :FZF<cr>
-nmap <leader><tab> <plug>(fzf-maps-n)
-xmap <leader><tab> <plug>(fzf-maps-x)
-omap <leader><tab> <plug>(fzf-maps-o)
-
-" }}}
-
-
-" Ctrl shortcuts {{{
 
 " move between panes
-map <silent> <C-h> :call functions#WinMove('h')<cr>
-map <silent> <C-j> :call functions#WinMove('j')<cr>
-map <silent> <C-k> :call functions#WinMove('k')<cr>
-map <silent> <C-l> :call functions#WinMove('l')<cr>
-
-" Insert mode completion
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
+nnoremap <C-j> <C-W><C-J>
+nnoremap <C-k> <C-W><C-K>
+nnoremap <C-l> <C-W><C-L>
+nnoremap <C-h> <C-W><C-H>
 
 " scroll the viewport faster
 nnoremap <C-e> 4<C-e>
 nnoremap <C-y> 4<C-y>
-
-" }}}
 
 " clear highlighted search
 noremap <space> :set hlsearch! hlsearch?<cr>
@@ -101,8 +77,6 @@ nnoremap tl :tabprev<CR>
 nnoremap tn :tabnew<CR>
 nnoremap H gT
 nnoremap L gt
-"map <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
-"map <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 
 " moving up and down work as you would expect
 nnoremap <silent> j gj
@@ -110,9 +84,15 @@ nnoremap <silent> k gk
 nnoremap <silent> ^ g^
 nnoremap <silent> $ g$
 
-" nnoremap <silent> <leader>u :call functions#HtmlUnEscape()<cr>
+" tern_for_vim
+" STILL TO MAP:
+" TernDef: Jump to the definition of the thing under the cursor.
+" TernDoc: Look up the documentation of something.
+" TernType: Find the type of the thing under the cursor.
+" TernRefs: Show all references to the variable or property under the cursor.
+" TernRename: Rename the variable under the cursor.
 
-" TODO: Revisit this
-" map <silent> <C-b> :TernDef<cr>
-" map <silent> <C-Y> :TernRefs<cr>
+" helpers for dealing with other people's code
+nmap \t :set ts=2 sts=2 sw=2 noet<cr>
+nmap \s :set ts=2 sts=2 sw=2 et<cr>
 
