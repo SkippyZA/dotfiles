@@ -61,8 +61,8 @@
   untracked = red
 
 [core]
-	excludesfile = ~/.gitignore
-  editor = vim
+  excludesfile = ~/.gitignore
+  editor = nvim
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
 [apply]
