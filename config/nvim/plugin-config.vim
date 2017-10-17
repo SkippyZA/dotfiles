@@ -17,6 +17,11 @@ let g:ale_set_quickfix = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 1 " disable linting when opening a file
 
+" delimitMate
+let g:delimitMate_expand_cr = 1
+let g:delimitMate_expand_space = 1
+let delimitMate_matchpairs = "(:),[:],{:}"
+
 " fzf
 let g:fzf_layout = { 'down': '~25%' }
 
