@@ -20,6 +20,7 @@ Plug 'tpope/vim-surround' " mappings to easily delete, change and add such surro
 Plug 'tpope/vim-dispatch' " asynchronous build and test dispatcher
 Plug 'tpope/vim-repeat' " enables repeating other supported plugins with the . command
 Plug 'tpope/vim-fugitive' " amazing git wrapper for vim
+Plug 'tpope/vim-rhubarb' " GitHub extension for vim-fugitive
 
 " testing tools
 Plug 'ruanyl/coverage.vim' " code coverage

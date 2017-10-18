@@ -21,7 +21,7 @@ brew install python3
 # development tools
 brew install cmake
 brew install git
-brew install hub
+brew install hub # Run the following to have vim-fugitive work with GitHub: echo 'machine api.github.com login <user> password <token>' >> ~/.netrc
 brew install fzf
 brew install reattach-to-user-namespace
 brew install tmux

@@ -55,12 +55,6 @@ map <leader>nc :VimuxInterruptRunner<cr>
 nmap <silent> <leader>r :Buffers<cr>
 nmap <silent> <leader>e :FZF<cr>
 
-" move between panes
-nnoremap <C-j> <C-W><C-J>
-nnoremap <C-k> <C-W><C-K>
-nnoremap <C-l> <C-W><C-L>
-nnoremap <C-h> <C-W><C-H>
-
 " scroll the viewport faster
 nnoremap <C-e> 4<C-e>
 nnoremap <C-y> 4<C-y>
@@ -70,6 +64,12 @@ noremap <space> :set hlsearch! hlsearch?<cr>
 
 " enable . command in visual mode
 vnoremap . :normal .<cr>
+
+" move between panes
+map <silent> <C-h> :call functions#WinMove('h')<cr>
+map <silent> <C-j> :call functions#WinMove('j')<cr>
+map <silent> <C-k> :call functions#WinMove('k')<cr>
+map <silent> <C-l> :call functions#WinMove('l')<cr>
 
 " Shortcuts for dealing with tabs
 nnoremap th :tabnext<CR>
