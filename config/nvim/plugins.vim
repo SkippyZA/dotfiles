@@ -18,6 +18,8 @@ Plug 'Raimondi/delimitMate' " automatic closing of quotes, parenthesis, brackets
 Plug 'tpope/vim-commentary' " comment stuff out
 Plug 'tpope/vim-surround' " mappings to easily delete, change and add such surroundings in pairs, such as quotes, parens, etc.
 Plug 'tpope/vim-dispatch' " asynchronous build and test dispatcher
+Plug 'tpope/vim-repeat' " enables repeating other supported plugins with the . command
+Plug 'tpope/vim-fugitive' " amazing git wrapper for vim
 
 " testing tools
 Plug 'ruanyl/coverage.vim' " code coverage
@@ -57,8 +59,6 @@ call plug#end()
 " Plug 'sickill/vim-pasta' " context-aware pasting
 " Plug 'tpope/vim-unimpaired' " mappings which are simply short normal mode aliases for commonly used ex commands
 " Plug 'tpope/vim-ragtag' " endings for html, xml, etc. - enhances surround
-" Plug 'tpope/vim-fugitive' " amazing git wrapper for vim
-" Plug 'tpope/vim-repeat' " enables repeating other supported plugins with the . command
 " Plug 'garbas/vim-snipmate' " snippet manager
 " Plug 'MarcWeber/vim-addon-mw-utils' " interpret a file by function and cache file automatically
 " Plug 'tomtom/tlib_vim' " utility functions for vim
