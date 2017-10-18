@@ -25,7 +25,10 @@ Plug 'w0rp/ale' " asynchronous lint execution
 Plug 'janko-m/vim-test' " running of unit tests
 
 " html / templates
-Plug 'othree/html5.vim', { 'for': 'html' } " html5 support
+Plug 'othree/html5.vim', { 'for': [ 'html', 'vue' ] } " html5 support
+Plug 'mattn/emmet-vim', { 'for': [ 'html', 'vue' ] } " emmet support for vim - easily create markdup wth CSS-like syntax
+Plug 'gregsexton/MatchTag', { 'for': [ 'html', 'vue' ] } " match tags in html, similar to paren support
+Plug 'alvan/vim-closetag', { 'for': [ 'html', 'vue' ] } " auto close html tags
 
 " JavaScript
 Plug 'pangloss/vim-javascript', { 'for': [ 'javascript', 'jsx' ] }
@@ -67,8 +70,6 @@ call plug#end()
 
 " Plug 'mustache/vim-mustache-handlebars' " mustach support
 " Plug 'juvenn/mustache.vim', { 'for': 'mustache' } " mustache support
-" Plug 'mattn/emmet-vim', { 'for': [ 'html', 'vue' ] } " emmet support for vim - easily create markdup wth CSS-like syntax
-" Plug 'gregsexton/MatchTag', { 'for': 'html' } " match tags in html, similar to paren support
 
 " Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' } " JavaScript indent support
 " Plug 'mxw/vim-jsx', { 'for': ['jsx', 'javascript'] } " JSX support
