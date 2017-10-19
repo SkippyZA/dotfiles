@@ -15,6 +15,7 @@ Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' } " auto complete
 Plug 'vimwiki/vimwiki' " personal wiki
 Plug 'Raimondi/delimitMate' " automatic closing of quotes, parenthesis, brackets, etc.
+Plug 'tpope/vim-unimpaired' " mappings which are simply short normal mode aliases for commonly used ex commands
 Plug 'tpope/vim-commentary' " comment stuff out
 Plug 'tpope/vim-surround' " mappings to easily delete, change and add such surroundings in pairs, such as quotes, parens, etc.
 Plug 'tpope/vim-dispatch' " asynchronous build and test dispatcher
@@ -54,11 +55,9 @@ Plug 'elzr/vim-json', { 'for': 'json' } " JSON support
 call plug#end()
 
 
-
 " Plug 'editorconfig/editorconfig-vim' " .editorconfig support
 " Plug 'tpope/vim-sleuth' " detect indent style (tabs vs. spaces)
 " Plug 'sickill/vim-pasta' " context-aware pasting
-" Plug 'tpope/vim-unimpaired' " mappings which are simply short normal mode aliases for commonly used ex commands
 " Plug 'tpope/vim-ragtag' " endings for html, xml, etc. - enhances surround
 " Plug 'garbas/vim-snipmate' " snippet manager
 " Plug 'MarcWeber/vim-addon-mw-utils' " interpret a file by function and cache file automatically
