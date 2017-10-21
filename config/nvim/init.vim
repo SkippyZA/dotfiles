@@ -6,6 +6,7 @@ source ~/.config/nvim/plugin-config.vim
 " file type specific settings
 augroup configgroup
   autocmd!
+  autocmd VimLeave * NERDTreeClose
 
   " make quickfix windows take all the lower section of the screen when there are multiple windows open
   autocmd FileType qf wincmd J

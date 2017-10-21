@@ -5,13 +5,16 @@ Plug 'dracula/vim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'croaker/mustang-vim'
 
-" utilities
+" workspace
 Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons' " file drawer
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
-Plug 'mileszs/ack.vim' " search inside files using ack. Same as command line ack utility, but use :Ack
-Plug 'benmills/vimux' " tmux integration for vim
 Plug 'vim-airline/vim-airline' " fancy statusline
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
+Plug 'thaerkh/vim-workspace'
+
+" utilities
+Plug 'mileszs/ack.vim' " search inside files using ack. Same as command line ack utility, but use :Ack
+Plug 'benmills/vimux' " tmux integration for vim
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' } " auto complete
 Plug 'vimwiki/vimwiki' " personal wiki
 Plug 'Raimondi/delimitMate' " automatic closing of quotes, parenthesis, brackets, etc.

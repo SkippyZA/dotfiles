@@ -46,6 +46,9 @@ let g:used_javascript_libs='ramda'
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
 
+" vim-workspace
+let g:workspace_session_name = '.session.vim'
+
 " YouCompleteMe
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
