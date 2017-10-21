@@ -16,3 +16,5 @@ Icon
 tscommand*.txt
 .nvmrc
 .tern-project
+.session.vim
+.undodir/
