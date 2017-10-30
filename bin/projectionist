@@ -1,0 +1,15 @@
+#!/bin/bash
+
+PROJECTIONIST_FILE=.projectionist.json
+
+if [ ! -f $PROJECTIONIST_FILE ]; then
+
+  echo "{" >> $PROJECTIONIST_FILE
+  echo "  \"src/*.js\": { \"alternate\" : \"test/unit/{}.spec.js\" }," >> $PROJECTIONIST_FILE
+  echo "  \"test/unit/*.spec.js\": { \"alternate\": \"src/{}.js\" }" >> $PROJECTIONIST_FILE
+  echo "}" >> $PROJECTIONIST_FILE
+
+  echo "Created $PROJECTIONIST_FILE"
+else
+  echo "$PROJECTIONIST_FILE file already exists"
+fi
