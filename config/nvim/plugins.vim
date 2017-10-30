@@ -25,6 +25,7 @@ Plug 'tpope/vim-dispatch' " asynchronous build and test dispatcher
 Plug 'tpope/vim-repeat' " enables repeating other supported plugins with the . command
 Plug 'tpope/vim-fugitive' " amazing git wrapper for vim
 Plug 'tpope/vim-rhubarb' " GitHub extension for vim-fugitive
+Plug 'tpope/vim-projectionist' " projectionist project config
 
 " testing tools
 Plug 'ruanyl/coverage.vim' " code coverage

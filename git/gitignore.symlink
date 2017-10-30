@@ -17,4 +17,5 @@ tscommand*.txt
 .nvmrc
 .tern-project
 .session.vim
+.projections.json
 .undodir/
