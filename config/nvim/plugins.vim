@@ -5,12 +5,13 @@ Plug 'dracula/vim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'croaker/mustang-vim'
 
+Plug 'blueshirts/darcula'
 " workspace
 Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons' " file drawer
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
 Plug 'vim-airline/vim-airline' " fancy statusline
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
-Plug 'thaerkh/vim-workspace'
+Plug 'jceb/vim-orgmode' " emacs style org-mode
 
 " utilities
 Plug 'mileszs/ack.vim' " search inside files using ack. Same as command line ack utility, but use :Ack
