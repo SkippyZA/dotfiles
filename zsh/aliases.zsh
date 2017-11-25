@@ -98,6 +98,7 @@ alias vim="nvim"
 alias vi="nvim"
 alias oldvim="\vim"
 
+alias n=npx
 
 # ==============================================================
 # iflix shortcuts
