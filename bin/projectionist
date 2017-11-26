@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PROJECTIONIST_FILE=.projectionist.json
+PROJECTIONIST_FILE=.projections.json
 
 if [ ! -f $PROJECTIONIST_FILE ]; then
 
