@@ -1,0 +1,82 @@
+snippet const "const _ = _" b
+const ${1} = ${0}
+endsnippet
+
+snippet let "let _ = _" b
+let ${1} = ${0}
+endsnippet
+
+snippet im "import xyz from 'xyz'" b
+import ${1} from '${2:$1}'
+endsnippet
+
+snippet imas "import * as xyz from 'xyz'" b
+import * as ${1} from '${2:$1}'
+endsnippet
+
+snippet imm "import { member } from 'xyz'" b
+import { ${1} } from '${2}'
+endsnippet
+
+snippet cla "class abc { ... }" b
+class ${1} {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet clax "class abc extends xyz { ... }" b
+class ${1} extends ${2} {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet clac "class abc { constructor() { ... } }" b
+class ${1} {
+	constructor(${2}) {
+		${0:${VISUAL}}
+	}
+}
+endsnippet
+
+# Generator
+snippet fun* "function* abc { ... }"
+function* ${1:function_name}(${2}) {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet c=> "const abc = (...) => { ... }"
+const ${1:function_name} = (${2}) => {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet caf "const abc = (...) => { ... }"
+const ${1:function_name} = (${2}) => {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet =>
+(${1}) => {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet af
+(${1}) => {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet sym
+const ${1} = Symbol('${0}')
+endsnippet
+
+snippet ed
+export default ${0}
+endsnippet
+
+snippet ${
+${${1}}${0}
+endsnippet

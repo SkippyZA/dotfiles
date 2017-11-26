@@ -53,6 +53,10 @@ let g:workspace_session_name = '.session.vim'
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsSnippetsDir='~/.dotfiles/config/nvim/UltiSnips'
+
 " List themes to switch between
 nnoremap <silent> <Leader>C :call fzf#run({
 \   'source':

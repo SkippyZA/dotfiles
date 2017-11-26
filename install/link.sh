@@ -32,19 +32,3 @@ for config in $DOTFILES/config/*; do
     fi
 done
 
-
-VIMFILES=( "$HOME/.vim:$DOTFILES/vim/.vim"
-        "$HOME/.vimrc:$DOTFILES/vim/.vimrc" )
-
-for file in "${VIMFILES[@]}" ; do
-    KEY=${file%%:*}
-    VALUE=${file#*:}
-
-    printf "  ~${KEY#$HOME} "
-    if [ -e ${KEY} ] || [ -L ${KEY} ]; then
-      echo "exists"
-    else
-      ln -s ${VALUE} ${KEY} &>/dev/null
-      echo "done"
-    fi
-done
