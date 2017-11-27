@@ -4,8 +4,8 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'dracula/vim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'croaker/mustang-vim'
-
 Plug 'blueshirts/darcula'
+
 " workspace
 Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons' " file drawer
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
@@ -25,8 +25,10 @@ Plug 'tpope/vim-surround' " mappings to easily delete, change and add such surro
 Plug 'tpope/vim-dispatch' " asynchronous build and test dispatcher
 Plug 'tpope/vim-repeat' " enables repeating other supported plugins with the . command
 Plug 'tpope/vim-fugitive' " amazing git wrapper for vim
+Plug 'jreybert/vimagit' " vim clone of emacs magit
 Plug 'tpope/vim-rhubarb' " GitHub extension for vim-fugitive
 Plug 'tpope/vim-projectionist' " projectionist project config
+Plug 'diepm/vim-rest-console' " restful interface
 Plug 'SirVer/ultisnips' " snippets plugin
 
 " testing tools
