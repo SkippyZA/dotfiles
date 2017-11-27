@@ -11,7 +11,8 @@ Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasi
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
 Plug 'vim-airline/vim-airline' " fancy statusline
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
-Plug 'jceb/vim-orgmode' " emacs style org-mode
+Plug 'blindFS/vim-taskwarrior' " task warrior plugin
+Plug 'Shougo/unite.vim'
 
 " utilities
 Plug 'mileszs/ack.vim' " search inside files using ack. Same as command line ack utility, but use :Ack
