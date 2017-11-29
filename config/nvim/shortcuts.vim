@@ -94,6 +94,9 @@ nnoremap <silent> $ g$
 " TernRefs: Show all references to the variable or property under the cursor.
 " TernRename: Rename the variable under the cursor.
 
+" open task warrior in a new tab
+nnoremap <leader>tw :TW<CR>
+
 " helpers for dealing with other people's code
 nmap \t :set ts=2 sts=2 sw=2 noet<cr>
 nmap \s :set ts=2 sts=2 sw=2 et<cr>

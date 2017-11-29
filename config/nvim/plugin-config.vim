@@ -57,6 +57,17 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsSnippetsDir='~/.dotfiles/config/nvim/UltiSnips'
 
+" vim-wiki
+let my_wiki = {}
+let my_wiki.path = '~/Library/Mobile Documents/com~apple~CloudDocs/vimwiki/'
+let my_wiki.html_template = '~/Library/Mobile Documents/com~apple~CloudDocs/vimwiki-html/'
+let my_wiki.nested_syntaxes = { 'js': 'javascript' }
+
+let g:vimwiki_list = [ my_wiki ]
+
+" vim-taskwarrior
+let g:task_rc_override = 'rc.defaultwidth=0'
+
 " List themes to switch between
 nnoremap <silent> <Leader>C :call fzf#run({
 \   'source':

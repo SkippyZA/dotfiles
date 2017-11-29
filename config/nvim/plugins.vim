@@ -13,6 +13,8 @@ Plug 'vim-airline/vim-airline' " fancy statusline
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
 Plug 'blindFS/vim-taskwarrior' " task warrior plugin
 Plug 'Shougo/unite.vim'
+Plug 'jceb/vim-orgmode' " vim clone of emac orgmode
+Plug 'tbabej/taskwiki' " taskwarrior integration with vim-wiki
 
 " utilities
 Plug 'mileszs/ack.vim' " search inside files using ack. Same as command line ack utility, but use :Ack
