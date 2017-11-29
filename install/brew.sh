@@ -3,8 +3,8 @@
 echo -e "\nInstalling homebrew packages..."
 
 if test ! $(which brew); then
-    echo "Installing homebrew"
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  echo "Installing homebrew"
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 # cli tools
@@ -13,6 +13,7 @@ brew install tree
 brew install wget
 brew install htop
 brew install axel
+brew install task
 
 # python
 brew install python

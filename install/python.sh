@@ -16,3 +16,8 @@ pip2 install --upgrade pyOpenSSL &> /dev/null
 pip3 install --upgrade requests &> /dev/null
 pip3 install --upgrade pyOpenSSL &> /dev/null
 echo "done"
+
+printf "  tasklib... "
+pip2 install --upgrade git+git://github.com/tbabej/tasklib@develop &> /dev/null
+pip3 install --upgrade git+git://github.com/tbabej/tasklib@develop &> /dev/null
+echo "done"
