@@ -13,10 +13,11 @@ Plug 'vim-airline/vim-airline' " fancy statusline
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
 Plug 'blindFS/vim-taskwarrior' " task warrior plugin
 Plug 'Shougo/unite.vim'
-Plug 'jceb/vim-orgmode' " vim clone of emac orgmode
 Plug 'tbabej/taskwiki' " taskwarrior integration with vim-wiki
+Plug 'moll/vim-bbye' " delete buffers without closing windows
 
 " utilities
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'mileszs/ack.vim' " search inside files using ack. Same as command line ack utility, but use :Ack
 Plug 'benmills/vimux' " tmux integration for vim
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' } " auto complete
@@ -63,32 +64,15 @@ Plug 'tpope/vim-markdown', { 'for': 'markdown' } " markdown support
 " language-specific plugins
 Plug 'elzr/vim-json', { 'for': 'json' } " JSON support
 
+" haskell
+Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
+Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
+Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
+Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
+Plug 'mpickering/hlint-refactor-vim', { 'for': 'haskell' }
+
 call plug#end()
 
-
-" Plug 'editorconfig/editorconfig-vim' " .editorconfig support
-" Plug 'tpope/vim-sleuth' " detect indent style (tabs vs. spaces)
-" Plug 'sickill/vim-pasta' " context-aware pasting
 " Plug 'tpope/vim-ragtag' " endings for html, xml, etc. - enhances surround
-" Plug 'garbas/vim-snipmate' " snippet manager
-" Plug 'MarcWeber/vim-addon-mw-utils' " interpret a file by function and cache file automatically
-" Plug 'tomtom/tlib_vim' " utility functions for vim
-" Plug 'ervandew/supertab' " Perform all your vim insert mode completions with Tab
-" Plug 'tpope/vim-vinegar'
 " Plug 'vim-scripts/matchit.zip' " extended % matching
 " Plug 'sotte/presenting.vim', { 'for': 'markdown' } " a simple tool for presenting slides in vim based on text files
-" Plug 'benekastah/neomake' " neovim replacement for syntastic using neovim's job control functonality
-
-" Plug 'mustache/vim-mustache-handlebars' " mustach support
-" Plug 'juvenn/mustache.vim', { 'for': 'mustache' } " mustache support
-
-" Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' } " JavaScript indent support
-" Plug 'mxw/vim-jsx', { 'for': ['jsx', 'javascript'] } " JSX support
-" Plug 'posva/vim-vue', { 'for': ['vue', 'javascript'] }
-
-" Plug 'wavded/vim-stylus', { 'for': ['stylus', 'markdown'] } " markdown support
-" Plug 'groenewege/vim-less', { 'for': 'less' } " less support
-" Plug 'hail2u/vim-css3-syntax', { 'for': 'css' } " CSS3 syntax support
-" Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' } " sass scss syntax support
-
-" Plug 'Shougo/vimproc.vim', { 'do': 'make' } " interactive command execution in vim
