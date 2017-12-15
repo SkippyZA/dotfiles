@@ -19,3 +19,4 @@ tscommand*.txt
 .session.vim
 .projections.json
 .undodir/
+.tern-port
