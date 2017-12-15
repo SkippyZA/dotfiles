@@ -28,6 +28,7 @@ for config ($DOT_FILES/zsh/**/*.zsh) source $config
 [ -z "$TMUX" ] && export TERM=xterm-256color
 
 export PATH=$PATH:/Users/skippy/.nvm/versions/node/v8.6.0/bin/
+export PATH=$PATH:/Users/skippy/.local/bin
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8

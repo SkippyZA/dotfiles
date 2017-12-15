@@ -86,6 +86,10 @@ nnoremap <silent> k gk
 nnoremap <silent> ^ g^
 nnoremap <silent> $ g$
 
+" vim-bbye
+nnoremap <Leader>q :Bdelete<CR>
+nnoremap <Leader>qa :bufdo :Bdelete<CR>
+
 " tern_for_vim
 " STILL TO MAP:
 " TernDef: Jump to the definition of the thing under the cursor.
@@ -100,4 +104,3 @@ nnoremap <leader>tw :TW<CR>
 " helpers for dealing with other people's code
 nmap \t :set ts=2 sts=2 sw=2 noet<cr>
 nmap \s :set ts=2 sts=2 sw=2 et<cr>
-
