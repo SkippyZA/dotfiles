@@ -36,9 +36,11 @@ let g:coverage_interval = 5000
 let g:vim_json_syntax_conceal = 0
 
 " tern for vim
+let g:tern#command = ['tern']
+let g:tern#arguments = ['--persistent']
 let g:tern_request_timeout=1 " set timeout
 let g:tern_show_argument_hints='on_hold' " display argument type hints when the cursor is left over a function
-let g:tern_show_signature_in_pum='0' " display function signature in the completion menu
+let g:tern_show_signature_in_pum='1' " display function signature in the completion menu
 
 " javascript libraries syntax.vim
 let g:used_javascript_libs='ramda'
@@ -46,12 +48,34 @@ let g:used_javascript_libs='ramda'
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
 
-" vim-workspace
-let g:workspace_session_name = '.session.vim'
+" deoplete
+set completeopt=longest,menuone,preview
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_ignore_case = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#enable_camel_case = 1
+let g:deoplete#enable_refresh_always = 1
+let g:deoplete#max_abbr_width = 0
+let g:deoplete#max_menu_width = 0
 
-" YouCompleteMe
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
+let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.javascript = [
+  \ 'tern#Complete',
+  \ 'jspc#omni'
+\]
+
+let g:deoplete#sources = {}
+let g:deoplete#sources['javascript'] = ['file', 'ultisnips', 'ternjs']
+let g:deoplete#sources#ternjs#types = 1
+let g:deoplete#sources#ternjs#docs = 1
+
+call deoplete#custom#set('_', 'matchers', ['matcher_full_fuzzy'])
+
+" supertab
+let g:SuperTabClosePreviewOnPopupClose = 1 " close the preview window when you're not using it
+autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<c-j>"

@@ -20,7 +20,8 @@ Plug 'moll/vim-bbye' " delete buffers without closing windows
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'mileszs/ack.vim' " search inside files using ack. Same as command line ack utility, but use :Ack
 Plug 'benmills/vimux' " tmux integration for vim
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' } " auto complete
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " auto complete
+Plug 'ervandew/supertab' " everything in tab
 Plug 'vimwiki/vimwiki' " personal wiki
 Plug 'Raimondi/delimitMate' " automatic closing of quotes, parenthesis, brackets, etc.
 Plug 'tpope/vim-unimpaired' " mappings which are simply short normal mode aliases for commonly used ex commands
@@ -47,12 +48,13 @@ Plug 'gregsexton/MatchTag', { 'for': [ 'html', 'vue' ] } " match tags in html, s
 Plug 'alvan/vim-closetag', { 'for': [ 'html', 'vue' ] } " auto close html tags
 
 " JavaScript
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'jsx'] }
 Plug 'pangloss/vim-javascript', { 'for': [ 'javascript', 'jsx' ] }
-Plug 'ternjs/tern_for_vim', { 'for': ['jsx', 'javascript'], 'do': 'npm install' }
-Plug 'othree/jspc.vim', { 'for': [ 'javascript' ] }
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': [ 'javascript' ] }
-Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' } " enhanced javascript syntax for vim
-Plug 'moll/vim-node', { 'for': 'javascript' } " node support
+Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'jsx'], 'do': 'npm install' }
+Plug 'othree/jspc.vim', { 'for': [ 'javascript', 'jsx' ] }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': [ 'javascript', 'jsx' ] }
+Plug 'jelera/vim-javascript-syntax', { 'for': [ 'javascript', 'jsx' ] } " enhanced javascript syntax for vim
+Plug 'moll/vim-node', { 'for': [ 'javascript' ] } " node support
 
 " styles
 Plug 'ap/vim-css-color', { 'for': ['css','stylus','scss'] } " set the background of hex color values to the color
