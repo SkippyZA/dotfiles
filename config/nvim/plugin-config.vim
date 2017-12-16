@@ -12,8 +12,6 @@ let g:airline#extensions#tabline#show_splits = 0
 " ale
 let g:ale_linters = { 'javascript': ['standard'] }
 let g:ale_sign_column_always = 1
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 1 " disable linting when opening a file
 
@@ -90,6 +88,11 @@ let g:vimwiki_list = [ my_wiki ]
 
 " vim-taskwarrior
 let g:task_rc_override = 'rc.defaultwidth=0'
+
+" magit
+let g:magit_default_fold_level=0
+let g:magit_auto_foldopen=0
+let g:magit_default_show_all_files=0
 
 " List themes to switch between
 nnoremap <silent> <Leader>C :call fzf#run({
