@@ -52,6 +52,8 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 " make backspace behave in a sane manner
 set backspace=indent,eol,start
 
+" set splitbelow              " preview window opened at the bottom
+
 " Tab control
 set expandtab               " on pressing tab, insert spaces
 set smarttab                " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'

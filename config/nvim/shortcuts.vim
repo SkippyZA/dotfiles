@@ -31,8 +31,12 @@ nmap <leader>. <c-^>
 " search for word under the cursor
 nnoremap <leader>/ "fyiw :/<c-r>f<cr>
 
-" fuzzy file search
-nmap <silent> <c-n> :FZF<cr>
+" fuzzy file search - if in a git project, use :GFiles, otherwise, use :FZF
+if isdirectory(".git")
+  nmap <silent> <c-n> :GFiles<cr>
+else
+  nmap <silent> <c-n> :FZF<cr>
+endif
 
 " unit testing
 nmap <silent> <leader>tt :TestNearest<CR>
@@ -40,6 +44,9 @@ nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 nmap <silent> <leader>l :TestLast<CR>
+
+" magit
+nmap <silent> <leader>M :MagitOnly<CR>
 
 " prompt for a command to run
 map <leader>np :VimuxPromptCommand<cr>
