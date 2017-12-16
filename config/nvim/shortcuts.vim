@@ -46,7 +46,7 @@ nmap <silent> <leader>g :TestVisit<CR>
 nmap <silent> <leader>l :TestLast<CR>
 
 " magit
-nmap <silent> <leader>M :MagitOnly<CR>
+nmap <silent> <leader>MM :tabnew<CR>:MagitOnly<CR>
 
 " prompt for a command to run
 map <leader>np :VimuxPromptCommand<cr>
