@@ -62,8 +62,6 @@ map <leader>nc :VimuxInterruptRunner<cr>
 nmap <silent> <leader>r :Buffers<cr>
 nmap <silent> <leader>e :FZF<cr>
 
-nnoremap <C-s> :ToggleWorkspace<CR>
-
 " scroll the viewport faster
 nnoremap <C-e> 4<C-e>
 nnoremap <C-y> 4<C-y>
