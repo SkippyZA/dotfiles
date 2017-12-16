@@ -39,7 +39,7 @@ let g:vim_json_syntax_conceal = 0
 let g:tern#command = ['tern']
 let g:tern#arguments = ['--persistent']
 let g:tern_request_timeout=1 " set timeout
-let g:tern_show_argument_hints='on_move' " display argument type hints when the cursor is left over a function
+let g:tern_show_argument_hints='on_hold' " display argument type hints when the cursor is left over a function
 let g:tern_show_signature_in_pum='1' " display function signature in the completion menu
 
 " javascript libraries syntax.vim
@@ -86,7 +86,6 @@ let my_wiki = {}
 let my_wiki.path = '~/Library/Mobile Documents/com~apple~CloudDocs/.terminal-stuff/vimwiki/'
 let my_wiki.html_template = '~/Library/Mobile Documents/com~apple~CloudDocs/.terminal-stuff/vimwiki-html/'
 let my_wiki.nested_syntaxes = { 'js': 'javascript' }
-
 let g:vimwiki_list = [ my_wiki ]
 
 " vim-taskwarrior
