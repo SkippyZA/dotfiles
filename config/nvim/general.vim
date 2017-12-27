@@ -60,7 +60,7 @@ set shiftwidth=2            " number of spaces to use for indent and unindent
 set shiftround              " round indent to a multiple of 'shiftwidth'
 
 " code folding settings
-set foldmethod=indent       " fold based on indent
+set foldmethod=syntax       " fold based on syntax
 set foldnestmax=10          " deepest fold is 10 levels
 set nofoldenable            " don't fold by default
 set foldlevel=1
