@@ -21,7 +21,9 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 set t_ut=
 set t_Co=256                " Explicitly tell vim that the terminal supports 256 colors"
-colorscheme mustang
+" colorscheme mustang
+" colorscheme atom-dark-256
+colorscheme tender
 syntax on
 
 " make the highlighting of tabs and other non-text less annoying
