@@ -38,8 +38,3 @@ Brew install zsh-completions
 
 # install neovim
 brew install neovim/neovim/neovim
-
-# install neomutt
-brew install neomutt/homebrew-neomutt/neomutt
-brew install elinks
-
