@@ -2,9 +2,11 @@ call plug#begin('~/.config/nvim/plugged')
 
 " colorschemes
 Plug 'dracula/vim'
+Plug 'gosukiwi/vim-atom-dark'
 Plug 'tomasiser/vim-code-dark'
 Plug 'croaker/mustang-vim'
 Plug 'blueshirts/darcula'
+Plug 'jacoborus/tender.vim'
 
 " workspace
 Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons' " file drawer

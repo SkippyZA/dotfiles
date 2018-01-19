@@ -2,7 +2,8 @@
 let g:airline_powerline_fonts=1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_theme='codedark'
+" let g:airline_theme='codedark'
+let g:airline_theme='tender'
 let g:airline#extensions#ale#enabled = 1 " display ale errors in airline
 let g:airline#extensions#tabline#enabled = 1 " enable airline tabline
 let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs are being used (more than 1 tab open)
@@ -48,6 +49,7 @@ let g:javascript_plugin_jsdoc = 1
 
 " deoplete
 set completeopt=longest,menuone,preview
+let g:deoplete#file#enable_buffer_path = 1
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_ignore_case = 1
 let g:deoplete#enable_smart_case = 1
