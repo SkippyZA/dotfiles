@@ -48,6 +48,7 @@ let g:javascript_plugin_jsdoc = 1
 
 " deoplete
 set completeopt=longest,menuone,preview
+let g:deoplete#file#enable_buffer_path = 1
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_ignore_case = 1
 let g:deoplete#enable_smart_case = 1
