@@ -26,14 +26,6 @@ set t_Co=256                " Explicitly tell vim that the terminal supports 256
 colorscheme tender
 syntax on
 
-" make the highlighting of tabs and other non-text less annoying
-highlight SpecialKey ctermbg=none ctermfg=8
-highlight NonText ctermbg=none ctermfg=8
-
-" make comments and HTML attributes italic
-highlight Comment cterm=italic
-highlight htmlArg cterm=italic
-
 set number                  " show line numbers
 set relativenumber          " show relative line numbers
 
