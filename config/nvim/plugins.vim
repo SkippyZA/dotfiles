@@ -38,6 +38,8 @@ Plug 'tpope/vim-ragtag' " endings for html, xml, etc. - enhances surround
 Plug 'tpope/vim-repeat' " enables repeating other supported plugins with the . command
 Plug 'SirVer/ultisnips' " snippets plugin
 Plug 'moll/vim-bbye' " delete buffers without closing windows
+Plug 'kana/vim-textobj-user' " create own test segments. required for Julian/vim-textobj-var.....
+Plug 'Julian/vim-textobj-variable-segment' " segments for camelCase, sanke-case etc
 
 " testing tools
 Plug 'ruanyl/coverage.vim' " code coverage
