@@ -72,4 +72,16 @@ Plug 'sotte/presenting.vim', { 'for': 'markdown' } " a simple tool for presentin
 " json
 Plug 'elzr/vim-json', { 'for': 'json' } " JSON support
 
+" haskell
+Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
+Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
+Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
+Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
+Plug 'mpickering/hlint-refactor-vim', { 'for': 'haskell' }
+
+" Kubernetes
+Plug 'c9s/helper.vim'
+Plug 'c9s/treemenu.vim'
+Plug 'c9s/vikube.vim'
+
 call plug#end()
