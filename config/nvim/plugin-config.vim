@@ -10,7 +10,7 @@ let g:airline#extensions#tabline#show_buffers = 0 " do not show open buffers in 
 let g:airline#extensions#tabline#show_splits = 0
 
 " ale
-let g:ale_linters = { 'javascript': ['standard'] }
+let g:ale_linters = { 'javascript': ['standard'], 'go': [] }
 let g:ale_sign_column_always = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 1 " disable linting when opening a file
@@ -104,3 +104,17 @@ nnoremap <silent> <Leader>C :call fzf#run({
 \   'options': '+m',
 \   'left':    30
 \ })<CR>
+
+
+" vim-go
+let g:go_fmt_command = "goimports"
+let g:go_autodetect_gopath = 1
+let g:go_list_type = "quickfix"
+let g:go_auto_type_info = 1
+
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_generate_tags = 1
