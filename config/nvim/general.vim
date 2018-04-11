@@ -6,13 +6,16 @@ abbr teh the
 abbr tempalte template
 abbr fitler filter
 
+" }}}
+
 set nocompatible            " not compatible with vi
 set autoread                " detect when a file is changed
+set autowrite               " save a file when calling :make
 
 set history=1000            " change history to 1000
 set textwidth=120
 
-" }}}
+set updatetime=100
 
 " Section User Interface {{{
 
