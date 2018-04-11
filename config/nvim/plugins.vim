@@ -40,6 +40,8 @@ Plug 'SirVer/ultisnips' " snippets plugin
 Plug 'moll/vim-bbye' " delete buffers without closing windows
 Plug 'kana/vim-textobj-user' " create own test segments. required for Julian/vim-textobj-var.....
 Plug 'Julian/vim-textobj-variable-segment' " segments for camelCase, sanke-case etc
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'AndrewRadev/splitjoin.vim' " split join blocks of code
 
 " testing tools
 Plug 'ruanyl/coverage.vim' " code coverage
