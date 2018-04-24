@@ -27,11 +27,12 @@ for config ($DOT_FILES/zsh/**/*.zsh) source $config
 # Make the terminal fancy with 256 colours and italics
 [ -z "$TMUX" ] && export TERM=xterm-256color
 
+export GOPATH=$HOME/Development/go
+
 export PATH=$PATH:$HOME/.nvm/versions/node/v8.6.0/bin/
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.cargo/bin
-
-export GOPATH=$HOME/Development/go
+export PATH=$PATH:$GOPATH/bin
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
