@@ -37,6 +37,8 @@ export PATH=$PATH:$GOPATH/bin
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+export CDPATH=.:~:~/Development:~/Development/iflix
+
 # Load nvm if it exists
 if [ -d ~/.nvm  ]
 then
