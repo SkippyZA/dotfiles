@@ -29,7 +29,7 @@ for config ($DOT_FILES/zsh/**/*.zsh) source $config
 
 export GOPATH=$HOME/Development/go
 
-export PATH=$PATH:$HOME/.nvm/versions/node/v8.6.0/bin/
+export PATH=$PATH:$HOME/.nvm/versions/node/v8.9.1/bin/
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$GOPATH/bin

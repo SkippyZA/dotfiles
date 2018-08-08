@@ -11,6 +11,7 @@ Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so m
 Plug 'vim-airline/vim-airline' " fancy statusline
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
 Plug 'tpope/vim-projectionist' " projectionist project config
+Plug 'MattesGroeger/vim-bookmarks' " bookmarks helper
 
 " productivity
 Plug 'blindFS/vim-taskwarrior' " task warrior plugin
@@ -27,7 +28,6 @@ Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'mileszs/ack.vim' " search inside files using ack. Same as command line ack utility, but use :Ack
 Plug 'benmills/vimux' " tmux integration for vim
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " auto complete
 Plug 'ervandew/supertab' " everything in tab
 Plug 'Raimondi/delimitMate' " automatic closing of quotes, parenthesis, brackets, etc.
 Plug 'tpope/vim-unimpaired' " mappings which are simply short normal mode aliases for commonly used ex commands
@@ -55,13 +55,16 @@ Plug 'gregsexton/MatchTag', { 'for': [ 'html', 'vue' ] } " match tags in html, s
 Plug 'alvan/vim-closetag', { 'for': [ 'html', 'vue' ] } " auto close html tags
 
 " javascript
-Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'jsx'] }
 Plug 'pangloss/vim-javascript', { 'for': [ 'javascript', 'jsx' ] }
 Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'jsx'], 'do': 'npm install' }
 Plug 'othree/jspc.vim', { 'for': [ 'javascript', 'jsx' ] }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': [ 'javascript', 'jsx' ] }
 Plug 'jelera/vim-javascript-syntax', { 'for': [ 'javascript', 'jsx' ] } " enhanced javascript syntax for vim
 Plug 'moll/vim-node', { 'for': [ 'javascript' ] } " node support
+
+" typescript
+Plug 'Quramy/tsuquyomi', { 'for': [ 'typescript' ] }
+Plug 'leafgarland/typescript-vim', { 'for': [ 'typescript' ] }
 
 " styles
 Plug 'ap/vim-css-color', { 'for': ['css','stylus','scss'] } " set the background of hex color values to the color
@@ -83,7 +86,6 @@ Plug 'mpickering/hlint-refactor-vim', { 'for': 'haskell' }
 
 " golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 " Kubernetes
 Plug 'c9s/helper.vim'

@@ -19,9 +19,6 @@ set updatetime=100
 
 " Section User Interface {{{
 
-" switch cursor to line when in insert mode, and block when not
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
 set t_ut=
 set t_Co=256                " Explicitly tell vim that the terminal supports 256 colors"
 " colorscheme mustang

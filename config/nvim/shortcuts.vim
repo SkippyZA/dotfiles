@@ -23,7 +23,7 @@ map <leader>ev :e! ~/.config/nvim/init.vim<cr>
 map <leader>eg :e! ~/.gitconfig<cr>
 
 " remove extra whitespace
-nmap <leader><space> :%s/\s\+$<cr>
+nmap <leader><space> :%s/\s\+$<cr> 
 
 " switch between current and last buffer
 nmap <leader>. <c-^>

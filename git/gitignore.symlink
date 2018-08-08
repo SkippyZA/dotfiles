@@ -20,3 +20,4 @@ tscommand*.txt
 .projections.json
 .undodir/
 .tern-port
+.vim-bookmarks
