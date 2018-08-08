@@ -69,7 +69,7 @@ let g:deoplete#sources['javascript'] = ['file', 'ultisnips', 'ternjs']
 let g:deoplete#sources#ternjs#types = 1
 let g:deoplete#sources#ternjs#docs = 1
 
-call deoplete#custom#set('_', 'matchers', ['matcher_full_fuzzy'])
+" call deoplete#custom#set('_', 'matchers', ['matcher_full_fuzzy'])
 
 " supertab
 let g:SuperTabClosePreviewOnPopupClose = 1 " close the preview window when you're not using it

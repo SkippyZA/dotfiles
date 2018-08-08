@@ -64,6 +64,10 @@ Plug 'othree/javascript-libraries-syntax.vim', { 'for': [ 'javascript', 'jsx' ] 
 Plug 'jelera/vim-javascript-syntax', { 'for': [ 'javascript', 'jsx' ] } " enhanced javascript syntax for vim
 Plug 'moll/vim-node', { 'for': [ 'javascript' ] } " node support
 
+" typescript
+Plug 'Quramy/tsuquyomi', { 'for': [ 'typescript' ] }
+Plug 'leafgarland/typescript-vim', { 'for': [ 'typescript' ] }
+
 " styles
 Plug 'ap/vim-css-color', { 'for': ['css','stylus','scss'] } " set the background of hex color values to the color
 Plug 'posva/vim-vue', { 'for': ['vue', 'javascript'] } " vue syntax highlighting
