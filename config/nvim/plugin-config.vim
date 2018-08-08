@@ -46,31 +46,6 @@ let g:used_javascript_libs='ramda'
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
 
-" deoplete
-set completeopt=longest,menuone,preview
-let g:deoplete#file#enable_buffer_path = 1
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_ignore_case = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#enable_camel_case = 1
-let g:deoplete#enable_refresh_always = 1
-let g:deoplete#max_abbr_width = 0
-let g:deoplete#max_menu_width = 0
-
-let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
-let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions.javascript = [
-  \ 'tern#Complete',
-  \ 'jspc#omni'
-\]
-
-let g:deoplete#sources = {}
-let g:deoplete#sources['javascript'] = ['file', 'ultisnips', 'ternjs']
-let g:deoplete#sources#ternjs#types = 1
-let g:deoplete#sources#ternjs#docs = 1
-
-" call deoplete#custom#set('_', 'matchers', ['matcher_full_fuzzy'])
-
 " supertab
 let g:SuperTabClosePreviewOnPopupClose = 1 " close the preview window when you're not using it
 autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
