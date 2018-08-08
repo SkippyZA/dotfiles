@@ -99,22 +99,3 @@ alias vi="nvim"
 alias oldvim="\vim"
 
 alias n=npx
-
-# ==============================================================
-# iflix shortcuts
-# ==============================================================
-alias iflix-start="DISABLE_AUTO_TITLE=true tmuxinator start iflix"
-alias iflix-stop="tmuxinator stop iflix"
-alias iflix-logs=awsLogs
-
-
-# ==============================================================
-# Methods for aliasing
-# ==============================================================
-awsLogs() {
-  if [ "$#" -ne 1  ]; then
-    echo "Usage: iflix-logs <service> <env default=iflix-staging> <start default=10m>"
-  else
-    awslogs get $1 --start="${3:=10m}" --profile ${2:=iflix-staging} --watch --timestamp
-  fi
-}
