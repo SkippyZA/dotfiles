@@ -36,10 +36,6 @@ alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache"
 
-# View HTTP traffic
-alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
-alias httpdump="sudo tcpdump -i en0 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
-
 # Trim new lines and copy to clipboard
 alias trimcopy="tr -d '\n' | pbcopy"
 
@@ -82,20 +78,21 @@ alias gl="git lg"
 alias gb="git branch"
 alias ga="git add"
 
-
 # ==============================================================
 # Other usefull shortcuts
 # ==============================================================
 alias sl="ls"
 alias shutdown='sudo shutdown –h now'
 alias restart='sudo shutdown –r now'
-alias mounted='mount | column –t'
 alias docker-rm-all="docker ps -a | grep 'Exited' | awk '{print $1}' | xargs docker rm"
 alias dc="docker-compose"
-alias lsDir="find . -maxdepth 1 -type d -mindepth 1 -exec du -hs {} \;"
+alias lsdir="find . -maxdepth 1 -type d -mindepth 1 -exec du -hs {} \;"
 
-alias vim="nvim"
-alias vi="nvim"
-alias oldvim="\vim"
+# ==============================================================
+# Use neovim instead of vim
+# ==============================================================
+# alias vim="nvim"
+# alias vi="nvim"
+# alias oldvim="\vim"
 
 alias n=npx
