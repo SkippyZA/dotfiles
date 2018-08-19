@@ -1,0 +1,25 @@
+" set a map leader for more key combos
+let mapleader = ','
+
+" remap esc
+inoremap jk <esc>
+
+set surround                " make use of ideavims surround plugin
+
+set number                  " show line numbers
+set relativenumber          " show relative line numbers
+set scrolloff=5             " lines of text around cursor
+set noerrorbells
+set visualbell
+
+" shortcut to save
+nmap <leader>, :w<cr>
+
+" search for word under the cursor
+nnoremap <leader>/ "fyiw :/<c-r>f<cr>
+
+" move to tab on the left
+nnoremap H gT
+
+" move to tab on the right
+nnoremap L gt
