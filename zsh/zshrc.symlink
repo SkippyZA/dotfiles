@@ -6,8 +6,11 @@ export EDITOR='nvim'
 # Oh-my-zsh theme
 ZSH_THEME="mytheme"
 
-plugins=(git, osx, composer, docker, docker-compose, colorize)
+plugins=(vi-mode, git, osx, sudo)
 source $ZSH/oh-my-zsh.sh
+
+# enable vi mode
+set -o vi
 
 # Terminfo
 ([[ -e ~/.terminfo ]] || [[ -L ~/.terminfo ]] ) && export TERMINFO_DIRS=/usr/share/terminfo
