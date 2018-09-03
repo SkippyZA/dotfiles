@@ -43,12 +43,9 @@ Plug 'tpope/vim-ragtag' " endings for html, xml, etc. - enhances surround
 Plug 'tpope/vim-repeat' " enables repeating other supported plugins with the . command
 
 " testing tools
-" Plug 'ruanyl/coverage.vim' " code coverage
+Plug 'ruanyl/coverage.vim' " code coverage
 Plug 'w0rp/ale' " asynchronous lint execution
 Plug 'janko-m/vim-test' " running of unit tests
-
-" vue
-Plug 'posva/vim-vue', { 'for': [ 'vue' ] }
 
 " format code with prettier
 Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] }
@@ -56,6 +53,14 @@ Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': ['javascript', 'type
 " typescript
 Plug 'HerringtonDarkholme/yats.vim', { 'for': [ 'typescript' ] }
 Plug 'Quramy/tsuquyomi', { 'for': [ 'typescript' ] }
+
+" javascript
+Plug 'pangloss/vim-javascript', { 'for': [ 'javascript', 'jsx' ] }
+Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'jsx'], 'do': 'npm install' }
+Plug 'othree/jspc.vim', { 'for': [ 'javascript', 'jsx' ] }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': [ 'javascript', 'jsx' ] }
+Plug 'jelera/vim-javascript-syntax', { 'for': [ 'javascript', 'jsx' ] } " enhanced javascript syntax for vim
+Plug 'moll/vim-node', { 'for': [ 'javascript' ] } " node support
 
 " java
 Plug 'artur-shaik/vim-javacomplete2', { 'for': [ 'java' ] }
