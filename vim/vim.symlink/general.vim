@@ -7,6 +7,8 @@ set textwidth=120
 
 set updatetime=100
 
+set encoding=UTF-8
+
 set t_ut=
 set t_Co=256                " Explicitly tell vim that the terminal supports 256 colors"
 colorscheme tender
