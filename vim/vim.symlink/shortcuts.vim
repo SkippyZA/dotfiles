@@ -79,7 +79,10 @@ nnoremap <silent> $ g$
 nnoremap <Leader>q :Bdelete<CR>
 nnoremap <Leader>qa :bufdo :Bdelete<CR>
 
-autocmd FileType typescript nmap <c-b> :TsuDefinition<cr>
+" autocmd FileType typescript nmap <c-b> :TsuDefinition<cr>
+autocmd FileType typescript nmap <c-b> :TsuSplitDefinition<cr>
+
+nnoremap <silent> <leader>ff :%!python -m json.tool<cr>
 
 " helpers for dealing with other people's code
 nmap \t :set ts=2 sts=2 sw=2 noet<cr>
