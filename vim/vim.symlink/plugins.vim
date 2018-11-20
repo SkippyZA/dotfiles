@@ -23,8 +23,7 @@ Plug 'tpope/vim-rhubarb' " GitHub extension for vim-fugitive
 
 " utilities
 Plug 'Shougo/unite.vim'
-"Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " auto complete
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'ervandew/supertab' " everything in tab
 Plug 'Raimondi/delimitMate' " automatic closing of quotes, parenthesis, brackets, etc.
 Plug 'SirVer/ultisnips' " snippets plugin
@@ -59,11 +58,17 @@ Plug 'Quramy/tsuquyomi', { 'for': [ 'typescript' ] }
 Plug 'pangloss/vim-javascript', { 'for': [ 'javascript', 'jsx' ] }
 Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'jsx'], 'do': 'npm install' }
 Plug 'othree/jspc.vim', { 'for': [ 'javascript', 'jsx' ] }
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': [ 'javascript', 'jsx' ] }
-Plug 'jelera/vim-javascript-syntax', { 'for': [ 'javascript', 'jsx' ] } " enhanced javascript syntax for vim
+Plug 'othree/yajs.vim', { 'for': [ 'javascript', 'jsx' ] }
 Plug 'moll/vim-node', { 'for': [ 'javascript' ] } " node support
 
 " java
 Plug 'artur-shaik/vim-javacomplete2', { 'for': [ 'java' ] }
+
+" go
+Plug 'fatih/vim-go', { 'for': [ 'go', 'golang' ] }
+
+" terraform
+Plug 'hashivim/vim-terraform'
+Plug 'juliosueiras/vim-terraform-completion', { 'for': [ 'tf', 'terraform' ] }
 
 call plug#end()
