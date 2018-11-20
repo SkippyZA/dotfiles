@@ -9,6 +9,7 @@ Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so m
 Plug 'vim-airline/vim-airline' " fancy statusline
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
 Plug 'tpope/vim-projectionist' " projectionist project config
+Plug 'simeji/winresizer' " resize windows with h,j,k,l
 
 " productivity
 Plug 'blindFS/vim-taskwarrior' " task warrior plugin

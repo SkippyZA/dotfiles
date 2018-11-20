@@ -34,7 +34,9 @@ brew install markdown
 brew install diff-so-fancy
 brew install zsh-syntax-highlighting
 brew install zsh-autosuggestions
-Brew install zsh-completions
+brew install zsh-completions
+brew install vim
+brew install httpie
 
 # install neovim
 brew install neovim/neovim/neovim

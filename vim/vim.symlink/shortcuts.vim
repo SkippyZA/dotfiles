@@ -79,11 +79,26 @@ nnoremap <silent> $ g$
 nnoremap <Leader>q :Bdelete<CR>
 nnoremap <Leader>qa :bufdo :Bdelete<CR>
 
-" autocmd FileType typescript nmap <c-b> :TsuDefinition<cr>
-autocmd FileType typescript nmap <c-b> :TsuSplitDefinition<cr>
-
 nnoremap <silent> <leader>ff :%!python -m json.tool<cr>
 
 " helpers for dealing with other people's code
 nmap \t :set ts=2 sts=2 sw=2 noet<cr>
 nmap \s :set ts=2 sts=2 sw=2 et<cr>
+
+" run selected text in tmux session
+vmap <silent> <leader>vs "vy :call VimuxRunCommand("clear; " . @v)<cr>
+nmap <silent> <leader>vs vip<leader>vs<CR>
+
+" Language specific mappings
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+" Golang
+" """""""""""""""""""
+autocmd FileType go nmap <c-b> :GoDef<cr>
+
+" TypeScript
+" """""""""""""""""""
+" autocmd FileType typescript nmap <c-b> :TsuDefinition<cr>
+autocmd FileType typescript nmap <c-b> :TsuSplitDefinition<cr>
+
