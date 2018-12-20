@@ -91,8 +91,11 @@ alias lsdir="find . -maxdepth 1 -type d -mindepth 1 -exec du -hs {} \;"
 # ==============================================================
 # Use neovim instead of vim
 # ==============================================================
-# alias vim="nvim"
-# alias vi="nvim"
-# alias oldvim="\vim"
+alias vim="nvim"
+alias vi="nvim"
+alias oldvim="\vim"
+
+# Close terminal with vim :q
+alias :q="exit"
 
 alias n=npx

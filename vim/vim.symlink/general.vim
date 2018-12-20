@@ -5,7 +5,7 @@ set autowrite               " save a file when calling :make
 set history=1000            " change history to 1000
 set textwidth=120
 
-set updatetime=100
+set updatetime=300
 
 set encoding=UTF-8
 
@@ -51,6 +51,7 @@ set foldlevel=1
 
 set clipboard=unnamed
 
+set signcolumn=yes          " always show signcolumns
 set ttyfast                 " faster redrawing
 set laststatus=2            " show the satus line all the time
 set so=7                    " set 7 lines to the cursors - when moving vertical
@@ -60,7 +61,7 @@ set showcmd                 " show incomplete commands
 set noshowmode              " don't show which mode disabled for PowerLine
 set wildmode=list:longest   " complete files like a shell
 set scrolloff=5             " lines of text around cursor
-set cmdheight=1             " command bar height
+set cmdheight=2             " command bar height
 set title                   " set terminal title
 set omnifunc=syntaxcomplete#Complete " turn on omni completion
 set diffopt+=vertical
