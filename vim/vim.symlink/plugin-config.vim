@@ -27,10 +27,6 @@ let g:ale_lint_on_enter = 1 " disable linting when opening a file
 let g:coverage_json_report_path = 'coverage/coverage-final.json'
 let g:coverage_interval = 5000
 
-" supertab
-let g:SuperTabClosePreviewOnPopupClose = 1 " close the preview window when you're not using it
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-
 " delimitMate
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
@@ -66,16 +62,50 @@ autocmd FileType vue syntax sync fromstart
 
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsSnippetsDir='~/.dotfiles/config/nvim/UltiSnips'
-
-" vim prettier
-let g:prettier#exec_cmd_async = 1
-let g:prettier#autoformat = 0
-let g:prettier#config#tab_width = 2
-let g:prettier#config#use_tabs = 'false'
-let g:prettier#config#semi = 'false'
-let g:prettier#config#single_quote = 'true'
-let g:prettier#config#bracket_spacing = 'true'
-let g:prettier#config#trailing_comma = 'none'
-let g:prettier#config#parser = 'typescript'
 let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
+
+" vim-coc
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" Use <c-space> for trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> for confirm completion.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[c` and `]c` for navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K for show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Use `:Format` for format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` for fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)

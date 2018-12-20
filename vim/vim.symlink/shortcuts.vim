@@ -50,7 +50,7 @@ map <leader>nn :VimuxRunLastCommand<cr>
 map <leader>nc :VimuxInterruptRunner<cr>
 
 " open a list of buffers
-nmap <silent> <leader>r :Buffers<cr>
+" nmap <silent> <leader>r :Buffers<cr>
 
 " open fzf
 nmap <silent> <leader>e :FZF<cr>
@@ -79,7 +79,7 @@ nnoremap <silent> $ g$
 nnoremap <Leader>q :Bdelete<CR>
 nnoremap <Leader>qa :bufdo :Bdelete<CR>
 
-nnoremap <silent> <leader>ff :%!python -m json.tool<cr>
+" nnoremap <silent> <leader>ff :%!python -m json.tool<cr>
 
 " helpers for dealing with other people's code
 nmap \t :set ts=2 sts=2 sw=2 noet<cr>
@@ -89,9 +89,11 @@ nmap \s :set ts=2 sts=2 sw=2 et<cr>
 vmap <silent> <leader>vs "vy :call VimuxRunCommand("clear; " . @v)<cr>
 nmap <silent> <leader>vs vip<leader>vs<CR>
 
+" remap win resizer
+let g:winresizer_start_key = '<C-T>'
+
 " Language specific mappings
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 
 " Golang
 " """""""""""""""""""
@@ -100,5 +102,5 @@ autocmd FileType go nmap <c-b> :GoDef<cr>
 " TypeScript
 " """""""""""""""""""
 " autocmd FileType typescript nmap <c-b> :TsuDefinition<cr>
-autocmd FileType typescript nmap <c-b> :TsuSplitDefinition<cr>
+" autocmd FileType typescript nmap <c-b> :TsuSplitDefinition<cr>
 
