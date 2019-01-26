@@ -2,6 +2,7 @@
   "coc.preferences.autoTrigger": "none",
   "coc.preferences.diagnostic.displayByAle": false,
   "coc.preferences.diagnostic.virtualText": true,
+  "tsserver.implicitProjectConfig.experimentalDecorators": true,
   "typescript.preferences.noSemicolons": true,
   "typescript.preferences.quoteStyle": "single",
   "javascript.preferences.noSemicolons": true,
