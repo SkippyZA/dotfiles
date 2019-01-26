@@ -46,6 +46,9 @@ let g:tern_show_signature_in_pum='1' " display function signature in the complet
 " javascript libraries syntax.vim
 let g:used_javascript_libs='ramda'
 
+" nerdtree
+let g:NERDTreeWinSize=40
+
 " vim-wiki
 let my_wiki = {}
 let my_wiki.path = '~/Library/Mobile Documents/com~apple~CloudDocs/.terminal-stuff/vimwiki/'

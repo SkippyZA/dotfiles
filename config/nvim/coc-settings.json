@@ -1,4 +1,9 @@
 {
   "coc.preferences.autoTrigger": "none",
-  "coc.preferences.triggerAfterInsertEnter": true
+  "coc.preferences.diagnostic.displayByAle": false,
+  "coc.preferences.diagnostic.virtualText": true,
+  "typescript.preferences.noSemicolons": true,
+  "typescript.preferences.quoteStyle": "single",
+  "javascript.preferences.noSemicolons": true,
+  "javascript.preferences.quoteStyle": "single",
 }
