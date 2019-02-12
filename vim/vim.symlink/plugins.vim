@@ -10,6 +10,7 @@ Plug 'vim-airline/vim-airline' " fancy statusline
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
 Plug 'tpope/vim-projectionist' " projectionist project config
 Plug 'simeji/winresizer' " resize windows with h,j,k,l
+Plug 'roman/golden-ratio' " resize windows to the gold ratio
 
 " productivity
 Plug 'blindFS/vim-taskwarrior' " task warrior plugin

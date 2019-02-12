@@ -67,6 +67,9 @@ autocmd FileType vue syntax sync fromstart
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
 
+" Golden Ratio
+let g:golden_ratio_autocommand = 0
+
 " vim-coc
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! s:check_back_space() abort
