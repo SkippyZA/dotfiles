@@ -92,6 +92,10 @@ nmap <silent> <leader>vs vip<leader>vs<CR>
 " remap win resizer
 let g:winresizer_start_key = '<C-T>'
 
+" fugitive git bindings
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gb :Gblame<CR>
+
 " Language specific mappings
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
