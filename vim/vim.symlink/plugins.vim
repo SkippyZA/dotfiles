@@ -13,8 +13,6 @@ Plug 'simeji/winresizer' " resize windows with h,j,k,l
 Plug 'roman/golden-ratio' " resize windows to the gold ratio
 
 " productivity
-Plug 'blindFS/vim-taskwarrior' " task warrior plugin
-Plug 'tbabej/taskwiki' " taskwarrior integration with vim-wiki
 Plug 'vimwiki/vimwiki' " personal wiki
 
 " git
