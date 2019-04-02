@@ -99,3 +99,5 @@ alias oldvim="\vim"
 alias :q="exit"
 
 alias n=npx
+
+alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
