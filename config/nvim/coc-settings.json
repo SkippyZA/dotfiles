@@ -1,10 +1,22 @@
 {
-  "coc.preferences.autoTrigger": "none",
-  "coc.preferences.diagnostic.displayByAle": false,
-  "coc.preferences.diagnostic.virtualText": true,
+  "suggest.autoTrigger": "none",
+
+  "diagnostic.virtualText": true,
+  "diagnostic.displayByAle": false,
+
+  "coc.preferences.hoverTarget": "float",
+  "coc.preferences.snippets.enable": true,
+  "coc.preferences.extensionUpdateCheck": "daily",
+
   "tsserver.implicitProjectConfig.experimentalDecorators": true,
-  "typescript.preferences.noSemicolons": true,
+
   "typescript.preferences.quoteStyle": "single",
-  "javascript.preferences.noSemicolons": true,
+  "typescript.preferences.noSemicolons": true,
+  "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
+
   "javascript.preferences.quoteStyle": "single",
+  "javascript.preferences.noSemicolons": true,
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true
 }
