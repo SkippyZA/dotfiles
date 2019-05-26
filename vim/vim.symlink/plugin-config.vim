@@ -77,6 +77,9 @@ let g:vrc_show_command = 1
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:coc_global_extensions = [ 'coc-json', 'coc-ultisnips', 'coc-tslint-plugin', 'coc-tsserver', 'coc-vetur', 'coc-yaml', 'coc-css', 'coc-yank', 'coc-angular' ]
 
+" display yank list
+nnoremap <silent> <space>y  :<C-u>CocList --normal yank<cr>
+
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
