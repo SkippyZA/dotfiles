@@ -70,8 +70,13 @@ let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
 " Golden Ratio
 let g:golden_ratio_autocommand = 0
 
+" vim rest console
+let g:vrc_show_command = 1
+
 " vim-coc
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:coc_global_extensions = [ 'coc-json', 'coc-ultisnips', 'coc-tslint-plugin', 'coc-tsserver', 'coc-vetur', 'coc-yaml', 'coc-css', 'coc-yank', 'coc-angular' ]
+
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
