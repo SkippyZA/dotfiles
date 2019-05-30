@@ -19,6 +19,11 @@ set -o vi
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.dotfiles/bin"
 export LANG=en_US.UTF-8
 
+# load gruvbox color scheme
+if [[ -a ~/.vim/plugged/gruvbox/gruvbox_256palette.sh ]]; then
+  source ~/.vim/plugged/gruvbox/gruvbox_256palette.sh
+fi
+
 # source in our super secret stuff
 if [[ -a ~/.localrc ]]; then
   source ~/.localrc
