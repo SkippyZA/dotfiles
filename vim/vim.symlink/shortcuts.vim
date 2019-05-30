@@ -38,9 +38,9 @@ endif
 
 " unit testing
 nmap <silent> <leader>tt :TestNearest<CR>
-nmap <silent> <leader>T :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>T  :TestFile<CR>
+nmap <silent> <leader>ta :TestSuite<CR>
+nmap <silent> <leader>l  :TestLast<CR>
 
 " prompt for a command to run
 map <leader>np :VimuxPromptCommand<cr>

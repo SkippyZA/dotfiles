@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 " colorschemes
 Plug 'jacoborus/tender.vim'
+Plug 'gruvbox-community/gruvbox'
 
 " workspace
 Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons' " file drawer
@@ -14,6 +15,7 @@ Plug 'roman/golden-ratio' " resize windows to the gold ratio
 
 " productivity
 Plug 'vimwiki/vimwiki' " personal wiki
+Plug 'diepm/vim-rest-console' " http client
 
 " git
 Plug 'tpope/vim-fugitive' " amazing git wrapper for vim
@@ -22,9 +24,7 @@ Plug 'tpope/vim-rhubarb' " GitHub extension for vim-fugitive
 
 " utilities
 Plug 'Shougo/denite.nvim'
-" Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-" Plug 'ervandew/supertab' " everything in tab
 Plug 'Raimondi/delimitMate' " automatic closing of quotes, parenthesis, brackets, etc.
 Plug 'SirVer/ultisnips' " snippets plugin
 Plug 'moll/vim-bbye' " delete buffers without closing windows
@@ -44,21 +44,12 @@ Plug 'tpope/vim-repeat' " enables repeating other supported plugins with the . c
 
 " testing tools
 Plug 'ruanyl/coverage.vim' " code coverage
-" Plug 'w0rp/ale' " asynchronous lint execution
 Plug 'janko-m/vim-test' " running of unit tests
 
 Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': { -> coc#util#install() } }
 
 " typescript
 Plug 'HerringtonDarkholme/yats.vim', { 'for': [ 'typescript' ] }
-" Plug 'Quramy/tsuquyomi', { 'for': [ 'typescript' ] }
-
-" javascript
-Plug 'pangloss/vim-javascript', { 'for': [ 'javascript', 'jsx' ] }
-Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'jsx'], 'do': 'npm install' }
-Plug 'othree/jspc.vim', { 'for': [ 'javascript', 'jsx' ] }
-Plug 'othree/yajs.vim', { 'for': [ 'javascript', 'jsx' ] }
-Plug 'moll/vim-node', { 'for': [ 'javascript' ] } " node support
 
 " json
 Plug 'neoclide/jsonc.vim'
