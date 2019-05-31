@@ -61,7 +61,7 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 # ==============================================================
 # Git aliases
 # ==============================================================
-alias git=hub
+alias git="hub -c core.commentChar='%'"
 alias gcob="git checkout -b"
 alias gc="git cola"
 alias gco="git checkout"

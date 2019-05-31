@@ -80,7 +80,7 @@ nnoremap <silent> $ g$
 
 " vim-bbye
 nnoremap <Leader>q :Bdelete<CR>
-nnoremap <Leader>qa :bufdo :Bdelete<CR>
+" nnoremap <Leader>qa :bufdo :Bdelete<CR>
 
 " nnoremap <silent> <leader>ff :%!python -m json.tool<cr>
 
