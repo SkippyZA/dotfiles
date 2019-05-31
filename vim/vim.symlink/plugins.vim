@@ -41,6 +41,7 @@ Plug 'tpope/vim-surround' " mappings to easily delete, change and add such surro
 Plug 'tpope/vim-dispatch' " asynchronous build and test dispatcher
 Plug 'tpope/vim-ragtag' " endings for html, xml, etc. - enhances surround
 Plug 'tpope/vim-repeat' " enables repeating other supported plugins with the . command
+Plug 'tommcdo/vim-exchange' " text exchange operation
 
 " testing tools
 Plug 'ruanyl/coverage.vim' " code coverage
