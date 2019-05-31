@@ -12,7 +12,7 @@ let g:airline#extensions#tabline#show_splits = 0
 " vim-test
 let g:test#strategy = {
       \ 'nearest': 'neovim',
-      \ 'file': 'basic',
+      \ 'file': 'neovim',
       \ 'suite': 'basic'
       \}
 
