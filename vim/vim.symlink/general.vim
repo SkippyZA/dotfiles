@@ -11,8 +11,9 @@ set encoding=UTF-8
 
 set t_ut=
 set t_Co=256                " Explicitly tell vim that the terminal supports 256 colors"
-colorscheme gruvbox
 syntax on
+colorscheme gruvbox
+set background=dark         " Setting dark mode
 
 highlight LineNr ctermfg=8
 
