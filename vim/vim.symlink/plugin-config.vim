@@ -1,12 +1,12 @@
 " airline options
-let g:airline_powerline_fonts=1
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline_theme='gruvbox'
-let g:airline#extensions#ale#enabled = 1 " display ale errors in airline
-let g:airline#extensions#tabline#enabled = 1 " enable airline tabline
-let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs are being used (more than 1 tab open)
-let g:airline#extensions#tabline#show_buffers = 0 " do not show open buffers in tabline
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep  =''
+let g:airline_right_sep  =''
+let g:airline_theme  ='gruvbox'
+let g:airline#extensions#ale#enabled = 1            " display ale errors in airline
+let g:airline#extensions#tabline#enabled = 1        " enable airline tabline
+let g:airline#extensions#tabline#tab_min_count = 2  " only show tabline if tabs are being used (more than 1 tab open)
+let g:airline#extensions#tabline#show_buffers = 0   " do not show open buffers in tabline
 let g:airline#extensions#tabline#show_splits = 0
 
 " vim-test
@@ -26,10 +26,12 @@ let g:delimitMate_expand_space = 1
 let g:delimitMate_matchpairs = "(:),[:],{:}"
 
 " javascript libraries syntax.vim
-let g:used_javascript_libs='ramda'
+let g:used_javascript_libs = 'ramda'
 
-" nerdtree
-let g:NERDTreeWinSize=40
+" NERDTree
+let g:NERDTreeWinSize = 40
+let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeAutoDeleteBuffer = 1
 
 " vim-wiki
 let my_wiki = {}
@@ -39,16 +41,14 @@ let my_wiki.nested_syntaxes = { 'js': 'javascript' }
 let g:vimwiki_list = [ my_wiki ]
 
 " Ultisnips
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
+let g:UltiSnipsExpandTrigger = "<c-j>"
+let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 
 " Golden Ratio
 let g:golden_ratio_autocommand = 0
 
 " vim rest console
-let g:vrc_show_command = 0
-let g:vrc_trigger = ',rr'
-
+let g:vrc_trigger = ',rr'         " keybind to execute request
 let g:vrc_curl_opts = {
   \ '--connect-timeout' : 10,
   \ '--location': '',
@@ -56,7 +56,7 @@ let g:vrc_curl_opts = {
   \ '--silent': '',
   \ '--show-error': '',
   \ '--insecure': '',
-\}
+\}                                " default curl options
 
 " vim-coc
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

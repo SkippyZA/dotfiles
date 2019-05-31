@@ -7,6 +7,9 @@ inoremap jk <esc>
 " shortcut to save
 nmap <leader>, :w<cr>
 
+" ack without opening the first match
+cnoreabbrev Ack Ack!
+
 " move between panes
 map <silent> <C-h> :call functions#WinMove('h')<cr>
 map <silent> <C-j> :call functions#WinMove('j')<cr>
@@ -77,7 +80,7 @@ nnoremap <silent> $ g$
 
 " vim-bbye
 nnoremap <Leader>q :Bdelete<CR>
-nnoremap <Leader>qa :bufdo :Bdelete<CR>
+" nnoremap <Leader>qa :bufdo :Bdelete<CR>
 
 " nnoremap <silent> <leader>ff :%!python -m json.tool<cr>
 
@@ -95,6 +98,17 @@ let g:winresizer_start_key = '<C-T>'
 " fugitive git bindings
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gb :Gblame<CR>
+
+" Command-/ to toggle comments
+map <D-/> :TComment<CR>
+imap <D-/> <Esc>:TComment<CR>i
+
+" Control-/ to toggle comments
+map <C-/> :TComment<CR>
+imap <C-/> <Esc>:TComment<CR>i
+
+" Leader-/ to toggle comments
+map <Leader>/ :TComment<CR>
 
 " Language specific mappings
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

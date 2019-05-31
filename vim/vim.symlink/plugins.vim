@@ -19,7 +19,7 @@ Plug 'diepm/vim-rest-console' " http client
 
 " git
 Plug 'tpope/vim-fugitive' " amazing git wrapper for vim
-Plug 'jreybert/vimagit' " vim clone of emacs magit
+Plug 'jez/vim-github-hub' " make use of hub to create PRs
 Plug 'tpope/vim-rhubarb' " GitHub extension for vim-fugitive
 
 " utilities
@@ -30,8 +30,8 @@ Plug 'SirVer/ultisnips' " snippets plugin
 Plug 'moll/vim-bbye' " delete buffers without closing windows
 Plug 'kana/vim-textobj-user' " create own test segments. required for Julian/vim-textobj-var.....
 Plug 'Julian/vim-textobj-variable-segment' " segments for camelCase, sanke-case etc
-Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'AndrewRadev/splitjoin.vim' " split join blocks of code
+Plug 'tpope/vim-eunuch' " unix commands in vim
 
 Plug 'mileszs/ack.vim' " search inside files using ack. Same as command line ack utility, but use :Ack
 Plug 'benmills/vimux' " tmux integration for vim
@@ -41,6 +41,7 @@ Plug 'tpope/vim-surround' " mappings to easily delete, change and add such surro
 Plug 'tpope/vim-dispatch' " asynchronous build and test dispatcher
 Plug 'tpope/vim-ragtag' " endings for html, xml, etc. - enhances surround
 Plug 'tpope/vim-repeat' " enables repeating other supported plugins with the . command
+Plug 'tommcdo/vim-exchange' " text exchange operation
 
 " testing tools
 Plug 'ruanyl/coverage.vim' " code coverage
