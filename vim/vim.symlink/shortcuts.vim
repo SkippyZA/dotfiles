@@ -99,17 +99,6 @@ let g:winresizer_start_key = '<C-T>'
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gb :Gblame<CR>
 
-" Command-/ to toggle comments
-map <D-/> :TComment<CR>
-imap <D-/> <Esc>:TComment<CR>i
-
-" Control-/ to toggle comments
-map <C-/> :TComment<CR>
-imap <C-/> <Esc>:TComment<CR>i
-
-" Leader-/ to toggle comments
-map <Leader>/ :TComment<CR>
-
 " Language specific mappings
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
