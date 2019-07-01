@@ -60,7 +60,7 @@ let g:vrc_curl_opts = {
 
 " vim-coc
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:coc_global_extensions = [ 'coc-json', 'coc-ultisnips', 'coc-tslint-plugin', 'coc-tsserver', 'coc-vetur', 'coc-yaml', 'coc-css', 'coc-yank', 'coc-angular' ]
+let g:coc_global_extensions = [ 'coc-json', 'coc-ultisnips', 'coc-tslint-plugin', 'coc-tsserver', 'coc-vetur', 'coc-yaml', 'coc-css', 'coc-yank', 'coc-angular', 'coc-solargraph' ]
 
 " display yank list
 nnoremap <silent> <space>y  :<C-u>CocList --normal yank<cr>
