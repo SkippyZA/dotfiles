@@ -15,12 +15,10 @@ syntax on
 colorscheme gruvbox
 set background=dark         " Setting dark mode
 
-highlight LineNr ctermfg=8
-
 set number                  " show line numbers
 set relativenumber          " show relative line numbers
 
-"set wrap                    " turn on line wrapping
+" set wrap                    " turn on line wrapping
 set wrapmargin=8            " wrap lines when coming within n characters from side
 set linebreak               " set soft wrapping
 set showbreak=…             " show ellipsis at breaking
@@ -28,8 +26,10 @@ set showbreak=…             " show ellipsis at breaking
 set autoindent              " automatically set indent of new line
 set smartindent
 
-" highlight conflicts
-match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+" Highlighting
+set cursorline                                    " highlight the current line
+" set cuc cul                                       " Highlight active column
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'  " highlight conflicts
 
 " make backspace behave in a sane manner
 set backspace=indent,eol,start
@@ -64,7 +64,7 @@ set wildmode=list:longest   " complete files like a shell
 set scrolloff=5             " lines of text around cursor
 set cmdheight=2             " command bar height
 set title                   " set terminal title
-set omnifunc=syntaxcomplete#Complete " turn on omni completion
+" set omnifunc=syntaxcomplete#Complete " turn on omni completion
 set diffopt+=vertical
 set shell=$SHELL
 

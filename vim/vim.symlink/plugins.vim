@@ -12,6 +12,7 @@ Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
 Plug 'tpope/vim-projectionist' " projectionist project config
 Plug 'simeji/winresizer' " resize windows with h,j,k,l
 Plug 'roman/golden-ratio' " resize windows to the gold ratio
+Plug 'majutsushi/tagbar' " browse tags
 
 " productivity
 Plug 'vimwiki/vimwiki' " personal wiki
@@ -65,6 +66,7 @@ Plug 'fatih/vim-go', { 'for': [ 'go', 'golang' ] }
 Plug 'jparise/vim-graphql'
 
 " ruby
+Plug 'tpope/vim-rails', { 'for': [ 'ruby' ] }
 Plug 'vim-ruby/vim-ruby', { 'for': [ 'ruby' ] }
 Plug 'tpope/vim-endwise', { 'for': [ 'ruby' ] }
 
