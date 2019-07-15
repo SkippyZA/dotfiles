@@ -20,6 +20,9 @@ map <silent> <C-l> :call functions#WinMove('l')<cr>
 nmap <silent> <leader>k :NERDTreeToggle<cr>
 nmap <silent> <leader>y :NERDTreeFind<cr>
 
+" tagbar
+nmap <silent> <leader>tb :TagbarToggle<cr>
+
 " toggle paste mode
 map <leader>v :set paste!<cr>
 
