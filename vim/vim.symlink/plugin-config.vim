@@ -116,7 +116,6 @@ function! s:show_documentation()
 endfunction
 
 " tagbar
-let g:tagbar_compact = 1      " hide help hint at top
 let g:tagbar_autofocus = 1    " focus tagbar when opening
 
 " Use `:Format` for format current buffer
