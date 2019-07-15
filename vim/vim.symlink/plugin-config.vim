@@ -115,6 +115,11 @@ function! s:show_documentation()
   endif
 endfunction
 
+" tagbar
+nmap <silent> <leader>tb :TagbarToggle<cr>
+let g:tagbar_case_insensitive = 1
+let g:tagbar_compact = 1
+
 " Use `:Format` for format current buffer
 command! -nargs=0 Format :call CocAction('format')
 
