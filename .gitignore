@@ -13,3 +13,6 @@ config/nvim/plugged
 vim/vim.symlink/spell/
 vim/vim.symlink/plugged/
 vim/vim.symlink/view/
+
+vim/vim.symlink/undo/
+vim/vim.symlink/viminfo

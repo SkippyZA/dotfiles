@@ -37,6 +37,8 @@ brew install zsh-autosuggestions
 brew install zsh-completions
 brew install vim
 brew install httpie
+brew install pgcli # postgres cli
+brew install ctags
 
 # install neovim
 brew install neovim/neovim/neovim

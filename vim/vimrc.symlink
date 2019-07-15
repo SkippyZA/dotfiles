@@ -2,7 +2,8 @@ source ~/.vim/plugins.vim
 source ~/.vim/general.vim
 source ~/.vim/plugin-config.vim
 source ~/.vim/shortcuts.vim
+source ~/.vim/tmp-files.vim
 
 set encoding=utf-8
 
-imap <C-j> <C-X><C-O>
+" imap <C-j> <C-X><C-O>
