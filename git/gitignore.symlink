@@ -22,3 +22,4 @@ tscommand*.txt
 .tern-port
 .vim-bookmarks
 .solargraph.yml
+/tags
