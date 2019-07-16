@@ -19,6 +19,12 @@ endglobal
 # Snippets
 #
 
+snippet "context" "context <name> do ... end" r
+context "${1:explination}" do
+	$0
+end
+endsnippet
+
 snippet "^#!" "#!/usr/bin/env ruby" r
 #!/usr/bin/env ruby
 $0

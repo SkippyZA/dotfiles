@@ -22,6 +22,8 @@ nmap <silent> <leader>y :NERDTreeFind<cr>
 
 " tagbar
 nmap <silent> <leader>tb :TagbarToggle<cr>
+nmap <silent> <F8> :TagbarToggle<cr>
+imap <silent> <F8> :TagbarToggle<cr>
 
 " toggle paste mode
 map <leader>v :set paste!<cr>

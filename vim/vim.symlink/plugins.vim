@@ -66,9 +66,10 @@ Plug 'fatih/vim-go', { 'for': [ 'go', 'golang' ] }
 Plug 'jparise/vim-graphql'
 
 " ruby
+Plug 'tpope/vim-rake'
 Plug 'tpope/vim-rails', { 'for': [ 'ruby' ] }
 Plug 'vim-ruby/vim-ruby', { 'for': [ 'ruby' ] }
-Plug 'tpope/vim-endwise', { 'for': [ 'ruby' ] }
+" Plug 'tpope/vim-endwise', { 'for': [ 'ruby' ] }
 
 " terraform
 Plug 'hashivim/vim-terraform'
