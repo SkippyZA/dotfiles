@@ -4,7 +4,11 @@ let mapleader = ','
 " remap esc
 inoremap jk <esc>
 
+" share normal clipboard
+set clipboard+=unnamed
+
 set surround                " make use of ideavims surround plugin
+set commentary              " ideavims vim-commentary plugin
 
 set number                  " show line numbers
 set relativenumber          " show relative line numbers
