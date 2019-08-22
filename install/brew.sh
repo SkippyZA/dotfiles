@@ -38,6 +38,7 @@ brew install zsh-completions
 brew install vim
 brew install httpie
 brew install pgcli # postgres cli
+brew install gnupg
 brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
 # install neovim

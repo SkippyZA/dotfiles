@@ -18,5 +18,11 @@
   "javascript.preferences.quoteStyle": "single",
   "javascript.preferences.noSemicolons": true,
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
-  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
+
+  "solargraph.completion": true,
+  "solargraph.definitions": true,
+  "solargraph.rename": true,
+  "solargraph.references": true,
+  /* "solargraph.useBundler": true */
 }
