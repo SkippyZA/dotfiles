@@ -14,6 +14,8 @@ brew install wget
 brew install htop
 brew install axel
 brew install task
+brew install httpie
+brew install pgcli # postgres cli
 
 # python
 brew install python
@@ -36,8 +38,6 @@ brew install zsh-syntax-highlighting
 brew install zsh-autosuggestions
 brew install zsh-completions
 brew install vim
-brew install httpie
-brew install pgcli # postgres cli
 brew install gnupg
 brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 

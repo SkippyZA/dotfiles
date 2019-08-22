@@ -1,3 +1,5 @@
+# zmodload zsh/zprof # profile zsh startup
+
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 export DOT_FILES=~/.dotfiles
@@ -6,14 +8,14 @@ export EDITOR='nvim'
 # Oh-my-zsh theme
 ZSH_THEME="mytheme"
 
-plugins=(vi-mode, git, osx, sudo)
+plugins=(vi-mode git osx sudo)
 source $ZSH/oh-my-zsh.sh
 
 # enable vi mode
 set -o vi
 
-# Terminfo
-([[ -e ~/.terminfo ]] || [[ -L ~/.terminfo ]] ) && export TERMINFO_DIRS=/usr/share/terminfo
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.dotfiles/bin"
@@ -24,33 +26,45 @@ if [[ -a ~/.vim/plugged/gruvbox/gruvbox_256palette.sh ]]; then
   source ~/.vim/plugged/gruvbox/gruvbox_256palette.sh
 fi
 
-# source in our super secret stuff
-if [[ -a ~/.localrc ]]; then
-  source ~/.localrc
-fi
+# # source in our super secret stuff
+# if [[ -a ~/.localrc ]]; then
+#   source ~/.localrc
+# fi
 
 # source all .zsh files inside of the zsh/ directory
 for config ($DOT_FILES/zsh/**/*.zsh) source $config
 
-# Make the terminal fancy with 256 colours and italics
-[ -z "$TMUX" ] && export TERM=xterm-256color
+export CDPATH=.:~:~/Development:~/Development/playground
 
-export GOPATH=$HOME/Development/go
+# # optimise compinit
+# autoload -Uz compinit
+# for dump in ~/.zcompdump(N.mh+24); do
+#   compinit
+# done
+# compinit -C
 
-export PATH=$PATH:$HOME/.nvm/versions/node/v8.9.1/bin/
-export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$HOME/.cargo/bin
-export PATH=$PATH:$GOPATH/bin
-
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
-export CDPATH=.:~:~/Development:~/Development/iflix
-
-# Load nvm if it exists
-if [ -d ~/.nvm  ]
-then
+nvm() {
+  unset -f nvm
   export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" --no-use
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-fi
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  nvm "$@"
+}
+
+node() {
+  unset -f node
+  export NVM_DIR=~/.nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  node "$@"
+}
+
+npm() {
+  unset -f npm
+  export NVM_DIR=~/.nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  npm "$@"
+}
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# zprof # profile zsh startup
