@@ -22,6 +22,7 @@ brew install python
 brew install python3
 
 # development tools
+brew install gnupg
 brew install cmake
 brew install git
 brew install hub # Run the following to have vim-fugitive work with GitHub: echo 'machine api.github.com login <user> password <token>' >> ~/.netrc
@@ -38,8 +39,8 @@ brew install zsh-syntax-highlighting
 brew install zsh-autosuggestions
 brew install zsh-completions
 brew install vim
-brew install gnupg
 brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+brew install mas
 
 # install neovim
 brew install neovim/neovim/neovim
