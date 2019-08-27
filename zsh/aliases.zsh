@@ -98,6 +98,10 @@ alias oldvim="\vim"
 # Close terminal with vim :q
 alias :q="exit"
 
+alias shrug="printf '¯\_(ツ)_/¯' | pbcopy"
+alias flipt="printf '(╯°□°)╯︵ ┻━┻' | pbcopy"
+alias fight="printf '(ง'̀-'́)ง' | pbcopy"
+
 alias n=npx
 
 alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
