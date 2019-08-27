@@ -1,5 +1,4 @@
 # zmodload zsh/zprof # profile zsh startup
-
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 export DOT_FILES=~/.dotfiles
@@ -8,7 +7,7 @@ export EDITOR='nvim'
 # Oh-my-zsh theme
 ZSH_THEME="mytheme"
 
-plugins=(vi-mode git osx sudo)
+plugins=(vi-mode git osx httpie sudo)
 source $ZSH/oh-my-zsh.sh
 
 # enable vi mode
