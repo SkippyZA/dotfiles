@@ -1,70 +1,8 @@
 # zmodload zsh/zprof # profile zsh startup
-
-# Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
-export DOT_FILES=~/.dotfiles
-export EDITOR='nvim'
-
-# Oh-my-zsh theme
-ZSH_THEME="mytheme"
-
-plugins=(vi-mode git osx sudo)
-source $ZSH/oh-my-zsh.sh
-
-# enable vi mode
-set -o vi
-
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
-# User configuration
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.dotfiles/bin"
-export LANG=en_US.UTF-8
-
-# load gruvbox color scheme
-if [[ -a ~/.vim/plugged/gruvbox/gruvbox_256palette.sh ]]; then
-  source ~/.vim/plugged/gruvbox/gruvbox_256palette.sh
-fi
-
-# # source in our super secret stuff
-# if [[ -a ~/.localrc ]]; then
-#   source ~/.localrc
-# fi
-
-# source all .zsh files inside of the zsh/ directory
-for config ($DOT_FILES/zsh/**/*.zsh) source $config
-
-export CDPATH=.:~:~/Development:~/Development/playground
-
-# # optimise compinit
-# autoload -Uz compinit
-# for dump in ~/.zcompdump(N.mh+24); do
-#   compinit
-# done
-# compinit -C
-
-nvm() {
-  unset -f nvm
-  export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-  nvm "$@"
-}
-
-node() {
-  unset -f node
-  export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-  node "$@"
-}
-
-npm() {
-  unset -f npm
-  export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-  npm "$@"
-}
+source ~/.zshrc.local
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
 # zprof # profile zsh startup
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
