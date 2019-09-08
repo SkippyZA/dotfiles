@@ -2,6 +2,8 @@
 export ZSH=~/.oh-my-zsh
 export DOT_FILES=~/.dotfiles
 export EDITOR='nvim'
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Oh-my-zsh theme
 ZSH_THEME="mytheme"
@@ -12,27 +14,23 @@ source $ZSH/oh-my-zsh.sh
 # enable vi mode
 set -o vi
 
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.dotfiles/bin"
-export LANG=en_US.UTF-8
 
 # load gruvbox color scheme
 if [[ -a ~/.vim/plugged/gruvbox/gruvbox_256palette.sh ]]; then
   source ~/.vim/plugged/gruvbox/gruvbox_256palette.sh
 fi
 
-# source in our super secret stuff
-if [[ -a ~/.localrc ]]; then
-  source ~/.localrc
-fi
-
 # source all .zsh files inside of the zsh/ directory
 for config ($DOT_FILES/zsh/**/*.zsh) source $config
 
 export CDPATH=.:~:~/Development:~/Development/playground
+
+# source in our super secret stuff
+if [[ -a ~/.localrc ]]; then
+  source ~/.localrc
+fi
 
 # # optimise compinit
 # autoload -Uz compinit
