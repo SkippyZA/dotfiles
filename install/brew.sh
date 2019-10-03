@@ -16,6 +16,8 @@ brew install axel
 brew install task
 brew install httpie
 brew install pgcli # postgres cli
+brew install kubernetes-cli
+brew install kubectx
 
 # python
 brew install python
