@@ -16,6 +16,7 @@ brew install axel
 brew install task
 brew install httpie
 brew install pgcli # postgres cli
+brew install jq
 
 # python
 brew install python
