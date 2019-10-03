@@ -1,6 +1,9 @@
 # zmodload zsh/zprof # profile zsh startup
 source ~/.zshrc.local
 
+# add default node version to path
+export PATH="$PATH:$HOME/.nvm/versions/node/v10.16.3/bin"
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
