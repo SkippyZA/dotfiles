@@ -13,9 +13,10 @@ Plug 'tpope/vim-projectionist' " projectionist project config
 Plug 'simeji/winresizer' " resize windows with h,j,k,l
 Plug 'roman/golden-ratio' " resize windows to the gold ratio
 Plug 'majutsushi/tagbar' " browse tags
+Plug 'jlanzarotta/bufexplorer' " buffer explorer and management
 
 " productivity
-Plug 'vimwiki/vimwiki' " personal wiki
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' } " personal wiki
 Plug 'diepm/vim-rest-console' " http client
 
 " git
@@ -33,6 +34,7 @@ Plug 'kana/vim-textobj-user' " create own test segments. required for Julian/vim
 Plug 'Julian/vim-textobj-variable-segment' " segments for camelCase, sanke-case etc
 Plug 'AndrewRadev/splitjoin.vim' " split join blocks of code
 Plug 'tpope/vim-eunuch' " unix commands in vim
+" Plug 'easymotion/vim-easymotion'
 
 Plug 'mileszs/ack.vim' " search inside files using ack. Same as command line ack utility, but use :Ack
 Plug 'benmills/vimux' " tmux integration for vim
@@ -49,6 +51,9 @@ Plug 'ruanyl/coverage.vim' " code coverage
 Plug 'janko-m/vim-test' " running of unit tests
 
 Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': { -> coc#util#install() } }
+
+" markdown
+Plug 'plasticboy/vim-markdown'
 
 " typescript
 Plug 'HerringtonDarkholme/yats.vim', { 'for': [ 'typescript' ] }
