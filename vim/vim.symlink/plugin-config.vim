@@ -35,8 +35,8 @@ let g:NERDTreeAutoDeleteBuffer = 1
 
 " vim-wiki
 let my_wiki = {}
-let my_wiki.path = '~/Library/Mobile Documents/com~apple~CloudDocs/.terminal-stuff/vimwiki/'
-let my_wiki.html_template = '~/Library/Mobile Documents/com~apple~CloudDocs/.terminal-stuff/vimwiki-html/'
+let my_wiki.path = '~/Library/Mobile\ Documents/com~apple~CloudDocs/.terminal-stuff/vimwiki/'
+let my_wiki.html_template = '~/Library/Mobile\ Documents/com~apple~CloudDocs/.terminal-stuff/vimwiki-html/'
 let my_wiki.nested_syntaxes = { 'js': 'javascript' }
 let g:vimwiki_list = [ my_wiki ]
 
