@@ -35,10 +35,17 @@ let g:NERDTreeAutoDeleteBuffer = 1
 
 " vim-wiki
 let my_wiki = {}
-let my_wiki.path = '~/Library/Mobile\ Documents/com~apple~CloudDocs/.terminal-stuff/vimwiki/'
-let my_wiki.html_template = '~/Library/Mobile\ Documents/com~apple~CloudDocs/.terminal-stuff/vimwiki-html/'
-let my_wiki.nested_syntaxes = { 'js': 'javascript', 'yml': 'yaml', 'yaml': 'yaml', 'bash': 'bash', 'json': 'json', 'rb': 'ruby' }
+let my_wiki.path_html        = '$HOME/Documents/vimwiki-html/'
+let my_wiki.path             = '$HOME/Documents/.vimwiki/'
+let my_wiki.template_path    = '$HOME/Documents/.vimwiki/html-template/'
+let my_wiki.template_default = 'default'
+let my_wiki.template_ext     = '.tpl'
+let my_wiki.nested_syntaxes = { 'js': 'javascript', 'yml': 'yaml', 'yaml': 'yaml', 'bash': 'bash', 'json': 'json', 'rb': 'ruby', 'ruby': 'ruby' }
+
 let g:vimwiki_list = [ my_wiki ]
+let g:vimwiki_dir_link = 'index'    " Open /index instead of directory listing.
+let g:vimwiki_folding = 'expr'      " Enable folding.
+autocmd FileType vimwiki set spell  " Enable spelling.
 
 " Ultisnips
 let g:UltiSnipsExpandTrigger = "<c-j>"
