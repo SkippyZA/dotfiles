@@ -18,5 +18,6 @@ source install/zsh.sh
 source install/fonts.sh
 source install/node.sh
 source install/ruby.sh
+source install/appstore.sh
 
 echo -e "\nComplete"
