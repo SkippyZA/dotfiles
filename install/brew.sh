@@ -19,6 +19,7 @@ brew install pgcli # postgres cli
 brew install jq
 brew install kubernetes-cli
 brew install kubectx
+brew install tig
 
 # python
 brew install python
