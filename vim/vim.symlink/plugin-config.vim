@@ -65,6 +65,9 @@ let g:vrc_curl_opts = {
   \ '--insecure': '',
 \}                                " default curl options
 
+" Avro alias for syntax highlighting
+autocmd BufRead,BufNewFile *.avsc set filetype=avdl
+
 " vim-coc
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:coc_global_extensions = [

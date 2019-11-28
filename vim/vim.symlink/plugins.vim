@@ -70,6 +70,9 @@ Plug 'fatih/vim-go', { 'for': [ 'go', 'golang' ] }
 " graphql
 Plug 'jparise/vim-graphql'
 
+" Avro highlighting
+Plug 'gurpreetatwal/vim-avro'
+
 " ruby
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-rails', { 'for': [ 'ruby' ] }

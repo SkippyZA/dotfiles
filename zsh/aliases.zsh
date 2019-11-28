@@ -58,6 +58,9 @@ alias pumpitup="osascript -e 'set volume 10'"
 alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 
 
+# Lazydocker
+alias lzd="lazydocker"
+
 # ==============================================================
 # Git aliases
 # ==============================================================
