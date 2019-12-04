@@ -93,6 +93,9 @@ alias dsa="docker ps -q | awk '{print $1}' | xargs -o docker stop"
 # Lazydocker
 alias lzd="lazydocker"
 
+# Hex dump
+alias hd="hexdump -C"
+
 # ==============================================================
 # Git aliases
 # ==============================================================
