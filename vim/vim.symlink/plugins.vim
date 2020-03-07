@@ -67,6 +67,9 @@ Plug 'artur-shaik/vim-javacomplete2', { 'for': [ 'java' ] }
 " go
 Plug 'fatih/vim-go', { 'for': [ 'go', 'golang' ] }
 
+" helm template
+Plug 'towolf/vim-helm'
+
 " graphql
 Plug 'jparise/vim-graphql'
 
