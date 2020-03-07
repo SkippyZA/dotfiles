@@ -96,6 +96,9 @@ alias lzd="lazydocker"
 # Hex dump
 alias hd="hexdump -C"
 
+# Infra.app
+alias infra="open /Applications/Infra.app"
+
 # ==============================================================
 # Git aliases
 # ==============================================================
