@@ -8,7 +8,7 @@ export LANG=en_US.UTF-8
 # Oh-my-zsh theme
 ZSH_THEME="mytheme"
 
-plugins=(vi-mode git osx httpie sudo)
+plugins=(vi-mode docker git osx httpie sudo)
 source $ZSH/oh-my-zsh.sh
 
 # enable vi mode
