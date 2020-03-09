@@ -1,7 +1,7 @@
 {
   "suggest.autoTrigger": "none",
 
-  "diagnostic.virtualText": true,
+  "diagnostic.virtualText": false,
   "diagnostic.displayByAle": false,
 
   "coc.preferences.hoverTarget": "float",
