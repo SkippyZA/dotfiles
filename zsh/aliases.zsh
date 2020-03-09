@@ -144,5 +144,6 @@ alias flipt="printf '(╯°□°)╯︵ ┻━┻' | pbcopy"
 alias fight="printf '(ง'̀-'́)ง' | pbcopy"
 
 alias n=npx
+alias y=yarn
 
 alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
