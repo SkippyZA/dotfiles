@@ -8,7 +8,7 @@ export LANG=en_US.UTF-8
 # Oh-my-zsh theme
 ZSH_THEME="mytheme"
 
-plugins=(vi-mode git osx httpie sudo)
+plugins=(vi-mode docker git osx httpie sudo)
 source $ZSH/oh-my-zsh.sh
 
 # enable vi mode
@@ -32,12 +32,6 @@ if [[ -a ~/.localrc ]]; then
   source ~/.localrc
 fi
 
-# # optimise compinit
-# autoload -Uz compinit
-# for dump in ~/.zcompdump(N.mh+24); do
-#   compinit
-# done
-# compinit -C
 
 # Lazy load nvm on first use
 nvm() {
@@ -46,17 +40,3 @@ nvm() {
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
   nvm "$@"
 }
-
-# node() {
-#   unset -f node
-#   export NVM_DIR=~/.nvm
-#   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-#   node "$@"
-# }
-
-# npm() {
-#   unset -f npm
-#   export NVM_DIR=~/.nvm
-#   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-#   npm "$@"
-# }
