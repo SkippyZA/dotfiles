@@ -128,6 +128,9 @@ endfunction
 
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 
+" use goimports instead of gofmt when saving
+let g:go_fmt_command = "goimports"
+
 
 
 " TypeScript
