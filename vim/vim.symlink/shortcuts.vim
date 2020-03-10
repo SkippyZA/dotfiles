@@ -25,6 +25,9 @@ nmap <silent> <leader>tb :TagbarToggle<cr>
 nmap <silent> <F8> :TagbarToggle<cr>
 imap <silent> <F8> :TagbarToggle<cr>
 
+" close quickfix
+nmap <silent> <leader>qc :cclose<cr>
+
 " toggle paste mode
 map <leader>v :set paste!<cr>
 
