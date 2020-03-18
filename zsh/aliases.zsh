@@ -61,6 +61,15 @@ alias k="kubectl"
 
 alias av="aws-vault"
 
+# Hex dump
+alias hd="hexdump -C"
+
+# Infra.app
+alias infra="open /Applications/Infra.app"
+
+# timestamp
+alias timestamp="date '+%s'"
+
 # ==============================================================
 # Docker
 # ==============================================================
@@ -92,12 +101,6 @@ alias dsa="docker ps -q | awk '{print $1}' | xargs -o docker stop"
 
 # Lazydocker
 alias lzd="lazydocker"
-
-# Hex dump
-alias hd="hexdump -C"
-
-# Infra.app
-alias infra="open /Applications/Infra.app"
 
 # ==============================================================
 # Git aliases
