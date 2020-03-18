@@ -65,7 +65,7 @@ Plug 'neoclide/jsonc.vim'
 Plug 'artur-shaik/vim-javacomplete2', { 'for': [ 'java' ] }
 
 " go
-Plug 'fatih/vim-go', { 'for': [ 'go', 'golang' ] }
+Plug 'fatih/vim-go', { 'for': [ 'go', 'golang' ], 'do': ':GoInstallBinaries' }
 
 " helm template
 Plug 'towolf/vim-helm'
