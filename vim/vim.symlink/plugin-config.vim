@@ -127,6 +127,7 @@ endfunction
 
 " tagbar
 let g:tagbar_autofocus = 1    " focus tagbar when opening
+let g:tagbar_width = 60       " set the width to 60 columns (default: 40)
 
 " Use `:Format` for format current buffer
 command! -nargs=0 Format :call CocAction('format')
