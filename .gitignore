@@ -1,3 +1,4 @@
+.DS_Store
 oh-my-zsh/
 resources/**
 !resources/**/*.terminfo
@@ -7,12 +8,11 @@ npm-debug.log
 
 plug.vim.old
 
-config/nvim/spell
-config/nvim/shada
-config/nvim/plugged
-vim/vim.symlink/spell/
-vim/vim.symlink/plugged/
-vim/vim.symlink/view/
+files/.config/coc/extensions/
 
-vim/vim.symlink/undo/
-vim/vim.symlink/viminfo
+files/.config/nvim/spell
+files/.config/nvim/shada
+files/.config/nvim/plugged
+files/.config/nvim/undo
+files/.config/nvim/swap
+files/.config/nvim/viminfo

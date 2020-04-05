@@ -9,6 +9,9 @@
 [init]
   templatedir = ~/.dotfiles/git/templates
 
+[commit]
+	gpgsign = true
+
 [alias]
   # list all aliases
   la = "!git config -l | grep alias | cut -c 7-"
