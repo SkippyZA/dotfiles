@@ -13,7 +13,7 @@ brew:
 symlinks:
 	@if [ ! -d ~/.oh-my-zsh ]; then git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh &>/dev/null; fi
 	@if [ ! -f ~/.oh-my-zsh/themes/skippy.zsh-theme ]; then ln -s ~/.dotfiles/extra/zsh/skippy.zsh-theme ~/.oh-my-zsh/themes/skippy.zsh-theme &>/dev/null; fi
-	@stow -v --stow --ignore ".DS_Store" --target="$(HOME)" --dir="$(DOTFILES)" files
+	@stow -v --stow --dotfiles --ignore ".DS_Store" --target="$(HOME)" --dir="$(DOTFILES)" files
 
 ## tmux: Setup tpm and run a new tmux server
 tmux:
