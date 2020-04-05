@@ -8,8 +8,10 @@ npm-debug.log
 
 plug.vim.old
 
-files/.config/coc/extensions/
+files/.config/configstore
+files/.config/fontforge
 
+files/.config/coc/extensions
 files/.config/nvim/spell
 files/.config/nvim/shada
 files/.config/nvim/plugged
