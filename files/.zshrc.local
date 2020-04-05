@@ -1,0 +1,302 @@
+# ZSH configuration
+
+# Config {{{
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+setopt NO_BG_NICE
+setopt NO_HUP
+setopt NO_LIST_BEEP
+setopt LOCAL_OPTIONS
+setopt LOCAL_TRAPS
+setopt PROMPT_SUBST
+
+# history
+setopt HIST_VERIFY
+setopt EXTENDED_HISTORY
+setopt HIST_REDUCE_BLANKS
+setopt HIST_IGNORE_ALL_DUPS
+setopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY
+setopt APPEND_HISTORY
+
+# don't expand aliases _before_ completion has finished
+#   like: git comm-[tab]
+setopt complete_aliases
+
+# Path to your oh-my-zsh installation.
+export ZSH=~/.oh-my-zsh
+export DOT_FILES=~/.dotfiles
+export EDITOR='nvim'
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# Oh-my-zsh theme
+ZSH_THEME="skippy"
+# ZSH_THEME="agnoster"
+
+plugins=(vi-mode docker git osx httpie sudo)
+source $ZSH/oh-my-zsh.sh
+
+# enable vi mode
+set -o vi
+
+# User configuration
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.dotfiles/bin"
+
+# load gruvbox color scheme
+if [[ -a ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh ]]; then
+  source ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh
+fi
+
+# # # source all .zsh files inside of the zsh/ directory
+# # for config ($DOT_FILES/zsh/**/*.zsh) source $config
+
+export CDPATH=.:~:~/Development:~/Development/playground
+
+# source in our super secret stuff
+if [[ -a ~/.localrc ]]; then
+  source ~/.localrc
+fi
+
+# Lazy load nvm on first use
+nvm() {
+  unset -f nvm
+  export NVM_DIR=~/.nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  nvm "$@"
+}
+
+# }}}
+
+# Colours - DEPRECATED {{{
+
+# COLOR_BLACK="\e[0;30m"
+# COLOR_BLUE="\e[0;34m"
+# COLOR_GREEN="\e[0;32m"
+# COLOR_CYAN="\e[0;36m"
+# COLOR_PINK="\e[0;35m"
+# COLOR_RED="\e[0;31m"
+# COLOR_PURPLE="\e[0;35m"
+# COLOR_BROWN="\e[0;33m"
+# COLOR_LIGHTGRAY="\e[0;37m"
+# COLOR_DARKGRAY="\e[1;30m"
+# COLOR_LIGHTBLUE="\e[1;34m"
+# COLOR_LIGHTGREEN="\e[1;32m"
+# COLOR_LIGHTCYAN="\e[1;36m"
+# COLOR_LIGHTRED="\e[1;31m"
+# COLOR_LIGHTPURPLE="\e[1;35m"
+# COLOR_YELLOW="\e[1;33m"
+# COLOR_WHITE="\e[1;37m"
+# COLOR_NONE="\e[0m"
+
+# }}}
+
+# Keybinds {{{
+
+bindkey "^r" history-incremental-search-backward
+
+# make search up and down work, so partially type and hit up/down to find relevant stuff
+bindkey "^[[A" up-line-or-search
+bindkey "^[[B" down-line-or-search
+bindkey " " magic-space    # also do history expansion on space
+
+# Make the delete key (or Fn + Delete on the Mac) work instead of outputting a ~
+bindkey "^?" backward-delete-char
+bindkey "^[[3~" delete-char
+bindkey "^[3;5~" delete-char
+bindkey "\e[3~" delete-char
+bindkey "^[[3~" delete-char
+
+# }}}
+
+# Alias {{{
+
+# reload zsh config
+alias reload!='source ~/.zshrc'
+
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+    colorflag="--color"
+else # OS X `ls`
+    colorflag="-G"
+fi
+
+alias l="ls -lah ${colorflag}"
+alias la="ls -AF ${colorflag}"
+alias ll="ls -lFh ${colorflag}"
+alias lld="ls -l | grep ^d"
+alias rmf="rm -rf"
+
+# gcalcli
+alias gcal="gcalcli"
+alias cal="gcal"
+alias oldcal="\cal"
+alias agenda="cal agenda"
+alias week="cal calw 1 --width 20"
+alias myagenda="agenda --calendar $DEFAULT_GOOGLE_CALENDAR"
+alias myweek="week --calendar $DEFAULT_GOOGLE_CALENDAR"
+
+# Helpers
+alias grep='grep --color=auto'
+alias df='df -h' # disk free, in Gigabytes, not bytes
+alias du='du -h -c' # calculate disk usage for a folder
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+
+# Flush Directory Service cache
+alias flush="dscacheutil -flushcache"
+
+# Trim new lines and copy to clipboard
+alias trimcopy="tr -d '\n' | pbcopy"
+
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
+
+# File size
+alias fs="stat -f \"%z bytes\""
+
+# Hide/show all desktop icons (useful when presenting)
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# Stuff I never really use but cannot delete either because of http://xkcd.com/530/
+alias stfu="osascript -e 'set volume output muted true'"
+alias pumpitup="osascript -e 'set volume 10'"
+
+# Kill all the tabs in Chrome to free up memory
+# [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
+alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
+
+alias k="kubectl"
+
+alias av="aws-vault"
+
+# Hex dump
+alias hd="hexdump -C"
+
+# Infra.app
+alias infra="open /Applications/Infra.app"
+
+# timestamp
+alias timestamp="date '+%s'"
+
+# fzf-mark
+alias m="mark"
+alias fm="fzm"
+
+# ==============================================================
+# Docker
+# ==============================================================
+# Start the docker-compose stack in the current directory
+alias dcu="docker-compose up -d"
+
+# Start the docker-compose stack in the current directory and rebuild the images
+alias dcub="docker-compose up -d --build"
+
+# Stop, delete (down) or restart the docker-compose stack in the current directory
+alias dcs="docker-compose stop"
+alias dcd="docker-compose down"
+alias dcr="docker-compose restart"
+
+# Quickly run the docker-compose exec command like this: 'dce service-name bash'
+alias dce="docker-compose exec "
+
+# Show the logs for the docker-compose stack in the current directory
+# May be extended with the service name to get service-specific logs, like
+# 'dcl php' to get the logs of the php container
+alias dcl="docker-compose logs"
+
+# Execute ps for docker-compose
+alias dcps="docker-compose ps"
+
+# 'docker ps' displays the currently running containers
+alias dps="docker ps"
+
+# This command is a neat shell pipeline to stop all running containers no matter
+# where you are and without knowing any container names
+alias dsa="docker ps -q | awk '{print $1}' | xargs -o docker stop"
+
+# Lazydocker
+alias lzd="lazydocker"
+
+# ==============================================================
+# Git aliases
+# ==============================================================
+alias git="hub -c core.commentChar='%'"
+alias gcob="git checkout -b"
+alias gc="git cola"
+alias gco="git checkout"
+alias gs="git status -sb"
+alias gst="git status -sb"
+alias gd="git diff --color-words"
+alias gpf="git pull --ff-only"
+alias gp="git pull"
+alias gpom="git pull --ff-only origin master"
+alias gf="git fetch"
+alias gfo="git fetch origin"
+alias gm="git merge"
+alias gl="git lg"
+alias gb="git branch"
+alias ga="git add"
+
+# ==============================================================
+# Other usefull shortcuts
+# ==============================================================
+alias sl="ls"
+alias shutdown='sudo shutdown –h now'
+alias restart='sudo shutdown –r now'
+alias docker-rm-all="docker ps -a | grep 'Exited' | awk '{print $1}' | xargs docker rm"
+alias dc="docker-compose"
+alias lsdir="find . -maxdepth 1 -type d -mindepth 1 -exec du -hs {} \;"
+
+# ==============================================================
+# Use neovim instead of vim
+# ==============================================================
+alias vim="NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim"
+alias vi="NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim"
+alias oldvim="\vim"
+
+# Close terminal with vim :q
+alias :q="exit"
+
+alias shrug="printf '¯\_(ツ)_/¯' | pbcopy"
+alias flipt="printf '(╯°□°)╯︵ ┻━┻' | pbcopy"
+alias fight="printf '(ง'̀-'́)ง' | pbcopy"
+
+alias n=npx
+alias y=yarn
+
+alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
+# }}}
+
+# AWS Vault {{{
+
+export AWS_VAULT_KEYCHAIN_NAME=login
+export AWS_VAULT_BACKEND=keychain
+
+# }}}
+
+# Grep {{{
+
+export GREP_OPTIONS='--color=auto'
+export GREP_COLOR='1;32'
+
+# }}}
+
+# Plugins {{{
+
+# Enable fzf for zs completion
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Enable marks plugin
+source $HOME/fzf-marks/fzf-marks.plugin.zsh
+
+# }}}
+
+# vim:fdm=marker foldlevel=0 foldenable

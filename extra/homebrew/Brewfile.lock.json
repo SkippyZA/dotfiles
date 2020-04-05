@@ -2,7 +2,7 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "e69b360800f84622f88cb7bb45733fc6f5df3242"
+        "revision": "d944ae07a30d04fb7eeb8f25cf88eb3af6b57e9f"
       },
       "homebrew/cask-fonts": {
         "revision": "d67992875ef158ba31c59dc9a89aaf1e4d348fdb"
@@ -940,6 +940,24 @@
         "version": "0.32.0-344",
         "options": {
           "full_name": "vimr",
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "font-sourcecodepro-nerd-font": {
+        "version": "2.0.0",
+        "options": {
+          "full_name": "font-sourcecodepro-nerd-font",
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "font-sourcecodepro-nerd-font-mono": {
+        "version": "2.0.0",
+        "options": {
+          "full_name": "font-sourcecodepro-nerd-font-mono",
           "args": {
             "appdir": "/Applications"
           }
