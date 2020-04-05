@@ -1,10 +1,11 @@
 call plug#begin('~/.vim/plugged')
 
-" colorschemes
+" Color schemes {{{
 Plug 'jacoborus/tender.vim'
 Plug 'gruvbox-community/gruvbox'
+" }}}
 
-" workspace
+" Workspace {{{
 Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons' " file drawer
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
 Plug 'vim-airline/vim-airline' " fancy statusline
@@ -14,17 +15,20 @@ Plug 'simeji/winresizer' " resize windows with h,j,k,l
 Plug 'roman/golden-ratio' " resize windows to the gold ratio
 Plug 'majutsushi/tagbar' " browse tags
 Plug 'jlanzarotta/bufexplorer' " buffer explorer and management
+" }}}
 
-" productivity
+" Productivity {{{
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' } " personal wiki
 Plug 'diepm/vim-rest-console' " http client
+" }}}
 
-" git
+" Git {{{
 Plug 'tpope/vim-fugitive' " amazing git wrapper for vim
 Plug 'jez/vim-github-hub' " make use of hub to create PRs
 Plug 'tpope/vim-rhubarb' " GitHub extension for vim-fugitive
+" }}}
 
-" utilities
+" Utilities {{{
 Plug 'Shougo/denite.nvim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Raimondi/delimitMate' " automatic closing of quotes, parenthesis, brackets, etc.
@@ -35,6 +39,8 @@ Plug 'Julian/vim-textobj-variable-segment' " segments for camelCase, sanke-case 
 Plug 'AndrewRadev/splitjoin.vim' " split join blocks of code
 Plug 'tpope/vim-eunuch' " unix commands in vim
 " Plug 'easymotion/vim-easymotion'
+Plug 'voldikss/vim-floaterm'
+Plug 'dhruvasagar/vim-table-mode' " maintain text tables
 
 Plug 'mileszs/ack.vim' " search inside files using ack. Same as command line ack utility, but use :Ack
 Plug 'benmills/vimux' " tmux integration for vim
@@ -45,36 +51,23 @@ Plug 'tpope/vim-dispatch' " asynchronous build and test dispatcher
 Plug 'tpope/vim-ragtag' " endings for html, xml, etc. - enhances surround
 Plug 'tpope/vim-repeat' " enables repeating other supported plugins with the . command
 Plug 'tommcdo/vim-exchange' " text exchange operation
+" }}}
 
-" testing tools
+" Testing tools {{{
 Plug 'ruanyl/coverage.vim' " code coverage
 Plug 'janko-m/vim-test' " running of unit tests
+" }}}
 
+" Language {{{
 Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': { -> coc#util#install() } }
-
-" markdown
-Plug 'plasticboy/vim-markdown'
-
-" typescript
-Plug 'HerringtonDarkholme/yats.vim', { 'for': [ 'typescript' ] }
-
-" json
-Plug 'neoclide/jsonc.vim'
-
-" java
-Plug 'artur-shaik/vim-javacomplete2', { 'for': [ 'java' ] }
-
-" go
-Plug 'fatih/vim-go', { 'for': [ 'go', 'golang' ], 'do': ':GoInstallBinaries' }
-
-" helm template
-Plug 'towolf/vim-helm'
-
-" graphql
-Plug 'jparise/vim-graphql'
-
-" Avro highlighting
-Plug 'gurpreetatwal/vim-avro'
+Plug 'plasticboy/vim-markdown' " markdown
+Plug 'HerringtonDarkholme/yats.vim', { 'for': [ 'typescript' ] } " typescript
+Plug 'neoclide/jsonc.vim' " json
+Plug 'artur-shaik/vim-javacomplete2', { 'for': [ 'java' ] } " java
+Plug 'fatih/vim-go', { 'for': [ 'go', 'golang' ], 'do': ':GoInstallBinaries' } " go
+Plug 'towolf/vim-helm' " helm template
+Plug 'jparise/vim-graphql' " graphql
+Plug 'gurpreetatwal/vim-avro' " Avro highlighting
 
 " ruby
 Plug 'tpope/vim-rake'
@@ -86,4 +79,7 @@ Plug 'vim-ruby/vim-ruby', { 'for': [ 'ruby' ] }
 Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion', { 'for': [ 'tf', 'terraform' ] }
 
+" }}}
+
 call plug#end()
+" vim:fdm=marker

@@ -92,6 +92,9 @@ alias dce="docker-compose exec "
 # 'dcl php' to get the logs of the php container
 alias dcl="docker-compose logs"
 
+# Execute ps for docker-compose
+alias dcps="docker-compose ps"
+
 # 'docker ps' displays the currently running containers
 alias dps="docker ps"
 
