@@ -44,7 +44,7 @@ nnoremap <leader>/ "fyiw :/<c-r>f<cr>
 " if isdirectory(".git")
 "   nmap <silent> <c-n> :GFiles<cr>
 " else
-  nmap <silent> <c-n> :FZF<cr>
+  " nmap <silent> <c-n> :FZF<cr>
 " endif
 
 " unit testing
@@ -110,130 +110,153 @@ nnoremap <leader>gb :Gblame<CR>
 " Table table mode
 nnoremap <leader>tm :TableModeToggle<CR>
 
-" floaterm
-let g:floaterm_position      = 'center'
-let g:floaterm_keymap_new    = '<F7>'
-let g:floaterm_keymap_prev   = '<F8>'
-let g:floaterm_keymap_next   = '<F9>'
-let g:floaterm_keymap_toggle = '<F10>'
 
-" Creates a floating window with a most recent buffer to be used
-function! CreateCenteredFloatingWindow()
-  let width = float2nr(&columns * 0.8)
-  let height = float2nr(&lines * 0.8)
-  let top = ((&lines - height) / 2) - 1
-  let left = (&columns - width) / 2
-  let opts = {'relative': 'editor', 'row': top, 'col': left, 'width': width, 'height': height, 'style': 'minimal'}
+" fzf-preview
 
-  let top = "╭" . repeat("─", width - 2) . "╮"
-  let mid = "│" . repeat(" ", width - 2) . "│"
-  let bot = "╰" . repeat("─", width - 2) . "╯"
-  let lines = [top] + repeat([mid], height - 2) + [bot]
-  let s:buf = nvim_create_buf(v:false, v:true)
-  call nvim_buf_set_lines(s:buf, 0, -1, v:true, lines)
-  call nvim_open_win(s:buf, v:true, opts)
-  set winhl=Normal:Floating
-  let opts.row += 1
-  let opts.height -= 2
-  let opts.col += 2
-  let opts.width -= 4
-  call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
-  autocmd BufWipeout <buffer> call CleanupBuffer(s:buf)
-  tnoremap <buffer> <silent> <Esc> <C-\><C-n><CR>:call DeleteUnlistedBuffers()<CR>
-endfunction
+let g:fzf_preview_command = 'bat --color=always --style=grid --theme=gruvbox {-1}'
 
-" When term starts, auto go into insert mode
-autocmd TermOpen * startinsert
+nmap <Leader>f [fzf-p]
+xmap <Leader>f [fzf-p]
 
-" Turn off line numbers etc
-autocmd TermOpen * setlocal listchars= nonumber norelativenumber
+nnoremap <silent> <C-n>        :<C-u>FzfPreviewFromResources project git<CR>
+nnoremap <silent> <leader>fgs    :<C-u>FzfPreviewGitStatus<CR>
+nnoremap <silent> <leader>fb     :<C-u>FzfPreviewBuffers<CR>
+nnoremap <silent> <leader>fB     :<C-u>FzfPreviewAllBuffers<CR>
+nnoremap <silent> <leader>fo     :<C-u>FzfPreviewFromResources buffer project<CR>
+nnoremap <silent> <leader>f<C-o> :<C-u>FzfPreviewJumps<CR>
+nnoremap <silent> <leader>fg;    :<C-u>FzfPreviewChanges<CR>
+nnoremap <silent> <leader>f/     :<C-u>FzfPreviewLines -add-fzf-arg=--no-sort -add-fzf-arg=--query="'"<CR>
+nnoremap <silent> <leader>f*     :<C-u>FzfPreviewLines -add-fzf-arg=--no-sort -add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
+nnoremap          <leader>fgr    :<C-u>FzfPreviewProjectGrep<Space>
+xnoremap          <leader>fgr    "sy:FzfPreviewProjectGrep<Space>-F<Space>"<C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>"
+nnoremap <silent> <leader>ft     :<C-u>FzfPreviewBufferTags<CR>
+nnoremap <silent> <leader>fq     :<C-u>FzfPreviewQuickFix<CR>
+nnoremap <silent> <leader>fl     :<C-u>FzfPreviewLocationList<CR>
 
-function! ToggleTerm(cmd)
-  if empty(bufname(a:cmd))
-    call CreateCenteredFloatingWindow()
-    call termopen(a:cmd, { 'on_exit': function('OnTermExit') })
-  else
-    call DeleteUnlistedBuffers()
-  endif
-endfunction
+" " floaterm
+" let g:floaterm_position      = 'center'
+" let g:floaterm_keymap_new    = '<F7>'
+" let g:floaterm_keymap_prev   = '<F8>'
+" let g:floaterm_keymap_next   = '<F9>'
+" let g:floaterm_keymap_toggle = '<F10>'
 
-" Open Project
-function! ToggleProject()
-  call ToggleTerm('tmuxinator-fzf-start.sh')
-endfunction
+" " Creates a floating window with a most recent buffer to be used
+" function! CreateCenteredFloatingWindow()
+"   let width = float2nr(&columns * 0.8)
+"   let height = float2nr(&lines * 0.8)
+"   let top = ((&lines - height) / 2) - 1
+"   let left = (&columns - width) / 2
+"   let opts = {'relative': 'editor', 'row': top, 'col': left, 'width': width, 'height': height, 'style': 'minimal'}
 
-" Opens a throwaway/scratch terminal
-function! ToggleScratchTerm()
-  call ToggleTerm('zsh')
-endfunction
+"   let top = "╭" . repeat("─", width - 2) . "╮"
+"   let mid = "│" . repeat(" ", width - 2) . "│"
+"   let bot = "╰" . repeat("─", width - 2) . "╯"
+"   let lines = [top] + repeat([mid], height - 2) + [bot]
+"   let s:buf = nvim_create_buf(v:false, v:true)
+"   call nvim_buf_set_lines(s:buf, 0, -1, v:true, lines)
+"   call nvim_open_win(s:buf, v:true, opts)
+"   set winhl=Normal:Floating
+"   let opts.row += 1
+"   let opts.height -= 2
+"   let opts.col += 2
+"   let opts.width -= 4
+"   call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+"   autocmd BufWipeout <buffer> call CleanupBuffer(s:buf)
+"   tnoremap <buffer> <silent> <Esc> <C-\><C-n><CR>:call DeleteUnlistedBuffers()<CR>
+" endfunction
 
-" Opens lazygit
-function! ToggleLazyGit()
-  call ToggleTerm('lazygit')
-endfunction
+" " When term starts, auto go into insert mode
+" autocmd TermOpen * startinsert
 
-" Opens lazydocker
-function! ToggleLazyDocker()
-  call ToggleTerm('lazydocker')
-endfunction
-nnoremap <silent> <Leader>' :call ToggleLazyDocker()<CR>
+" " Turn off line numbers etc
+" autocmd TermOpen * setlocal listchars= nonumber norelativenumber
 
-" Opens harvest starti
-function! ToggleHarvest()
-  call ToggleTerm('hstarti')
-endfunction
+" function! ToggleTerm(cmd)
+"   if empty(bufname(a:cmd))
+"     call CreateCenteredFloatingWindow()
+"     call termopen(a:cmd, { 'on_exit': function('OnTermExit') })
+"   else
+"     call DeleteUnlistedBuffers()
+"   endif
+" endfunction
 
-function! OnTermExit(job_id, code, event) dict
-  if a:code == 0
-    call DeleteUnlistedBuffers()
-  endif
-endfunction
+" " Open Project
+" function! ToggleProject()
+"   call ToggleTerm('tmuxinator-fzf-start.sh')
+" endfunction
 
-function! DeleteUnlistedBuffers()
-  for n in nvim_list_bufs()
-    if ! buflisted(n)
-      let name = bufname(n)
-      if name == '[Scratch]' ||
-            \ matchend(name, ":zsh") ||
-            \ matchend(name, ":lazygit") ||
-            \ matchend(name, ":tmuxinator-fzf-start.sh") ||
-            \ matchend(name, ":hstarti")
-        call CleanupBuffer(n)
-      endif
-    endif
-  endfor
-endfunction
+" " Opens a throwaway/scratch terminal
+" function! ToggleScratchTerm()
+"   call ToggleTerm('zsh')
+" endfunction
 
-function! CleanupBuffer(buf)
-  if bufexists(a:buf)
-    silent execute 'bwipeout! '.a:buf
-  endif
-endfunction
+" " Opens lazygit
+" function! ToggleLazyGit()
+"   call ToggleTerm('lazygit')
+" endfunction
+
+" " Opens lazydocker
+" function! ToggleLazyDocker()
+"   call ToggleTerm('lazydocker')
+" endfunction
+" nnoremap <silent> <Leader>' :call ToggleLazyDocker()<CR>
+
+" " Opens harvest starti
+" function! ToggleHarvest()
+"   call ToggleTerm('hstarti')
+" endfunction
+
+" function! OnTermExit(job_id, code, event) dict
+"   if a:code == 0
+"     call DeleteUnlistedBuffers()
+"   endif
+" endfunction
+
+" function! DeleteUnlistedBuffers()
+"   for n in nvim_list_bufs()
+"     if ! buflisted(n)
+"       let name = bufname(n)
+"       if name == '[Scratch]' ||
+"             \ matchend(name, ":zsh") ||
+"             \ matchend(name, ":lazygit") ||
+"             \ matchend(name, ":tmuxinator-fzf-start.sh") ||
+"             \ matchend(name, ":hstarti")
+"         call CleanupBuffer(n)
+"       endif
+"     endif
+"   endfor
+" endfunction
+
+" function! CleanupBuffer(buf)
+"   if bufexists(a:buf)
+"     silent execute 'bwipeout! '.a:buf
+"   endif
+" endfunction
 
 
-" Use ripgrep for fzf
-" let $FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --iglob "!.DS_Store" --iglob "!.git"'
-" let $FZF_DEFAULT_COMMAND='fzf'
+" " Use ripgrep for fzf
+" " let $FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --iglob "!.DS_Store" --iglob "!.git"'
+" " let $FZF_DEFAULT_COMMAND='fzf'
 
-" Configure FZF to use a floating window configuration
-" let $FZF_DEFAULT_OPTS = '--layout=reverse --cycle'
-let $FZF_DEFAULT_OPTS = '--cycle'
-let g:fzf_colors =
-      \ { 'fg':    ['fg', 'Normal'],
-      \ 'bg':      ['bg', 'Normal'],
-      \ 'hl':      ['fg', 'Comment'],
-      \ 'fg+':     ['fg', 'CursorLine'],
-      \ 'bg+':     ['bg', 'Normal'],
-      \ 'hl+':     ['fg', 'Statement'],
-      \ 'info':    ['fg', 'PreProc'],
-      \ 'border':  ['fg', 'CursorLine'],
-      \ 'prompt':  ['fg', 'Conditional'],
-      \ 'pointer': ['fg', 'Exception'],
-      \ 'marker':  ['fg', 'Keyword'],
-      \ 'spinner': ['fg', 'Label'],
-      \ 'header':  ['fg', 'Comment'] }
+" " Configure FZF to use a floating window configuration
+" " let $FZF_DEFAULT_OPTS = '--layout=reverse --cycle'
+" let $FZF_DEFAULT_OPTS = '--cycle'
+" let g:fzf_colors =
+"       \ { 'fg':    ['fg', 'Normal'],
+"       \ 'bg':      ['bg', 'Normal'],
+"       \ 'hl':      ['fg', 'Comment'],
+"       \ 'fg+':     ['fg', 'CursorLine'],
+"       \ 'bg+':     ['bg', 'Normal'],
+"       \ 'hl+':     ['fg', 'Statement'],
+"       \ 'info':    ['fg', 'PreProc'],
+"       \ 'border':  ['fg', 'CursorLine'],
+"       \ 'prompt':  ['fg', 'Conditional'],
+"       \ 'pointer': ['fg', 'Exception'],
+"       \ 'marker':  ['fg', 'Keyword'],
+"       \ 'spinner': ['fg', 'Label'],
+"       \ 'header':  ['fg', 'Comment'] }
 
-let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
+" let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
 
 " Language specific mappings
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

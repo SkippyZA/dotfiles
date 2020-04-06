@@ -7,7 +7,7 @@
   user = SkippyZA
 
 [init]
-  templatedir = ~/.dotfiles/git/templates
+  templatedir = ~/.git/templates
 
 [commit]
 	gpgsign = true

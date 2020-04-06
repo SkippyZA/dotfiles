@@ -2,9 +2,9 @@
 
 EXIT_CODE=0
 
-repo=$( git rev-parse --show-toplevel )
+git rev-parse --show-toplevel )
 hook_type=$( basename $0 )
-hooks=~/.dotfiles/git/hooks
+hooks=~/.git/hooks
 
 echo "Executing $hook_type hook(s)"
 

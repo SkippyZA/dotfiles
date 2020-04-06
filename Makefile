@@ -3,7 +3,7 @@
 DOTFILES=${HOME}/.dotfiles
 TMUX_SHARE=${HOME}/.local/share/tmux
 
-all: brew neovim vim fzf-marks symlinks tmux
+all: brew neovim vim fzf-marks symlinks bat tmux
 
 ## brew: Install brew dependencies
 brew:
@@ -33,6 +33,10 @@ neovim:
 vim:
 	@ln -sf ${DOTFILES}/files/.config/nvim ${HOME}/.vim
 	@ln -sf ${DOTFILES}/files/.config/nvim/init.vim ${HOME}/.vimrc
+
+## bat: Rebuild 'bat' cache
+bat:
+	bat cache --build
 
 ## fzf-marks: List marks
 fzf-marks:
