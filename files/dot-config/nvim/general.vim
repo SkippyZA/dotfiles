@@ -85,3 +85,12 @@ set t_vb=
 set tm=500
 
 set mouse=a
+
+" coc.nvim
+
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c

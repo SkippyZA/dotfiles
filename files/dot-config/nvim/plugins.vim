@@ -33,7 +33,8 @@ Plug 'tpope/vim-rhubarb' " GitHub extension for vim-fugitive
 Plug 'Shougo/denite.nvim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Raimondi/delimitMate' " automatic closing of quotes, parenthesis, brackets, etc.
-Plug 'SirVer/ultisnips' " snippets plugin
+Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips' " snippets plugin
 Plug 'moll/vim-bbye' " delete buffers without closing windows
 Plug 'kana/vim-textobj-user' " create own test segments. required for Julian/vim-textobj-var.....
 Plug 'Julian/vim-textobj-variable-segment' " segments for camelCase, sanke-case etc
@@ -60,12 +61,13 @@ Plug 'janko-m/vim-test' " running of unit tests
 " }}}
 
 " Language {{{
-Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': { -> coc#util#install() } }
+" Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': { -> coc#util#install() } }
+Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': { -> coc#util#install() } }
 Plug 'plasticboy/vim-markdown' " markdown
 Plug 'HerringtonDarkholme/yats.vim', { 'for': [ 'typescript' ] } " typescript
 Plug 'neoclide/jsonc.vim' " json
 Plug 'artur-shaik/vim-javacomplete2', { 'for': [ 'java' ] } " java
-Plug 'fatih/vim-go', { 'for': [ 'go', 'golang' ], 'do': ':GoInstallBinaries' } " go
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } " go
 Plug 'towolf/vim-helm' " helm template
 Plug 'jparise/vim-graphql' " graphql
 Plug 'gurpreetatwal/vim-avro' " Avro highlighting
@@ -80,6 +82,10 @@ Plug 'vim-ruby/vim-ruby', { 'for': [ 'ruby' ] }
 Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion', { 'for': [ 'tf', 'terraform' ] }
 
+" }}}
+
+" Testing {{{
+Plug 'liuchengxu/vim-which-key'
 " }}}
 
 call plug#end()

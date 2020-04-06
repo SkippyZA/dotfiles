@@ -115,11 +115,8 @@ nnoremap <leader>tm :TableModeToggle<CR>
 
 let g:fzf_preview_command = 'bat --color=always --style=grid --theme=gruvbox {-1}'
 
-nmap <Leader>f [fzf-p]
-xmap <Leader>f [fzf-p]
-
 nnoremap <silent> <C-n>        :<C-u>FzfPreviewFromResources project git<CR>
-nnoremap <silent> <leader>fgs    :<C-u>FzfPreviewGitStatus<CR>
+" nnoremap <silent> <leader>fgs    :<C-u>FzfPreviewGitStatus<CR>
 nnoremap <silent> <leader>fb     :<C-u>FzfPreviewBuffers<CR>
 nnoremap <silent> <leader>fB     :<C-u>FzfPreviewAllBuffers<CR>
 nnoremap <silent> <leader>fo     :<C-u>FzfPreviewFromResources buffer project<CR>
@@ -132,6 +129,7 @@ xnoremap          <leader>fgr    "sy:FzfPreviewProjectGrep<Space>-F<Space>"<C-r>
 nnoremap <silent> <leader>ft     :<C-u>FzfPreviewBufferTags<CR>
 nnoremap <silent> <leader>fq     :<C-u>FzfPreviewQuickFix<CR>
 nnoremap <silent> <leader>fl     :<C-u>FzfPreviewLocationList<CR>
+
 
 " " floaterm
 " let g:floaterm_position      = 'center'

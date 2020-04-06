@@ -2,7 +2,7 @@
 
 EXIT_CODE=0
 
-git rev-parse --show-toplevel )
+repo=$( git rev-parse --show-toplevel )
 hook_type=$( basename $0 )
 hooks=~/.git/hooks
 

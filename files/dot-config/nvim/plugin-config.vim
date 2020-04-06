@@ -47,9 +47,9 @@ let g:vimwiki_dir_link = 'index'    " Open /index instead of directory listing.
 let g:vimwiki_folding = 'expr'      " Enable folding.
 autocmd FileType vimwiki set spell  " Enable spelling.
 
-" Ultisnips
-let g:UltiSnipsExpandTrigger = "<c-j>"
-let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
+" " Ultisnips
+" let g:UltiSnipsExpandTrigger = "<c-j>"
+" let g:UltiSnipsSnippetsDir = '~/.config/nvim/UltiSnips'
 
 " Golden Ratio
 let g:golden_ratio_autocommand = 0
@@ -71,38 +71,54 @@ autocmd BufRead,BufNewFile *.avsc set filetype=avdl
 " vim-coc
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:coc_global_extensions = [
-  \'coc-angular',
-  \'coc-css',
-  \'coc-java',
   \'coc-json',
-  \'coc-solargraph',
+  \'coc-go',
   \'coc-tslint-plugin',
   \'coc-tsserver',
-  \'coc-ultisnips',
-  \'coc-vetur',
-  \'coc-yaml',
-  \'coc-yank'
+  \'coc-snippets',
+  \'coc-yaml'
   \]
 
-" display yank list
-nnoremap <silent> <space>y  :<C-u>CocList --normal yank<cr>
+let g:coc_snippet_next = '<tab>'
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
 " Use <c-space> for trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> for confirm completion.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+if has('patch8.1.1068')
+  " Use `complete_info` if your (Neo)Vim version supports it.
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
 
 " Use `[c` and `]c` for navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
@@ -124,6 +140,14 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+
 
 " tagbar
 let g:tagbar_autofocus = 1    " focus tagbar when opening
