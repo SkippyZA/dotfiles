@@ -177,6 +177,9 @@ alias k="kubectl"
 
 alias av="aws-vault"
 
+# terraform
+alias tf="terraform"
+
 # Hex dump
 alias hd="hexdump -C"
 
