@@ -8,13 +8,9 @@ npm-debug.log
 
 plug.vim.old
 
-files/dot-config/configstore
-files/dot-config/fontforge
-
-files/dot-config/coc/extensions
-files/dot-config/nvim/spell
-files/dot-config/nvim/shada
-files/dot-config/nvim/plugged
-files/dot-config/nvim/undo
-files/dot-config/nvim/swap
-files/dot-config/nvim/viminfo
+files/nvim/.config/nvim/spell
+files/nvim/.config/nvim/shada
+files/nvim/.config/nvim/plugged
+files/nvim/.config/nvim/undo
+files/nvim/.config/nvim/swap
+files/nvim/.config/nvim/viminfo
