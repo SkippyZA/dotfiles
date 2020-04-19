@@ -44,12 +44,15 @@ source $ZSH/oh-my-zsh.sh
 set -o vi
 
 # User configuration
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.dotfiles/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.dotfiles/bin:$HOME/bin"
 
 # load gruvbox color scheme
 if [[ -a ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh ]]; then
   source ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh
 fi
+
+# Set GOPATH
+export GOPATH="$HOME/Development/golang"
 
 # # # source all .zsh files inside of the zsh/ directory
 # # for config ($DOT_FILES/zsh/**/*.zsh) source $config
