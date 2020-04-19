@@ -19,10 +19,8 @@ symlinks:
 	@stow -v --stow --ignore ".DS_Store" --target="$(HOME)" --dir="$(DOTFILES)/files" nvim
 	@stow -v --stow --ignore ".DS_Store" --target="$(HOME)" --dir="$(DOTFILES)/files" other
 	@stow -v --stow --ignore ".DS_Store" --target="$(HOME)" --dir="$(DOTFILES)/files" tmux
+	@stow -v --stow --ignore ".DS_Store" --target="$(HOME)" --dir="$(DOTFILES)/files" tmuxinator
 	@stow -v --stow --ignore ".DS_Store" --target="$(HOME)" --dir="$(DOTFILES)/files" zsh
-
-unstow:
-	@stow -v --delete --dotfiles --ignore ".DS_Store" --target="$(HOME)" --dir="$(DOTFILES)" files
 
 
 ## tmux: Setup tpm and run a new tmux server
