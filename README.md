@@ -11,5 +11,5 @@ git clone git@github.com:SkippyZA/dotfiles.git ~/.dotfiles
 
 cd ~/.dotfiles
 
-make all
+make install
 ```
