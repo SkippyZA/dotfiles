@@ -90,3 +90,5 @@
   default = current
 [cola]
 	spellcheck = false
+; [merge]
+; 	conflictstyle = diff3

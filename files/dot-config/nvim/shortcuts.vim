@@ -56,7 +56,8 @@ nmap <silent> <leader>l  :TestLast<CR>
 " prompt for a command to run
 map <leader>np :VimuxPromptCommand<cr>
 " run last command executed by RunVimTmuxCommand
-map <leader>nn :VimuxRunLastCommand<cr>
+map <leader>nn :VimuxInterruptRunner<cr>:VimuxRunLastCommand<cr>
+" map <leader>nn :VimuxRunLastCommand<cr>
 " interrupt any command running in the runner pane
 map <leader>nc :VimuxInterruptRunner<cr>
 
