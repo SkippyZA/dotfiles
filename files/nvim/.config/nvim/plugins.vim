@@ -27,7 +27,6 @@ Plug 'diepm/vim-rest-console' " http client
 Plug 'tpope/vim-fugitive' " amazing git wrapper for vim
 Plug 'jez/vim-github-hub' " make use of hub to create PRs
 Plug 'tpope/vim-rhubarb' " GitHub extension for vim-fugitive
-" Plug 'samoshkin/vim-mergetool' " vim merge tool
 " }}}
 
 " Utilities {{{
