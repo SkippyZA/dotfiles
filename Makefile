@@ -43,6 +43,7 @@ tmux:
 ## neovim: Install neovim with plugins
 neovim:
 	@python3 -m pip install --upgrade pynvim
+	@python3 -m pip install --upgrade neovim-remote
 	@nvim +PlugInstall +qall
 
 ## bat: Rebuild 'bat' cache

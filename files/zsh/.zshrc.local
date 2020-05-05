@@ -1,10 +1,17 @@
 # ZSH configuration
 
-# Config {{{
+# ZSH Config {{{
+
+export EDITOR='nvim'
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
+
+# enable vi mode
+set -o vi
 
 setopt NO_BG_NICE
 setopt NO_HUP
@@ -26,74 +33,58 @@ setopt APPEND_HISTORY
 #   like: git comm-[tab]
 setopt complete_aliases
 
+# }}}
+
+# Oh-my-zsh {{{
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
-export DOT_FILES=~/.dotfiles
-export EDITOR='nvim'
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
 
 # Oh-my-zsh theme
 ZSH_THEME="skippy"
-# ZSH_THEME="agnoster"
 
 plugins=(vi-mode docker git osx httpie sudo)
 source $ZSH/oh-my-zsh.sh
 
-# enable vi mode
-set -o vi
+# }}}
+
+# PATH config (cdpath, go, and .localrc) {{{
 
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.dotfiles/bin:$HOME/bin"
 
-# load gruvbox color scheme
-if [[ -a ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh ]]; then
-  source ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh
-fi
-
-# Set GOPATH
-export GOPATH="$HOME/Development/golang"
-
-# # # source all .zsh files inside of the zsh/ directory
-# # for config ($DOT_FILES/zsh/**/*.zsh) source $config
-
+# Easy 'cd' to common paths
 export CDPATH=.:~:~/Development:~/Development/playground
+
+# Configure GO
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+export PATH="$PATH:$GOBIN"
 
 # source in our super secret stuff
 if [[ -a ~/.localrc ]]; then
   source ~/.localrc
 fi
 
-# Lazy load nvm on first use
+# }}}
+
+# gruvbox color scheme {{{
+
+if [[ -a ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh ]]; then
+  source ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh
+fi
+
+# }}}
+
+# Lazy loading {{{
+
+# nvim {{{
 nvm() {
   unset -f nvm
   export NVM_DIR=~/.nvm
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
   nvm "$@"
 }
-
 # }}}
-
-# Colours - DEPRECATED {{{
-
-# COLOR_BLACK="\e[0;30m"
-# COLOR_BLUE="\e[0;34m"
-# COLOR_GREEN="\e[0;32m"
-# COLOR_CYAN="\e[0;36m"
-# COLOR_PINK="\e[0;35m"
-# COLOR_RED="\e[0;31m"
-# COLOR_PURPLE="\e[0;35m"
-# COLOR_BROWN="\e[0;33m"
-# COLOR_LIGHTGRAY="\e[0;37m"
-# COLOR_DARKGRAY="\e[1;30m"
-# COLOR_LIGHTBLUE="\e[1;34m"
-# COLOR_LIGHTGREEN="\e[1;32m"
-# COLOR_LIGHTCYAN="\e[1;36m"
-# COLOR_LIGHTRED="\e[1;31m"
-# COLOR_LIGHTPURPLE="\e[1;35m"
-# COLOR_YELLOW="\e[1;33m"
-# COLOR_WHITE="\e[1;37m"
-# COLOR_NONE="\e[0m"
 
 # }}}
 
