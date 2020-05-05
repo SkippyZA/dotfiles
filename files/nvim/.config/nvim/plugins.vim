@@ -34,15 +34,12 @@ Plug 'Shougo/denite.nvim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Raimondi/delimitMate' " automatic closing of quotes, parenthesis, brackets, etc.
 Plug 'honza/vim-snippets'
-" Plug 'SirVer/ultisnips' " snippets plugin
 Plug 'moll/vim-bbye' " delete buffers without closing windows
 Plug 'kana/vim-textobj-user' " create own test segments. required for Julian/vim-textobj-var.....
 Plug 'Julian/vim-textobj-variable-segment' " segments for camelCase, sanke-case etc
 Plug 'AndrewRadev/splitjoin.vim' " split join blocks of code
 Plug 'tpope/vim-eunuch' " unix commands in vim
-" Plug 'easymotion/vim-easymotion'
 Plug 'voldikss/vim-floaterm'
-Plug 'dhruvasagar/vim-table-mode' " maintain text tables
 
 Plug 'mileszs/ack.vim' " search inside files using ack. Same as command line ack utility, but use :Ack
 Plug 'benmills/vimux' " tmux integration for vim
@@ -61,7 +58,6 @@ Plug 'janko-m/vim-test' " running of unit tests
 " }}}
 
 " Language {{{
-" Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': { -> coc#util#install() } }
 Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': { -> coc#util#install() } }
 Plug 'plasticboy/vim-markdown' " markdown
 Plug 'HerringtonDarkholme/yats.vim', { 'for': [ 'typescript' ] } " typescript
@@ -71,12 +67,6 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } " go
 Plug 'towolf/vim-helm' " helm template
 Plug 'jparise/vim-graphql' " graphql
 Plug 'gurpreetatwal/vim-avro' " Avro highlighting
-
-" ruby
-Plug 'tpope/vim-rake'
-Plug 'tpope/vim-rails', { 'for': [ 'ruby' ] }
-Plug 'vim-ruby/vim-ruby', { 'for': [ 'ruby' ] }
-" Plug 'tpope/vim-endwise', { 'for': [ 'ruby' ] }
 
 " terraform
 Plug 'hashivim/vim-terraform'

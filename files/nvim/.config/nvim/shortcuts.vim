@@ -1,6 +1,19 @@
 " set a map leader for more key combos
 let mapleader = ','
 
+" common typos .. (W, Wq WQ)
+if has("user_commands")
+  command! -bang -nargs=* -complete=file E e<bang> <args>
+  command! -bang -nargs=* -complete=file W w<bang> <args>
+  command! -bang -nargs=* -complete=file Wq wq<bang> <args>
+  command! -bang -nargs=* -complete=file WQ wq<bang> <args>
+  command! -bang Wa wa<bang>
+  command! -bang WA wa<bang>
+  command! -bang Q q<bang>
+  command! -bang QA qa<bang>
+  command! -bang Qa qa<bang>
+endif
+
 " remap esc
 inoremap jk <esc>
 
@@ -130,38 +143,3 @@ xnoremap          <leader>fgr    "sy:FzfPreviewProjectGrep<Space>-F<Space>"<C-r>
 nnoremap <silent> <leader>ft     :<C-u>FzfPreviewBufferTags<CR>
 nnoremap <silent> <leader>fq     :<C-u>FzfPreviewQuickFix<CR>
 nnoremap <silent> <leader>fl     :<C-u>FzfPreviewLocationList<CR>
-
-
-" " floaterm
-" let g:floaterm_position      = 'center'
-" let g:floaterm_keymap_new    = '<F7>'
-" let g:floaterm_keymap_prev   = '<F8>'
-" let g:floaterm_keymap_next   = '<F9>'
-" let g:floaterm_keymap_toggle = '<F10>'
-
-" Language specific mappings
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Golang
-" """""""""""""""""""
-" autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
-" autocmd FileType go nmap <c-b> :GoDef<cr>
-autocmd FileType go nmap gd :GoDef<cr>
-
-" Toggle go code coverage
-autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
-
-" run :GoBuild or :GoTestCompile based on the go file
-function! s:build_go_files()
-  let l:file = expand('%')
-  if l:file =~# '^\f\+_test\.go$'
-    call go#test#Test(0, 1)
-  elseif l:file =~# '^\f\+\.go$'
-    call go#cmd#Build(0)
-  endif
-endfunction
-
-autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-
-" use goimports instead of gofmt when saving
-let g:go_fmt_command = "goimports"

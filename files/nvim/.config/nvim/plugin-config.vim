@@ -47,10 +47,6 @@ let g:vimwiki_dir_link = 'index'    " Open /index instead of directory listing.
 let g:vimwiki_folding = 'expr'      " Enable folding.
 autocmd FileType vimwiki set spell  " Enable spelling.
 
-" " Ultisnips
-" let g:UltiSnipsExpandTrigger = "<c-j>"
-" let g:UltiSnipsSnippetsDir = '~/.config/nvim/UltiSnips'
-
 " Golden Ratio
 let g:golden_ratio_autocommand = 0
 
@@ -105,16 +101,15 @@ let g:coc_snippet_next = '<tab>'
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-
 " inoremap <silent><expr> <TAB>
-"       \ pumvisible() ? "\<C-n>" :
+"       \ pumvisible() ? coc#_select_confirm() :
+"       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
 "       \ <SID>check_back_space() ? "\<TAB>" :
 "       \ coc#refresh()
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
@@ -165,14 +160,37 @@ endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Symbol renaming.
+
+" Remap for format selected region
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" Show all diagnostics
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+
+" Show commands
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+
+" Search workspace symbols
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+
+" Resume latest coc list
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
-
-
-
-" tagbar
-let g:tagbar_autofocus = 1    " focus tagbar when opening
-let g:tagbar_width = 60       " set the width to 60 columns (default: 40)
 
 " Use `:Format` for format current buffer
 command! -nargs=0 Format :call CocAction('format')
@@ -180,5 +198,26 @@ command! -nargs=0 Format :call CocAction('format')
 " Use `:Fold` for fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
+" Toggle go code coverage
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+
+" }}}
+
+
+" Floating terminal {{{
+let g:floaterm_width = 0.8
+let g:floaterm_height = 0.7
+let g:floaterm_winblend = 0
+
+noremap  <C-q>  :FloatermToggle<CR>
+noremap! <C-q>  <Esc>:FloatermToggle<CR>
+tnoremap <C-q>  <C-\><C-n>:FloatermToggle<CR>
+
+" }}}
+
+
+" tagbar
+let g:tagbar_autofocus = 1    " focus tagbar when opening
+let g:tagbar_width = 60       " set the width to 60 columns (default: 40)
 
 " vim:fdm=marker
