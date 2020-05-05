@@ -40,7 +40,7 @@ let my_wiki.path             = '$HOME/Documents/.vimwiki/'
 let my_wiki.template_path    = '$HOME/Documents/.vimwiki/html-template/'
 let my_wiki.template_default = 'default'
 let my_wiki.template_ext     = '.tpl'
-let my_wiki.nested_syntaxes = { 'js': 'javascript', 'yml': 'yaml', 'yaml': 'yaml', 'bash': 'sh', 'json': 'json', 'rb': 'ruby', 'ruby': 'ruby' }
+let my_wiki.nested_syntaxes = { 'js': 'javascript', 'yml': 'yaml', 'yaml': 'yaml', 'bash': 'sh', 'json': 'json', 'rb': 'ruby', 'ruby': 'ruby', 'go': 'go' }
 
 let g:vimwiki_list = [ my_wiki ]
 let g:vimwiki_dir_link = 'index'    " Open /index instead of directory listing.
@@ -68,8 +68,29 @@ let g:vrc_curl_opts = {
 " Avro alias for syntax highlighting
 autocmd BufRead,BufNewFile *.avsc set filetype=avdl
 
-" vim-coc
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-go {{{
+
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
+let g:go_def_mapping_enabled = 0   " disable vim-go :GoDef short cut (gd), this is instead handled by LanguageClient [LC]
+let g:go_fmt_command = "goimports" " use goimports instead of gofmt when saving
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+
+" }}}
+
+" vim-coc {{{
 let g:coc_global_extensions = [
   \'coc-json',
   \'coc-go',
