@@ -8,6 +8,8 @@ tap "homebrew/services"
 
 # Custom taps
 tap "camspiers/taps"
+tap "universal-ctags/universal-ctags"
+tap "derailed/k9s"
 
 # Homebrew essentials
 brew "ack"
@@ -69,12 +71,10 @@ brew "zsh-syntax-highlighting"
 cask "1password"
 cask "1password-cli"
 cask "docker"
-# cask "font-sourcecodepro-nerd-font"
-# cask "font-sourcecodepro-nerd-font-mono"
-# cask "font-hasklig-nerd-font"
-# cask "font-hasklig-nerd-font-mono"
+cask "font-anonymice-nerd-font"
 cask "fontforge"
 cask "kap"
 cask "keycastr"
 cask "kitty"
 cask "vimr"
+cask "gpg-suite"
