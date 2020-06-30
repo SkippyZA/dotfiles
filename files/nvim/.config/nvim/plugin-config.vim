@@ -84,6 +84,11 @@ endfunction
 
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 
+" Toggle go code coverage
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+
+autocmd FileType go nmap <Leader>a :GoAlternate<CR>
+
 " }}}
 
 " vim-coc {{{
@@ -198,11 +203,7 @@ command! -nargs=0 Format :call CocAction('format')
 " Use `:Fold` for fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
-" Toggle go code coverage
-autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
-
 " }}}
-
 
 " Floating terminal {{{
 let g:floaterm_width = 0.8

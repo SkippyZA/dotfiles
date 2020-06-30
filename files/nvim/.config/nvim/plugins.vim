@@ -65,6 +65,7 @@ Plug 'neoclide/jsonc.vim' " json
 Plug 'artur-shaik/vim-javacomplete2', { 'for': [ 'java' ] } " java
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } " go
 Plug 'towolf/vim-helm' " helm template
+Plug 'mustache/vim-mustache-handlebars' " handlebars
 Plug 'jparise/vim-graphql' " graphql
 Plug 'gurpreetatwal/vim-avro' " Avro highlighting
 

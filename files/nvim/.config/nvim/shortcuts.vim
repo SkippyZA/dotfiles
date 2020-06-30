@@ -20,6 +20,17 @@ inoremap jk <esc>
 " shortcut to save
 nmap <leader>, :w<cr>
 
+" toggle spellcheck
+function! ToggleSpellCheck()
+  set spell!
+  if &spell
+    echo "Spellcheck ON"
+  else
+    echo "Spellcheck OFF"
+  endif
+endfunction
+nnoremap <silent> <leader>S :call ToggleSpellCheck()<CR>
+
 " ack without opening the first match
 cnoreabbrev Ack Ack!
 
