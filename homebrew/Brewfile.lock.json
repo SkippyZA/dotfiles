@@ -8,7 +8,7 @@
         "revision": "304aa3d2b602c9eb1abf13c34c1cb18b329977bc"
       },
       "homebrew/cask-versions": {
-        "revision": "e25681cfa15eb23e86a0a4e51c3ae043a36fd284"
+        "revision": "75f432c7ea821cb725c2441a8f3f8e5771268410"
       },
       "homebrew/bundle": {
         "revision": "d0b6e3d53d42b266e34ee09a8522b55640032dfc"
@@ -927,7 +927,8 @@
             }
           }
         }
-      }
+      },
+      "svn": null
     },
     "cask": {
       "1password": {
@@ -1069,6 +1070,15 @@
         "version": "3.3.12",
         "options": {
           "full_name": "iterm2",
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "font-source-code-pro-for-powerline": {
+        "version": "latest",
+        "options": {
+          "full_name": "font-source-code-pro-for-powerline",
           "args": {
             "appdir": "/Applications"
           }
