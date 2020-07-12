@@ -56,7 +56,7 @@ fzf-marks:
 
 
 ## ruby: Install the latest version of ruby using RVM
-ruby:
+ruby: brew-update
 	@gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 	@curl -sSL https://get.rvm.io | bash -s stable --ruby
 	@gem install neovim
@@ -68,6 +68,28 @@ node:
 	which source
 	@nvm install --lts
 	@npm i -g yarn neovim
+
+
+## install-fonts: Install the patched Nerd fonts (Sauce Code Pro)
+install-fonts:
+	@curl -s -o "${HOME}/Library/Fonts/Sauce Code Pro Black Nerd Font Complete Mono.ttf" "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Black/complete/Sauce%20Code%20Pro%20Black%20Nerd%20Font%20Complete%20Mono.ttf"
+	@curl -s -o "${HOME}/Library/Fonts/Sauce Code Pro Black Italic Nerd Font Complete Mono.ttf" "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Black-Italic/complete/Sauce%20Code%20Pro%20Black%20Italic%20Nerd%20Font%20Complete%20Mono.ttf"
+	@curl -s -o "${HOME}/Library/Fonts/Sauce Code Pro Bold Nerd Font Complete Mono.ttf" "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Bold/complete/Sauce%20Code%20Pro%20Bold%20Nerd%20Font%20Complete%20Mono.ttf"
+	@curl -s -o "${HOME}/Library/Fonts/Sauce Code Pro Bold Italic Nerd Font Complete Mono.ttf" "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Bold-Italic/complete/Sauce%20Code%20Pro%20Bold%20Italic%20Nerd%20Font%20Complete%20Mono.ttf"
+	@curl -s -o "${HOME}/Library/Fonts/Sauce Code Pro ExtraLight Nerd Font Complete Mono.ttf" "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Extra-Light/complete/Sauce%20Code%20Pro%20ExtraLight%20Nerd%20Font%20Complete%20Mono.ttf"
+	@curl -s -o "${HOME}/Library/Fonts/Sauce Code Pro ExtraLight Italic Nerd Font Complete Mono.ttf" "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/ExtraLight-Italic/complete/Sauce%20Code%20Pro%20ExtraLight%20Italic%20Nerd%20Font%20Complete%20Mono.ttf"
+	@curl -s -o "${HOME}/Library/Fonts/Sauce Code Pro Italic Nerd Font Complete Mono.ttf" "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Italic/complete/Sauce%20Code%20Pro%20Italic%20Nerd%20Font%20Complete%20Mono.ttf"
+	@curl -s -o "${HOME}/Library/Fonts/Sauce Code Pro Light Nerd Font Complete Mono.ttf" "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Light/complete/Sauce%20Code%20Pro%20Light%20Nerd%20Font%20Complete%20Mono.ttf"
+	@curl -s -o "${HOME}/Library/Fonts/Sauce Code Pro Light Italic Nerd Font Complete Mono.ttf" "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Light-Italic/complete/Sauce%20Code%20Pro%20Light%20Italic%20Nerd%20Font%20Complete%20Mono.ttf"
+	@curl -s -o "${HOME}/Library/Fonts/Sauce Code Pro Medium Nerd Font Complete Mono.ttf" "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Medium/complete/Sauce%20Code%20Pro%20Medium%20Nerd%20Font%20Complete%20Mono.ttf"
+	@curl -s -o "${HOME}/Library/Fonts/Sauce Code Pro Medium Italic Nerd Font Complete Mono.ttf" "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Medium-Italic/complete/Sauce%20Code%20Pro%20Medium%20Italic%20Nerd%20Font%20Complete%20Mono.ttf"
+	@curl -s -o "${HOME}/Library/Fonts/Sauce Code Pro Regular Nerd Font Complete Mono.ttf" "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete%20Mono.ttf"
+	@curl -s -o "${HOME}/Library/Fonts/Sauce Code Pro Semibold Nerd Font Complete Mono.ttf" "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Semibold/complete/Sauce%20Code%20Pro%20Semibold%20Nerd%20Font%20Complete%20Mono.ttf"
+	@curl -s -o "${HOME}/Library/Fonts/Sauce Code Pro Semibold Italic Nerd Font Complete Mono.ttf" "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Semibold-Italic/complete/Sauce%20Code%20Pro%20Semibold%20Italic%20Nerd%20Font%20Complete%20Mono.ttf"
+
+
+brew-update:
+	@brew update
 
 
 ## :
