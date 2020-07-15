@@ -140,17 +140,16 @@ nnoremap <leader>tm :TableModeToggle<CR>
 
 let g:fzf_preview_command = 'bat --color=always --style=grid --theme=gruvbox {-1}'
 
-nnoremap <silent> <C-n>        :<C-u>FzfPreviewFromResources project git<CR>
-" nnoremap <silent> <leader>fgs    :<C-u>FzfPreviewGitStatus<CR>
-nnoremap <silent> <leader>fb     :<C-u>FzfPreviewBuffers<CR>
-nnoremap <silent> <leader>fB     :<C-u>FzfPreviewAllBuffers<CR>
-nnoremap <silent> <leader>fo     :<C-u>FzfPreviewFromResources buffer project<CR>
-nnoremap <silent> <leader>f<C-o> :<C-u>FzfPreviewJumps<CR>
-nnoremap <silent> <leader>fg;    :<C-u>FzfPreviewChanges<CR>
-nnoremap <silent> <leader>f/     :<C-u>FzfPreviewLines -add-fzf-arg=--no-sort -add-fzf-arg=--query="'"<CR>
-nnoremap <silent> <leader>f*     :<C-u>FzfPreviewLines -add-fzf-arg=--no-sort -add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
-nnoremap          <leader>fgr    :<C-u>FzfPreviewProjectGrep<Space>
-xnoremap          <leader>fgr    "sy:FzfPreviewProjectGrep<Space>-F<Space>"<C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>"
-nnoremap <silent> <leader>ft     :<C-u>FzfPreviewBufferTags<CR>
-nnoremap <silent> <leader>fq     :<C-u>FzfPreviewQuickFix<CR>
-nnoremap <silent> <leader>fl     :<C-u>FzfPreviewLocationList<CR>
+nnoremap <silent> <C-n>          :CocCommand fzf-preview.FromResources project git<CR>
+nnoremap <silent> <leader>fb     :CocCommand fzf-preview.Buffers<CR>
+nnoremap <silent> <leader>fB     :CocCommand fzf-preview.AllBuffers<CR>
+nnoremap <silent> <leader>fo     :CocCommand fzf-preview.FromResources buffer project<CR>
+nnoremap <silent> <leader>f<C-o> :CocCommand fzf-preview.Jumps<CR>
+nnoremap <silent> <leader>fg;    :CocCommand fzf-preview.Changes<CR>
+nnoremap <silent> <leader>f/     :CocCommand fzf-preview.Lines -add-fzf-arg=--no-sort -add-fzf-arg=--query="'"<CR>
+nnoremap <silent> <leader>f*     :CocCommand fzf-preview.Lines -add-fzf-arg=--no-sort -add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
+nnoremap          <leader>fgr    :CocCommand fzf-preview.ProjectGrep<Space>
+xnoremap          <leader>fgr    "sy:CocCommand fzf-preview.ProjectGrep<Space>-F<Space>"<C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>"
+nnoremap <silent> <leader>ft     :CocCommand fzf-preview.BufferTags<CR>
+nnoremap <silent> <leader>fq     :CocCommand fzf-preview.QuickFix<CR>
+nnoremap <silent> <leader>fl     :CocCommand fzf-preview.LocationList<CR>
