@@ -71,6 +71,7 @@ brew "zsh-syntax-highlighting"
 # App essentials
 cask "1password"
 cask "1password-cli"
+cask "ccmenu"
 cask "docker"
 cask "fontforge"
 cask "github"
