@@ -93,6 +93,7 @@ autocmd FileType go nmap <Leader>a :GoAlternate<CR>
 
 " vim-coc {{{
 let g:coc_global_extensions = [
+  \'coc-fzf-preview',
   \'coc-json',
   \'coc-go',
   \'coc-tslint-plugin',

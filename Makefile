@@ -3,7 +3,7 @@
 DOTFILES=${HOME}/.dotfiles
 TMUX_SHARE=${HOME}/.local/share/tmux
 
-all: brew neovim fzf-marks ohmyzsh symlinks bat tmux
+all: brew fonts neovim fzf-marks ohmyzsh symlinks bat tmux
 
 ## install: Install all targets
 install: all
@@ -11,6 +11,7 @@ install: all
 
 ## brew: Install brew dependencies
 brew:
+	@brew update
 	@brew bundle --file="$(DOTFILES)/homebrew/Brewfile"
 
 
@@ -70,8 +71,8 @@ node:
 	@npm i -g yarn neovim
 
 
-## install-fonts: Install the patched Nerd fonts (Sauce Code Pro)
-install-fonts:
+## fonts: Install the patched Nerd fonts (Sauce Code Pro)
+fonts:
 	@curl -s -o "${HOME}/Library/Fonts/Sauce Code Pro Black Nerd Font Complete Mono.ttf" "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Black/complete/Sauce%20Code%20Pro%20Black%20Nerd%20Font%20Complete%20Mono.ttf"
 	@curl -s -o "${HOME}/Library/Fonts/Sauce Code Pro Black Italic Nerd Font Complete Mono.ttf" "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Black-Italic/complete/Sauce%20Code%20Pro%20Black%20Italic%20Nerd%20Font%20Complete%20Mono.ttf"
 	@curl -s -o "${HOME}/Library/Fonts/Sauce Code Pro Bold Nerd Font Complete Mono.ttf" "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Bold/complete/Sauce%20Code%20Pro%20Bold%20Nerd%20Font%20Complete%20Mono.ttf"
