@@ -2,13 +2,13 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "81765be7e254fed621e45711746b6e83c0c522f0"
+        "revision": "551b570296c8c6899d024dd87d62361f92038ee4"
       },
       "homebrew/cask-fonts": {
-        "revision": "58e0c533a980f44042020989ed0bf899eecede7a"
+        "revision": "905006906b45632c47bcd3617c684552379600cb"
       },
       "homebrew/cask-versions": {
-        "revision": "10f61390eb12e094e85a38eea5c6bd587df70d63"
+        "revision": "c208e32789d47ef9fd8e1aeb639f0fcadbe1c1f0"
       },
       "homebrew/bundle": {
         "revision": "c3162a3b89a066cf37ad165f5a155da18e70d9f8"
@@ -434,8 +434,25 @@
         }
       },
       "lazydocker": {
-        "version": "0.9",
-        "bottle": false
+        "version": "0.9.1",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/lazydocker-0.9.1.catalina.bottle.tar.gz",
+              "sha256": "0a32a3111697ccba3b9f1d959f206c23a6b2fdc2fdb968f5eed12575c67e56b4"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/lazydocker-0.9.1.mojave.bottle.tar.gz",
+              "sha256": "efe1cebae9966e4cbe0b55cfd28f6625d37b821827c7954168e80fc932ec57e2"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/lazydocker-0.9.1.high_sierra.bottle.tar.gz",
+              "sha256": "79c56a22d891d09ce3b08ef1c400768dc68f2c5244b9a33070aae6f33e3d1e7b"
+            }
+          }
+        }
       },
       "lazygit": {
         "version": "0.20.9",
@@ -601,7 +618,7 @@
         }
       },
       "python": {
-        "version": "3.7.7",
+        "version": "3.7.8",
         "bottle": null
       },
       "python3": null,
@@ -815,7 +832,7 @@
         }
       },
       "universal-ctags": {
-        "version": "HEAD-98d4aa1",
+        "version": "HEAD-62f0144",
         "bottle": false
       },
       "wget": {
@@ -915,7 +932,7 @@
     },
     "cask": {
       "1password": {
-        "version": "7.4.3",
+        "version": "7.5",
         "options": {
           "full_name": "1password",
           "args": {
@@ -924,7 +941,7 @@
         }
       },
       "1password-cli": {
-        "version": "1.2.1",
+        "version": "1.3.0",
         "options": {
           "full_name": "1password-cli",
           "args": {
@@ -933,7 +950,7 @@
         }
       },
       "docker": {
-        "version": "2.2.0.5,43884",
+        "version": "2.3.0.3,45519",
         "options": {
           "full_name": "docker",
           "args": {
@@ -960,7 +977,7 @@
         }
       },
       "kap": {
-        "version": "3.2.0",
+        "version": "3.2.2",
         "options": {
           "full_name": "kap",
           "args": {
@@ -987,7 +1004,7 @@
         }
       },
       "vimr": {
-        "version": "0.32.0-344",
+        "version": "0.33.0-351",
         "options": {
           "full_name": "vimr",
           "args": {
@@ -1032,7 +1049,7 @@
         }
       },
       "google-chrome": {
-        "version": "84.0.4147.89",
+        "version": "83.0.4103.116",
         "options": {
           "full_name": "google-chrome",
           "args": {
@@ -1084,6 +1101,15 @@
             "appdir": "/Applications"
           }
         }
+      },
+      "cyberduck": {
+        "version": "7.4.1.33065",
+        "options": {
+          "full_name": "cyberduck",
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
       }
     }
   },
@@ -1098,9 +1124,9 @@
         "macOS": "10.15.5"
       },
       "big_sur": {
-        "HOMEBREW_VERSION": "2.4.5",
+        "HOMEBREW_VERSION": "2.4.8",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "f424a48d9718c99b16647ad41e8d934d55a99c5c",
+        "Homebrew/homebrew-core": "d85e4eb8798fe497327e05931b3f5aebac4091d2",
         "CLT": "12.0.0.0.1.1593639290",
         "Xcode": "12.0",
         "macOS": "10.16"
