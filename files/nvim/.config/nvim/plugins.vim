@@ -58,7 +58,7 @@ Plug 'janko-m/vim-test' " running of unit tests
 " }}}
 
 " Language {{{
-Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': { -> coc#util#install() } }
+Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': { -> coc#util#install() } }
 Plug 'plasticboy/vim-markdown' " markdown
 Plug 'HerringtonDarkholme/yats.vim', { 'for': [ 'typescript' ] } " typescript
 Plug 'neoclide/jsonc.vim' " json
