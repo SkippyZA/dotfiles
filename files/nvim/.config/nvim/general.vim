@@ -86,6 +86,9 @@ set tm=500
 
 set mouse=a
 
+" this is for true color
+set termguicolors
+
 " coc.nvim
 
 " Some servers have issues with backup files, see #649.
