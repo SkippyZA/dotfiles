@@ -50,6 +50,7 @@ brew "pgcli" # postgres cli
 brew "python"
 brew "python3"
 brew "reattach-to-user-namespace"
+brew "rust"
 brew "starship"
 brew "stern"
 brew "stow"
@@ -71,6 +72,7 @@ brew "zsh-syntax-highlighting"
 # App essentials
 cask "1password"
 cask "1password-cli"
+# cask "alacritty" # installing this from source on big sur
 cask "ccmenu"
 cask "cyberduck"
 cask "docker"

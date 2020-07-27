@@ -928,7 +928,28 @@
           }
         }
       },
-      "svn": null
+      "svn": null,
+      "rust": {
+        "version": "1.44.1_1",
+        "bottle": {
+          "cellar": ":any",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/rust-1.44.1_1.catalina.bottle.1.tar.gz",
+              "sha256": "5128f7d93695a04ba887284a8d6061202031524251053371b406f94d29738758"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/rust-1.44.1_1.mojave.bottle.1.tar.gz",
+              "sha256": "4679c3c77c502d67097ec602860dae400c64ea90e6064a45cd4444f27971eabb"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/rust-1.44.1_1.high_sierra.bottle.1.tar.gz",
+              "sha256": "0a2c02fe10827d361d888532adf4471de7df37edd509bd59c710358cb4e32494"
+            }
+          }
+        }
+      }
     },
     "cask": {
       "1password": {
@@ -1106,6 +1127,15 @@
         "version": "7.4.1.33065",
         "options": {
           "full_name": "cyberduck",
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "alacritty": {
+        "version": "0.4.3",
+        "options": {
+          "full_name": "alacritty",
           "args": {
             "appdir": "/Applications"
           }
