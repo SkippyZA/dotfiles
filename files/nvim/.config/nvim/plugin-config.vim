@@ -204,6 +204,9 @@ command! -nargs=0 Format :call CocAction('format')
 " Use `:Fold` for fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
 " }}}
 
 " Floating terminal {{{
@@ -214,7 +217,6 @@ let g:floaterm_winblend = 0
 noremap  <C-q>  :FloatermToggle<CR>
 noremap! <C-q>  <Esc>:FloatermToggle<CR>
 tnoremap <C-q>  <C-\><C-n>:FloatermToggle<CR>
-
 " }}}
 
 

@@ -1,15 +1,4 @@
 {
-  "languageserver": {
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-      "filetypes": ["go"],
-      "initializationOptions": {
-        "usePlaceholders": true
-      }
-    }
-  },
-
   "suggest.autoTrigger": "none",
 
   "diagnostic.virtualText": false,
@@ -38,12 +27,6 @@
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
 
   "yaml.validate": false,
-
-  /* "solargraph.completion": true, */
-  /* "solargraph.definitions": true, */
-  /* "solargraph.rename": true, */
-  /* "solargraph.references": true, */
-  /* "solargraph.useBundler": true */
 
   "snippets.ultisnips.directories": [
     "UltiSnips",

@@ -35,10 +35,10 @@ nnoremap <silent> <leader>S :call ToggleSpellCheck()<CR>
 cnoreabbrev Ack Ack!
 
 " move between panes
-map <silent> <C-h> :call functions#WinMove('h')<cr>
-map <silent> <C-j> :call functions#WinMove('j')<cr>
-map <silent> <C-k> :call functions#WinMove('k')<cr>
-map <silent> <C-l> :call functions#WinMove('l')<cr>
+nmap <silent> <C-h> :call functions#WinMove('h')<cr>
+nmap <silent> <C-j> :call functions#WinMove('j')<cr>
+nmap <silent> <C-k> :call functions#WinMove('k')<cr>
+nmap <silent> <C-l> :call functions#WinMove('l')<cr>
 
 " nerdtree
 nmap <silent> <leader>k :NERDTreeToggle<cr>
