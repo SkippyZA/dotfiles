@@ -34,18 +34,32 @@ let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeAutoDeleteBuffer = 1
 
 " vim-wiki
-let my_wiki = {}
-let my_wiki.path_html        = '$HOME/Documents/vimwiki-html/'
-let my_wiki.path             = '$HOME/Documents/.vimwiki/'
-let my_wiki.template_path    = '$HOME/Documents/.vimwiki/html-template/'
-let my_wiki.template_default = 'default'
-let my_wiki.template_ext     = '.tpl'
-let my_wiki.nested_syntaxes = { 'js': 'javascript', 'yml': 'yaml', 'yaml': 'yaml', 'bash': 'sh', 'json': 'json', 'rb': 'ruby', 'ruby': 'ruby', 'go': 'go' }
+" let my_wiki = {}
+" let my_wiki.path_html        = '$HOME/Documents/vimwiki-html/'
+" let my_wiki.path             = '$HOME/Documents/.vimwiki/'
+" let my_wiki.template_path    = '$HOME/Documents/.vimwiki/html-template/'
+" let my_wiki.template_default = 'default'
+" let my_wiki.template_ext     = '.tpl'
+" let my_wiki.nested_syntaxes = { 'js': 'javascript', 'yml': 'yaml', 'yaml': 'yaml', 'bash': 'sh', 'json': 'json', 'rb': 'ruby', 'ruby': 'ruby', 'go': 'go' }
 
-let g:vimwiki_list = [ my_wiki ]
+" let g:vimwiki_list = [ my_wiki ]
+" let g:vimwiki_dir_link = 'index'    " Open /index instead of directory listing.
+" let g:vimwiki_folding = 'expr'      " Enable folding.
+
+let g:vimwiki_list = [{
+  \ 'path': '$HOME/Documents/.vimwiki/',
+  \ 'template_path': '$HOME/Documents/.vimwiki/html-template/',
+  \ 'template_default': 'default',
+  \ 'syntax': 'markdown',
+  \ 'ext': '.md',
+  \ 'path_html': '$HOME/Documents/vimwiki-html/',
+  \ 'custom_wiki2html': 'vimwiki_markdown',
+  \ 'nested_syntaxes': { 'js': 'javascript', 'yml': 'yaml', 'yaml': 'yaml', 'bash': 'sh', 'json': 'json', 'rb': 'ruby', 'ruby': 'ruby', 'go': 'go' },
+  \ 'template_ext': '.tpl'
+  \ }]
 let g:vimwiki_dir_link = 'index'    " Open /index instead of directory listing.
 let g:vimwiki_folding = 'expr'      " Enable folding.
-autocmd FileType vimwiki set spell  " Enable spelling.
+
 
 " Golden Ratio
 let g:golden_ratio_autocommand = 0
@@ -60,9 +74,6 @@ let g:vrc_curl_opts = {
   \ '--show-error': '',
   \ '--insecure': '',
 \}                                " default curl options
-
-" Avro alias for syntax highlighting
-autocmd BufRead,BufNewFile *.avsc set filetype=avdl
 
 " vim-go {{{
 
@@ -196,7 +207,8 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
+" nmap <leader>nr <Plug>(coc-rename)
+nmap <space>rn <Plug>(coc-rename)
 
 " Use `:Format` for format current buffer
 command! -nargs=0 Format :call CocAction('format')
@@ -223,5 +235,10 @@ tnoremap <C-q>  <C-\><C-n>:FloatermToggle<CR>
 " tagbar
 let g:tagbar_autofocus = 1    " focus tagbar when opening
 let g:tagbar_width = 60       " set the width to 60 columns (default: 40)
+
+" mergetool
+let g:mergetool_layout = 'mr'
+let g:mergetool_prefer_revision = 'local'
+
 
 " vim:fdm=marker

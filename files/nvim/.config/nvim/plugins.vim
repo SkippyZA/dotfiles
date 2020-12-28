@@ -8,7 +8,7 @@ Plug 'gruvbox-community/gruvbox'
 " Workspace {{{
 Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons' " file drawer
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
-Plug 'yuki-ycino/fzf-preview.vim', { 'do': ':FzfPreviewInstall' }
+" Plug 'yuki-ycino/fzf-preview.vim', { 'do': ':FzfPreviewInstall' }
 Plug 'vim-airline/vim-airline' " fancy statusline
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
 Plug 'tpope/vim-projectionist' " projectionist project config
@@ -25,8 +25,8 @@ Plug 'diepm/vim-rest-console' " http client
 
 " Git {{{
 Plug 'tpope/vim-fugitive' " amazing git wrapper for vim
-Plug 'jez/vim-github-hub' " make use of hub to create PRs
-Plug 'tpope/vim-rhubarb' " GitHub extension for vim-fugitive
+Plug 'samoshkin/vim-mergetool'
+Plug 'shumphrey/fugitive-gitlab.vim'
 " }}}
 
 " Utilities {{{
@@ -58,25 +58,19 @@ Plug 'janko-m/vim-test' " running of unit tests
 " }}}
 
 " Language {{{
-Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': { -> coc#util#install() } }
+Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': { -> coc#util#install() } }
 Plug 'plasticboy/vim-markdown' " markdown
 Plug 'HerringtonDarkholme/yats.vim', { 'for': [ 'typescript' ] } " typescript
 Plug 'neoclide/jsonc.vim' " json
-Plug 'artur-shaik/vim-javacomplete2', { 'for': [ 'java' ] } " java
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } " go
 Plug 'towolf/vim-helm' " helm template
 Plug 'mustache/vim-mustache-handlebars' " handlebars
 Plug 'jparise/vim-graphql' " graphql
-Plug 'gurpreetatwal/vim-avro' " Avro highlighting
 
 " terraform
 Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion', { 'for': [ 'tf', 'terraform' ] }
 
-" }}}
-
-" Testing {{{
-Plug 'liuchengxu/vim-which-key'
 " }}}
 
 call plug#end()
