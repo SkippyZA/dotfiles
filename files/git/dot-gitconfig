@@ -10,7 +10,7 @@
   templatedir = ~/.git/templates
 
 [commit]
-	gpgsign = true
+  gpgsign = true
 
 [alias]
   # list all aliases
@@ -40,6 +40,12 @@
 
   cleanup = "!git remote prune origin && git gc && git clean -df && git stash clear"
 
+[url "git@github.com:"]
+  insteadOf = https://github.com/
+
+[url "git@gitlab.com:"]
+  insteadOf = https://gitlab.com/
+
 [color]
   diff = auto
   status = auto
@@ -64,21 +70,16 @@
   untracked = red
 
 [core]
-	excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore
   editor = "NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim"
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  preloadindex = true
 
 [apply]
   whitespace = nowarn
 
-[mergetool]
-  keepBackup = false
-
 [credential]
-	helper = osxkeychain
-
-[difftool]
-  prompt = false
+  helper = osxkeychain
 
 [format]
   pretty = "Commit:  %C(yellow)%H%nAuthor:  %C(green)%aN <%aE>%nCommitter:    %C(green)%cN <%cE>%nDate:    (%C(red)%ar%Creset) %ai%n    %s%n%n%     %b%n"
@@ -88,9 +89,24 @@
 
 [push]
   default = current
+
 [cola]
-	spellcheck = false
-; [merge]
-; 	conflictstyle = diff3
+  spellcheck = false
+
 [pull]
-	rebase = false
+  rebase = false
+
+[mergetool]
+  prompt = false
+  keepBackup = false
+
+[merge]
+  tool = vim_mergetool
+  conflictstyle = diff3
+
+[mergetool "vim_mergetool"]
+  cmd = vim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
+  trustExitCode = true
+
+[diff]
+  tool = vimdiff
