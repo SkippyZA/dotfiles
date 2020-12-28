@@ -13,6 +13,7 @@ install: all
 brew:
 	@brew update
 	@brew bundle --file="$(DOTFILES)/homebrew/Brewfile"
+	@brew link --force helm@2
 
 
 ## ohmyzsh: Install Oh-My-Zsh if it is not already installed
@@ -46,6 +47,8 @@ tmux:
 neovim:
 	@python3 -m pip install --upgrade pynvim
 	@python3 -m pip install --upgrade neovim-remote
+	@python3 -m pip install --upgrade awscli-local
+	@python3 -m pip install --upgrade vimwiki-markdown
 	@nvim +PlugInstall +qall
 
 ## bat: Rebuild 'bat' cache
