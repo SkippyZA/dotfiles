@@ -40,9 +40,12 @@ setopt complete_aliases
 export ZSH=~/.oh-my-zsh
 
 # Oh-my-zsh theme
-ZSH_THEME="skippy"
+# ZSH_THEME="skippy"
+ZSH_THEME="gruvbox"
 
-plugins=(vi-mode docker git osx httpie sudo)
+plugins=(vi-mode docker osx httpie sudo colorize zsh-completions npm golang terraform aws helm vi-mode)
+autoload -U compinit && compinit
+
 source $ZSH/oh-my-zsh.sh
 
 # }}}
@@ -67,13 +70,13 @@ fi
 
 # }}}
 
-# gruvbox color scheme {{{
+# # gruvbox color scheme {{{
 
-if [[ -a ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh ]]; then
-  source ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh
-fi
+# if [[ -a ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh ]]; then
+#   source ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh
+# fi
 
-# }}}
+# # }}}
 
 # Lazy loading {{{
 
@@ -90,19 +93,19 @@ nvm() {
 
 # Keybinds {{{
 
-bindkey "^r" history-incremental-search-backward
+# bindkey "^r" history-incremental-search-backward
 
-# make search up and down work, so partially type and hit up/down to find relevant stuff
-bindkey "^[[A" up-line-or-search
-bindkey "^[[B" down-line-or-search
-bindkey " " magic-space    # also do history expansion on space
+# # make search up and down work, so partially type and hit up/down to find relevant stuff
+# bindkey "^[[A" up-line-or-search
+# bindkey "^[[B" down-line-or-search
+# bindkey " " magic-space    # also do history expansion on space
 
-# Make the delete key (or Fn + Delete on the Mac) work instead of outputting a ~
-bindkey "^?" backward-delete-char
-bindkey "^[[3~" delete-char
-bindkey "^[3;5~" delete-char
-bindkey "\e[3~" delete-char
-bindkey "^[[3~" delete-char
+# # Make the delete key (or Fn + Delete on the Mac) work instead of outputting a ~
+# bindkey "^?" backward-delete-char
+# bindkey "^[[3~" delete-char
+# bindkey "^[3;5~" delete-char
+# bindkey "\e[3~" delete-char
+# bindkey "^[[3~" delete-char
 
 # }}}
 
@@ -225,6 +228,8 @@ alias lzd="lazydocker"
 # Minikube
 alias mk="minikube"
 
+alias cdn="cd /Users/skippy/go/src/github.com/newstore/newstore && source tools/environment.sh"
+
 # ==============================================================
 # Git aliases
 # ==============================================================
@@ -296,6 +301,9 @@ export GREP_COLOR='1;32'
 
 # Enable marks plugin
 source $HOME/fzf-marks/fzf-marks.plugin.zsh
+
+# TODO: Add a nice way to install these plugins...
+# git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 
 # }}}
 
