@@ -1,5 +1,8 @@
 # ZSH configuration
 
+ulimit -n 20000
+ulimit -u 2048
+
 # ZSH Config {{{
 
 export EDITOR='nvim'
@@ -56,7 +59,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.dotfiles/bin:$HOME/bin"
 
 # Easy 'cd' to common paths
-export CDPATH=.:~:~/Development:~/Development/playground
+export CDPATH=.:~:~/Development:~/Development/newstore:~/Development/playground
 
 # Configure GO
 export GOPATH="$HOME/go"
@@ -70,14 +73,6 @@ fi
 
 # }}}
 
-# # gruvbox color scheme {{{
-
-# if [[ -a ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh ]]; then
-#   source ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh
-# fi
-
-# # }}}
-
 # Lazy loading {{{
 
 # nvim {{{
@@ -88,24 +83,6 @@ nvm() {
   nvm "$@"
 }
 # }}}
-
-# }}}
-
-# Keybinds {{{
-
-# bindkey "^r" history-incremental-search-backward
-
-# # make search up and down work, so partially type and hit up/down to find relevant stuff
-# bindkey "^[[A" up-line-or-search
-# bindkey "^[[B" down-line-or-search
-# bindkey " " magic-space    # also do history expansion on space
-
-# # Make the delete key (or Fn + Delete on the Mac) work instead of outputting a ~
-# bindkey "^?" backward-delete-char
-# bindkey "^[[3~" delete-char
-# bindkey "^[3;5~" delete-char
-# bindkey "\e[3~" delete-char
-# bindkey "^[[3~" delete-char
 
 # }}}
 
@@ -304,7 +281,7 @@ source $HOME/fzf-marks/fzf-marks.plugin.zsh
 
 # TODO: Add a nice way to install these plugins...
 # git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
-
+# curl -L https://raw.githubusercontent.com/sbugzu/gruvbox-zsh/master/gruvbox.zsh-theme > ~/.oh-my-zsh/themes/gruvbox.zsh-theme
 # }}}
 
 # vim:fdm=marker foldlevel=0 foldenable

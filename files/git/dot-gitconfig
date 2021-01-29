@@ -8,6 +8,7 @@
 
 [init]
   templatedir = ~/.git/templates
+	defaultBranch = master
 
 [commit]
   gpgsign = true
@@ -110,3 +111,8 @@
 
 [diff]
   tool = vimdiff
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process

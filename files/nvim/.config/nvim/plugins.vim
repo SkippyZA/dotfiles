@@ -66,6 +66,7 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } " go
 Plug 'towolf/vim-helm' " helm template
 Plug 'mustache/vim-mustache-handlebars' " handlebars
 Plug 'jparise/vim-graphql' " graphql
+Plug 'pedrohdz/vim-yaml-folds' " folding for yaml files
 
 " terraform
 Plug 'hashivim/vim-terraform'

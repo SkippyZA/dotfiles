@@ -1,0 +1,2 @@
+#!/bin/bash
+aws-okta env $(cat ~/.aws/config | grep profile | awk '/\[.+\]/{ print substr($0, 10, length($0) - 10) }'  | fzf-tmux --height 30% --reverse -1 -0 --header 'Select AWS profile')
