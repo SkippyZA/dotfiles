@@ -129,8 +129,8 @@ nmap <silent> <leader>vs vip<leader>vs<CR>
 let g:winresizer_start_key = '<C-T>'
 
 " fugitive git bindings
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gs :Git<CR>
+nnoremap <leader>gb :Git blame<CR>
 
 " Table table mode
 nnoremap <leader>tm :TableModeToggle<CR>
