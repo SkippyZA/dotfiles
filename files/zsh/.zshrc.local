@@ -284,4 +284,7 @@ source $HOME/fzf-marks/fzf-marks.plugin.zsh
 # curl -L https://raw.githubusercontent.com/sbugzu/gruvbox-zsh/master/gruvbox.zsh-theme > ~/.oh-my-zsh/themes/gruvbox.zsh-theme
 # }}}
 
+export TZ="Europe/Prague"
+export USERDIR="/Users/skippy"
+
 # vim:fdm=marker foldlevel=0 foldenable
