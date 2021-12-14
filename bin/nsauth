@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o pipefail
+
+OP_ITEM_PROD="NewStore - prod"
+OP_ITEM_PRE_PROD="NewStore - pre-prod"
+
+# Usage: $ nsauth burton x
+
+# Script Params
+# $1 name of tenant
+# $2 the stage (x, s, p)
+
+tenant=$1
+stage=$2
+
+if [[ -z "${OP_SESSION_my}" ]]; then
+  eval $(op signin my)
+fi
+
+if [[ $stage = [Pp] ]]; then
+  item=$(op get item "$OP_ITEM_PROD")
+elif [[ $stage = [Ss] ]] || [[ $stage = [Xx] ]]; then
+  item=$(op get item "$OP_ITEM_PRE_PROD")
+else
+  echo "Invalid stage, $stage, supplied. Expected: x, s, p"
+  exit 1
+fi
+
+email=$(echo $item | jq -r '[.details.fields[] | select(.name=="username")] | first | .value')
+password=$(echo $item | jq -r '[.details.fields[] | select(.name=="password")] | first | .value')
+access_token=$(curl -s https://${tenant}.${stage}.newstore.net/v0/token -d "grant_type=password&username=$email&password=$password" | jq -r .access_token)
+
+echo $access_token
