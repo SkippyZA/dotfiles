@@ -67,6 +67,7 @@ Plug 'towolf/vim-helm' " helm template
 Plug 'mustache/vim-mustache-handlebars' " handlebars
 Plug 'jparise/vim-graphql' " graphql
 Plug 'pedrohdz/vim-yaml-folds' " folding for yaml files
+Plug 'leafOfTree/vim-vue-plugin' " syntax and indent plugin for vue files
 
 " terraform
 Plug 'hashivim/vim-terraform'

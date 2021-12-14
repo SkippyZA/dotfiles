@@ -110,7 +110,8 @@ let g:coc_global_extensions = [
   \'coc-tslint-plugin',
   \'coc-tsserver',
   \'coc-snippets',
-  \'coc-yaml'
+  \'coc-yaml',
+  \'@yaegassy/coc-volar'
   \]
 
 let g:coc_snippet_next = '<tab>'
@@ -240,5 +241,19 @@ let g:tagbar_width = 60       " set the width to 60 columns (default: 40)
 let g:mergetool_layout = 'mr'
 let g:mergetool_prefer_revision = 'local'
 
+" vue plugin
+let g:vim_vue_plugin_config = {
+  \'syntax': {
+  \   'template': ['html'],
+  \   'script': ['javascript'],
+  \   'style': ['css'],
+  \},
+  \'full_syntax': [],
+  \'initial_indent': [],
+  \'attribute': 1,
+  \'keyword': 1,
+  \'foldexpr': 1,
+  \'debug': 0,
+  \}
 
 " vim:fdm=marker
