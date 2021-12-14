@@ -46,7 +46,7 @@ export ZSH=~/.oh-my-zsh
 # ZSH_THEME="skippy"
 ZSH_THEME="gruvbox"
 
-plugins=(vi-mode docker osx httpie sudo colorize zsh-completions npm golang terraform aws helm vi-mode)
+plugins=(vi-mode docker macos httpie sudo colorize zsh-completions npm golang terraform aws helm vi-mode)
 autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
