@@ -2,19 +2,19 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "9e847b02f50243ced2577de3642f5652e9ad1a4e"
+        "revision": "b32c22fe6f7169719df3c9359a9ceac357c03781"
       },
       "homebrew/cask-fonts": {
-        "revision": "e26c8c017cd3c84aab85b4d6e0d1c596fad7c26f"
+        "revision": "67e89af711b03a8a9df84b1eb63abd5c60638cb5"
       },
       "homebrew/cask-versions": {
-        "revision": "9e1924f7e7fb0e87b0c2178966401550de6b0670"
+        "revision": "298b535eb43d7910ee12dc67ef3f86f6fca082e6"
       },
       "homebrew/bundle": {
-        "revision": "44a1e064d0cf9c3ef8d1820be7988f762f222cf5"
+        "revision": "89a05bc59f9250fb6f5e08657761c848738f08d9"
       },
       "homebrew/services": {
-        "revision": "0bdcbbc83f3d7a206a9146a4dcf23f3b88b3a8c7"
+        "revision": "b07fa2ae78da238c6e03cf609b9f83455fd16125"
       },
       "versent/taps": {
         "revision": "f3a4c99105e3ad517e9eef966b6b41321157bcaa"
@@ -26,7 +26,7 @@
         "revision": "c84df0fc89f3a63ce5438eb59244ec2080352c0d"
       },
       "derailed/k9s": {
-        "revision": "c2fe25135967ebadfddb8879cd815a3e3672b52e"
+        "revision": "24c8e6d9f30fadbb8f9c201afb87edcd247a6703"
       },
       "datawire/blackbird": {
         "revision": "f42f81cecc145b0669ba34163dcd433a426f49be"
@@ -2474,7 +2474,7 @@
         }
       },
       "iterm2": {
-        "version": "3.4.14",
+        "version": "3.4.15",
         "options": {
           "full_name": "iterm2",
           "args": {
@@ -2587,7 +2587,7 @@
       "monterey": {
         "HOMEBREW_VERSION": "3.3.8",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "46527b04be73e520f8a0c117448ba1c41a0df83b",
+        "Homebrew/homebrew-core": "58332eed87063af2f95a32e421a2e8157ae59caa",
         "CLT": "13.1.0.0.1.1633545042",
         "Xcode": "13.2",
         "macOS": "12.0.1"
