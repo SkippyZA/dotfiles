@@ -171,26 +171,26 @@ alias fm="fzm"
 # Docker
 # ==============================================================
 # Start the docker-compose stack in the current directory
-alias dcu="docker-compose up -d"
+alias dcu="docker compose up -d"
 
 # Start the docker-compose stack in the current directory and rebuild the images
-alias dcub="docker-compose up -d --build"
+alias dcub="docker compose up -d --build"
 
 # Stop, delete (down) or restart the docker-compose stack in the current directory
-alias dcs="docker-compose stop"
-alias dcd="docker-compose down"
-alias dcr="docker-compose restart"
+alias dcs="docker compose stop"
+alias dcd="docker compose down"
+alias dcr="docker compose restart"
 
 # Quickly run the docker-compose exec command like this: 'dce service-name bash'
-alias dce="docker-compose exec "
+alias dce="docker compose exec "
 
 # Show the logs for the docker-compose stack in the current directory
 # May be extended with the service name to get service-specific logs, like
 # 'dcl php' to get the logs of the php container
-alias dcl="docker-compose logs"
+alias dcl="docker compose logs"
 
 # Execute ps for docker-compose
-alias dcps="docker-compose ps"
+alias dcps="docker compose ps"
 
 # 'docker ps' displays the currently running containers
 alias dps="docker ps"
