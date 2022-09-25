@@ -32,6 +32,7 @@ symlinks:
 	@stow -v --stow --ignore ".DS_Store" --target="$(HOME)" --dir="$(DOTFILES)/files" tmux
 	@stow -v --stow --ignore ".DS_Store" --target="$(HOME)" --dir="$(DOTFILES)/files" tmuxinator
 	@stow -v --stow --ignore ".DS_Store" --target="$(HOME)" --dir="$(DOTFILES)/files" zsh
+	@stow -v --stow --ignore ".DS_Store" --target="$(HOME)" --dir="$(DOTFILES)/files" tmuxifier
 
 
 ## tmux: Setup tpm and run a new tmux server
@@ -42,6 +43,11 @@ tmux:
 	@tmux new-session -d
 	${TMUX_SHARE}/plugins/tpm/scripts/install_plugins.sh
 	@tmux kill-server
+
+## tmux-plugins: Addition plugins without tpm
+tmux-plugins:
+	if [ ! -d ~/.tmuxifier ]; then git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier; fi
+
 
 ## neovim: Install neovim with plugins
 neovim:
