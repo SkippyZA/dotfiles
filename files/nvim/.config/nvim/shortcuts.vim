@@ -78,7 +78,7 @@ nmap <silent> <leader>ta :TestSuite<CR>
 nmap <silent> <leader>l  :TestLast<CR>
 
 " prompt for a command to run
-map <leader>np :VimuxPromptCommand<cr>
+map <leader>np :VimuxInterruptRunner<cr>:VimuxPromptCommand<cr>
 " run last command executed by RunVimTmuxCommand
 map <leader>nn :VimuxInterruptRunner<cr>:VimuxRunLastCommand<cr>
 " map <leader>nn :VimuxRunLastCommand<cr>
