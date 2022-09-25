@@ -246,6 +246,7 @@ alias oldvim="\vim"
 
 # Close terminal with vim :q
 alias :q="exit"
+alias :Q="exit"
 
 alias shrug="printf '¯\_(ツ)_/¯' | pbcopy"
 alias flipt="printf '(╯°□°)╯︵ ┻━┻' | pbcopy"
@@ -277,7 +278,7 @@ export GREP_COLOR='1;32'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Enable marks plugin
-source $HOME/fzf-marks/fzf-marks.plugin.zsh
+# source $HOME/fzf-marks/fzf-marks.plugin.zsh
 
 # TODO: Add a nice way to install these plugins...
 # git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
