@@ -14,6 +14,7 @@ tap "derailed/k9s"
 tap "universal-ctags/universal-ctags"
 tap "versent/homebrew-taps"
 tap "weaveworks/tap"
+tap "noahgorstein/tap"
 
 # App essentials
 cask "alacritty"
@@ -50,6 +51,7 @@ brew "htop"
 brew "httpie"
 brew "hub" # Run the following to have vim-fugitive work with GitHub: echo 'machine api.github.com login <user> password <token>' >> ~/.netrc
 brew "jq"
+brew "jqp" # tui playground for jq
 brew "k9s"
 brew "kubectx"
 brew "kubernetes-cli"
