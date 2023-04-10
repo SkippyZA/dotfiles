@@ -1,3 +1,8 @@
+" plugins
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+
 " set a map leader for more key combos
 let mapleader = ','
 
@@ -7,23 +12,55 @@ inoremap jk <esc>
 " share normal clipboard
 set clipboard+=unnamed
 
+set nomore
+
 set surround                " make use of ideavims surround plugin
 set commentary              " ideavims vim-commentary plugin
 
+set nocompatible            " not compatible with vi
 set number                  " show line numbers
 set relativenumber          " show relative line numbers
 set scrolloff=5             " lines of text around cursor
 set noerrorbells
 set visualbell
+set ideajoin                " smart joining with <shift-j>
+
+" Searching
+set ignorecase              " case insensitive searching
+set smartcase               " case-sensitive if expresson contains a capital letter
+set hlsearch                " highlight search results
+set incsearch               " set incremental search, like modern browsers
+set nolazyredraw            " don't redraw while executing macros
+set magic                   " Set magic on, for regex
+set showmatch               " show matching braces
+set mat=2                   " how many tenths of a second to blink
 
 " shortcut to save
 nmap <leader>, :w<cr>
 
+nmap <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gr <Action>(FindUsages)
+
 " search for word under the cursor
 nnoremap <leader>/ "fyiw :/<c-r>f<cr>
+
+" map ctrl-n to search and open a file
+nmap <c-n> <Action>(GotoFile)
+
+" clear highlighted search
+noremap <space> :set hlsearch! hlsearch?<cr>
 
 " move to tab on the left
 nnoremap H gT
 
 " move to tab on the right
 nnoremap L gt
+
+" move between panes
+nmap <silent> <C-h> <C-w>h
+nmap <silent> <C-j> <C-w>j
+nmap <silent> <C-k> <C-w>k
+nmap <silent> <C-l> <C-w>l
+
+nmap <silent> <c-\> <Action>(SplitVertically)
+nmap <silent> <c--> <Action>(SplitHorizontally)
