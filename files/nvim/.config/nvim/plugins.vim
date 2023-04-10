@@ -21,6 +21,7 @@ Plug 'jlanzarotta/bufexplorer' " buffer explorer and management
 " Productivity {{{
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' } " personal wiki
 Plug 'diepm/vim-rest-console' " http client
+Plug 'github/copilot.vim', { 'branch': 'release' } " github copilot
 " }}}
 
 " Git {{{
@@ -68,6 +69,8 @@ Plug 'mustache/vim-mustache-handlebars' " handlebars
 Plug 'jparise/vim-graphql' " graphql
 Plug 'pedrohdz/vim-yaml-folds' " folding for yaml files
 Plug 'leafOfTree/vim-vue-plugin' " syntax and indent plugin for vue files
+Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'} " elixir
+Plug 'elixir-editors/vim-elixir', { 'for': [ 'elixir' ] }
 
 " terraform
 Plug 'hashivim/vim-terraform'
