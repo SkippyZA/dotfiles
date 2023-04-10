@@ -4,8 +4,6 @@
   "diagnostic.virtualText": false,
   "diagnostic.displayByAle": false,
 
-  "coc.preferences.hoverTarget": "float",
-  "coc.preferences.snippets.enable": true,
   "coc.preferences.extensionUpdateCheck": "daily",
 
   "tsserver.implicitProjectConfig.experimentalDecorators": true,
@@ -32,4 +30,6 @@
     "UltiSnips",
     "gosnippets/UltiSnips"
   ],
+
+  "elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh",
 }
