@@ -37,7 +37,7 @@ Plug 'Raimondi/delimitMate' " automatic closing of quotes, parenthesis, brackets
 Plug 'honza/vim-snippets'
 Plug 'moll/vim-bbye' " delete buffers without closing windows
 Plug 'kana/vim-textobj-user' " create own test segments. required for Julian/vim-textobj-var.....
-Plug 'Julian/vim-textobj-variable-segment' " segments for camelCase, sanke-case etc
+Plug 'Julian/vim-textobj-variable-segment', { 'branch': 'main' } " segments for camelCase, sanke-case etc
 Plug 'AndrewRadev/splitjoin.vim' " split join blocks of code
 Plug 'tpope/vim-eunuch' " unix commands in vim
 Plug 'voldikss/vim-floaterm'
