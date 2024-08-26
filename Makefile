@@ -13,7 +13,6 @@ install: all
 brew:
 	@brew update
 	@brew bundle --file="$(DOTFILES)/homebrew/Brewfile"
-	@brew link --force helm@2
 
 
 ## ohmyzsh: Install Oh-My-Zsh if it is not already installed
