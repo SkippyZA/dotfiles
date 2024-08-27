@@ -1,4 +1,5 @@
 {
+  "coc.nvim": { "branch": "master", "commit": "704295edf051f8f0cc15a1127dd874ca29cea5d7" },
   "do-the-needful.nvim": { "branch": "main", "commit": "e9b53bf71c46c6f865b24a92d4e4ffd8cef6078c" },
   "gruvbox": { "branch": "master", "commit": "143a3b8babcfd2bce6c99d6ba496942647c3e30b" },
   "harpoon": { "branch": "master", "commit": "ccae1b9bec717ae284906b0bf83d720e59d12b91" },
