@@ -7,8 +7,10 @@ Plug 'gruvbox-community/gruvbox'
 
 " Workspace {{{
 Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons' " file drawer
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
-" Plug 'yuki-ycino/fzf-preview.vim', { 'do': ':FzfPreviewInstall' }
+"Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
+Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
+Plug 'junegunn/fzf' " fuzzy file finder and so much more
+Plug 'yuki-yano/fzf-preview.vim', { 'do': ':FzfPreviewInstall' }
 Plug 'vim-airline/vim-airline' " fancy statusline
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
 Plug 'tpope/vim-projectionist' " projectionist project config
@@ -21,7 +23,7 @@ Plug 'jlanzarotta/bufexplorer' " buffer explorer and management
 " Productivity {{{
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' } " personal wiki
 Plug 'diepm/vim-rest-console' " http client
-Plug 'github/copilot.vim', { 'branch': 'release' } " github copilot
+"Plug 'github/copilot.vim', { 'branch': 'release' } " github copilot
 " }}}
 
 " Git {{{
@@ -51,6 +53,7 @@ Plug 'tpope/vim-dispatch' " asynchronous build and test dispatcher
 Plug 'tpope/vim-ragtag' " endings for html, xml, etc. - enhances surround
 Plug 'tpope/vim-repeat' " enables repeating other supported plugins with the . command
 Plug 'tommcdo/vim-exchange' " text exchange operation
+Plug 'alvan/vim-closetag' " auto close html tags
 " }}}
 
 " Testing tools {{{
@@ -59,7 +62,7 @@ Plug 'janko-m/vim-test' " running of unit tests
 " }}}
 
 " Language {{{
-Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': { -> coc#util#install() } }
+Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': { -> coc#util#install() } }
 Plug 'plasticboy/vim-markdown' " markdown
 Plug 'HerringtonDarkholme/yats.vim', { 'for': [ 'typescript' ] } " typescript
 Plug 'neoclide/jsonc.vim' " json
@@ -69,8 +72,8 @@ Plug 'mustache/vim-mustache-handlebars' " handlebars
 Plug 'jparise/vim-graphql' " graphql
 Plug 'pedrohdz/vim-yaml-folds' " folding for yaml files
 Plug 'leafOfTree/vim-vue-plugin' " syntax and indent plugin for vue files
-Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'} " elixir
-Plug 'elixir-editors/vim-elixir', { 'for': [ 'elixir' ] }
+" Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'} " elixir
+" Plug 'elixir-editors/vim-elixir', { 'for': [ 'elixir' ] }
 
 " terraform
 Plug 'hashivim/vim-terraform'
