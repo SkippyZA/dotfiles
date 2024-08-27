@@ -1,6 +1,5 @@
 cask_args appdir: '/Applications'
 
-tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/bundle"
@@ -19,12 +18,11 @@ tap "weaveworks/tap"
 tap "noahgorstein/tap"
 
 # App essentials
+# cask "alacritty"
 cask "github"
 cask "gpg-suite"
-cask "iterm2"
 cask "ngrok"
 cask "transmission"
-cask "gswitch"
 
 # Homebrew essentials
 brew "ack"
@@ -36,7 +34,6 @@ brew "cmake"
 brew "diff-so-fancy"
 brew "direnv"
 brew "dnsmasq"
-brew "exa"
 brew "fluxctl"
 brew "fzf"
 brew "git"
@@ -46,6 +43,7 @@ brew "golang"
 brew "goreleaser"
 brew "go-swagger"
 brew "graphviz"
+brew "helm"
 brew "highlight"
 brew "htop"
 brew "httpie"
