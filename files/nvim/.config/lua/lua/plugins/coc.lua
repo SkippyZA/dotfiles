@@ -19,6 +19,11 @@ return {
   "neoclide/coc.nvim",
   lazy = false,
   keys = {
+    -- Use Tab for trigger completion with characters ahead and navigate
+    -- NOTE: There's always a completion item selected by default, you may want to enable
+    -- no select by setting `"suggest.noselect": true` in your configuration file
+    -- NOTE: Use command ':verbose imap <tab>' to make sure Tab is not mapped by
+    -- other plugins before putting this into your config
     {"i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', {silent = true, noremap = true, expr = true, replace_keycodes = false}},
     {"i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], {silent = true, noremap = true, expr = true, replace_keycodes = false}},
 
