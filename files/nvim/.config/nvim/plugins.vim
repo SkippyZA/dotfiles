@@ -8,9 +8,9 @@ Plug 'gruvbox-community/gruvbox'
 " Workspace {{{
 Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons' " file drawer
 "Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
-Plug 'junegunn/fzf' " fuzzy file finder and so much more
-Plug 'yuki-yano/fzf-preview.vim', { 'do': ':FzfPreviewInstall' }
+Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'main', 'do': ':FzfPreviewInstall' }
 Plug 'vim-airline/vim-airline' " fancy statusline
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
 Plug 'tpope/vim-projectionist' " projectionist project config
