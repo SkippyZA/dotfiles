@@ -1,0 +1,4 @@
+#!/bin/bash
+PROFILE=$(cat ~/.aws/config | grep profile | awk '/\[.+\]/{ print substr($0, 10, length($0) - 10) }' | sort | fzf-tmux --height 30% --reverse -1 -0 --header 'Select AWS profile')
+export AWS_PROFILE=$PROFILE
+echo "export AWS_PROFILE=$PROFILE"

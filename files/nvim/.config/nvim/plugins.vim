@@ -8,9 +8,9 @@ Plug 'gruvbox-community/gruvbox'
 " Workspace {{{
 Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons' " file drawer
 "Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
-Plug 'junegunn/fzf' " fuzzy file finder and so much more
-Plug 'yuki-yano/fzf-preview.vim', { 'do': ':FzfPreviewInstall' }
+Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'main', 'do': ':FzfPreviewInstall' }
 Plug 'vim-airline/vim-airline' " fancy statusline
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
 Plug 'tpope/vim-projectionist' " projectionist project config
@@ -28,6 +28,8 @@ Plug 'diepm/vim-rest-console' " http client
 
 " Git {{{
 Plug 'tpope/vim-fugitive' " amazing git wrapper for vim
+Plug 'tpope/vim-rhubarb' " enabled GBrowse
+" with vim-rhubarb to enable additional features, run: echo 'machine api.github.com login <user> password <token>' >> ~/.netrc
 Plug 'samoshkin/vim-mergetool'
 Plug 'shumphrey/fugitive-gitlab.vim'
 " }}}
@@ -62,6 +64,11 @@ Plug 'janko-m/vim-test' " running of unit tests
 " }}}
 
 " Language {{{
+Plug 'theHamsta/nvim-dap-virtual-text'
+Plug 'rcarriga/nvim-dap-ui' " ui for dap
+Plug 'nvim-neotest/nvim-nio'
+Plug 'mfussenegger/nvim-dap'
+Plug 'leoluz/nvim-dap-go' " delve debugging for golang
 Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': { -> coc#util#install() } }
 Plug 'plasticboy/vim-markdown' " markdown
 Plug 'HerringtonDarkholme/yats.vim', { 'for': [ 'typescript' ] } " typescript

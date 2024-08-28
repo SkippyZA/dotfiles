@@ -59,7 +59,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.dotfiles/bin:$HOME/bin"
 
 # Easy 'cd' to common paths
-export CDPATH=.:~:~/Development:~/Development/newstore:~/Development/playground
+export CDPATH=.:~:~/Development:~/Development/Make:~/Development/playground
 
 # Configure GO
 export GOPATH="$HOME/go"
