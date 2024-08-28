@@ -28,6 +28,8 @@ Plug 'diepm/vim-rest-console' " http client
 
 " Git {{{
 Plug 'tpope/vim-fugitive' " amazing git wrapper for vim
+Plug 'tpope/vim-rhubarb' " enabled GBrowse
+" with vim-rhubarb to enable additional features, run: echo 'machine api.github.com login <user> password <token>' >> ~/.netrc
 Plug 'samoshkin/vim-mergetool'
 Plug 'shumphrey/fugitive-gitlab.vim'
 " }}}
@@ -62,6 +64,11 @@ Plug 'janko-m/vim-test' " running of unit tests
 " }}}
 
 " Language {{{
+Plug 'theHamsta/nvim-dap-virtual-text'
+Plug 'rcarriga/nvim-dap-ui' " ui for dap
+Plug 'nvim-neotest/nvim-nio'
+Plug 'mfussenegger/nvim-dap'
+Plug 'leoluz/nvim-dap-go' " delve debugging for golang
 Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': { -> coc#util#install() } }
 Plug 'plasticboy/vim-markdown' " markdown
 Plug 'HerringtonDarkholme/yats.vim', { 'for': [ 'typescript' ] } " typescript
