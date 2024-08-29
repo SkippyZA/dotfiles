@@ -45,6 +45,7 @@ return {
     -- Show documentation
     {"n", "K", '<CMD>lua _G.show_docs()<CR>', {silent = true}},
   },
+  build = "npm ci",
   config = function()
     vim.g.coc_global_extensions = { 'coc-json', 'coc-go', 'coc-yaml' }
   end

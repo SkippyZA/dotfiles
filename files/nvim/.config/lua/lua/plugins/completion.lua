@@ -45,6 +45,24 @@ return {
     require("luasnip.loaders.from_vscode").load({include = {"html"}})
     require("luasnip.loaders.from_vscode").lazy_load()
 
+    function select_next_fn (fallback)
+      if cmp.visible() then
+        cmp.select_next_item(select_opts)
+      elseif check_back_space() then
+        fallback()
+      else
+        cmp.complete()
+      end
+    end
+
+    function select_prev_fn(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item(select_opts)
+      else
+        fallback()
+      end
+    end
+
     cmp.setup({
       snippet = {
         expand = function(args)
@@ -53,23 +71,11 @@ return {
       },
 
       mapping = {
-        ['<Tab>'] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item(select_opts)
-          elseif check_back_space() then
-            fallback()
-          else
-            cmp.complete()
-          end
-        end, {'i', 's'}),
+        ['<Tab>'] = cmp.mapping(select_next_fn, {'i', 's'}),
+        ['<Down>'] = cmp.mapping(select_next_fn, {'i', 's'}),
 
-        ['<S-Tab>'] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item(select_opts)
-          else
-            fallback()
-          end
-        end, {'i', 's'}),
+        ['<S-Tab>'] = cmp.mapping(select_prev_fn, {'i', 's'}),
+        ['<Up>'] = cmp.mapping(select_prev_fn, {'i', 's'}),
 
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
       },
