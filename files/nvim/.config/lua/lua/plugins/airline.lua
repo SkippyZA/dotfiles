@@ -1,4 +1,5 @@
 return {
+  "vim-airline/vim-airline-themes",
   {
     "vim-airline/vim-airline",
     lazy = false,
@@ -9,7 +10,7 @@ return {
       vim.g.airline_powerline_fonts=1
       vim.g.airline_left_sep =''
       vim.g.airline_right_sep =''
-      vim.g.airline_theme='gruvbox'
+      vim.g.airline_theme='gruvbox_material'
 
       vim.g["airline#extensions#ale#enabled"]=1
       vim.g["airline#extensions#tabline#enabled"]=1

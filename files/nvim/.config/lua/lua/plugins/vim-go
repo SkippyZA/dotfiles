@@ -13,8 +13,8 @@ end
 return {
   "fatih/vim-go",
   ft = "go",
-  build = function()
-    vim.cmd.GoInstallBinaries()
+  setup = function()
+    vim.cmd("GoInstallBinaries()")
   end,
   config = function()
     vim.keymap.set('n', '<leader>a', [[ <cmd>GoAlternate<cr> ]], { desc = "Switch between source and test files" })

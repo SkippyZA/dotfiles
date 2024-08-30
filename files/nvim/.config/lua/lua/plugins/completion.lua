@@ -23,27 +23,15 @@ return {
       },
     },
   },
+  lazy=false,
   config = function()
     local cmp = require('cmp')
     local luasnip = require("luasnip")
 
-    luasnip.config.set_config({
-      history = false,
-      updateevents = "TextChanged,TextChangedI",
-    })
-
-    luasnip.snippets = {
-      html = {}
-    }
-
-    luasnip.filetype_extend("javascriptreact", { "html" })
-    luasnip.filetype_extend("typescriptreact", { "html" })
-    luasnip.snippets.javascript = luasnip.snippets.html
-    luasnip.snippets.javascriptreact = luasnip.snippets.html
-    luasnip.snippets.typescriptreact = luasnip.snippets.html
-
-    require("luasnip.loaders.from_vscode").load({include = {"html"}})
-    require("luasnip.loaders.from_vscode").lazy_load()
+     luasnip.config.set_config({
+       history = false,
+       updateevents = "TextChanged,TextChangedI",
+     })
 
     function select_next_fn (fallback)
       if cmp.visible() then
@@ -77,7 +65,9 @@ return {
         ['<S-Tab>'] = cmp.mapping(select_prev_fn, {'i', 's'}),
         ['<Up>'] = cmp.mapping(select_prev_fn, {'i', 's'}),
 
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<CR>'] = cmp.mapping.confirm({ behaviour=cmp.ConfirmBehavior.Replace, select=true }),
+
+        ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
       },
 
       -- Order of sources determines order of sourcing
@@ -94,5 +84,6 @@ return {
         documentation = cmp.config.window.bordered(),
       },
     })
+
   end
 }

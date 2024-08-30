@@ -28,6 +28,7 @@ local config = function()
       "make",
       "markdown",
       "markdown_inline",
+      "norg",
       "python",
       "query",
       "regex",
@@ -45,6 +46,7 @@ local config = function()
     },
     highlight = {
       enable = true,
+      -- disable = { "norg" }
     },
     matchup = {
       enable = true,
@@ -172,7 +174,6 @@ end
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    config = config,
     lazy = false,
     build = ":TSUpdate",
     dependencies = {
@@ -190,6 +191,7 @@ return {
         enabled = true,
       },
     },
+    config = config,
   },
   {
     "nvim-treesitter/nvim-treesitter-context",

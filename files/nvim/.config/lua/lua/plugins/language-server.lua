@@ -10,6 +10,7 @@ end
 return {
   {
     "neovim/nvim-lspconfig",
+    lazy = false,
     dependencies = {
       { "williamboman/mason.nvim" },
       { "williamboman/mason-lspconfig.nvim" },
@@ -17,21 +18,22 @@ return {
     },
     config = function()
       require("mason").setup()
+      require("mason-lspconfig").setup()
 
       local lspconfig = require("lspconfig")
-
-      lspconfig["bashls"].setup({})
-      lspconfig["cssls"].setup({})
-      lspconfig["docker_compose_language_service"].setup({})
-      lspconfig["dockerls"].setup({})
-      lspconfig["html"].setup({})
-      lspconfig["lemminx"].setup({})
-      lspconfig["lua_ls"].setup({})
-      lspconfig["marksman"].setup({})
-      lspconfig["pyright"].setup({})
-      lspconfig["tsserver"].setup({})
-      lspconfig["yamlls"].setup({})
-
+      --
+      -- lspconfig["bashls"].setup({})
+      -- lspconfig["cssls"].setup({})
+      -- lspconfig["docker_compose_language_service"].setup({})
+      -- lspconfig["dockerls"].setup({})
+      -- lspconfig["html"].setup({})
+      -- lspconfig["lemminx"].setup({})
+      -- lspconfig["lua_ls"].setup({})
+      -- lspconfig["marksman"].setup({})
+      -- lspconfig["pyright"].setup({})
+      -- lspconfig["tsserver"].setup({})
+      -- lspconfig["yamlls"].setup({})
+      --
       lspconfig["gopls"].setup({
         settings = {
           gopls = {
@@ -41,13 +43,13 @@ return {
           }
         }
       })
-
-      lspconfig["sqlls"].setup({
-        root_dir = function(fname)
-          return lspconfig.util.find_git_ancestor(fname) or vim.fn.getcwd()
-        end,
-      })
-
+      --
+      -- lspconfig["sqlls"].setup({
+      --   root_dir = function(fname)
+      --     return lspconfig.util.find_git_ancestor(fname) or vim.fn.getcwd()
+      --   end,
+      -- })
+      --
       -- lsp_signature UI tweaks
       require("lsp_signature").setup({
         bind = true,
@@ -91,8 +93,4 @@ return {
       })
     end
   },
-  -- {
-  --   "VonHeikemen/lsp-zero.nvim",
-  --   branch = "v4.x",
-  -- },
 }
