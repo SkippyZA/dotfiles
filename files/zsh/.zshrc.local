@@ -232,11 +232,11 @@ alias lsdir="find . -maxdepth 1 -type d -mindepth 1 -exec du -hs {} \;"
 # ==============================================================
 # Use neovim instead of vim
 # ==============================================================
-alias vim="NVIM_TUI_ENABLE_TRUE_COLOR=1 NVIM_APPNAME=lua nvim"
-alias vi="NVIM_TUI_ENABLE_TRUE_COLOR=1 APPNAME=lua nvim"
+alias vim="NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim"
+alias vi="NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim"
 alias oldvim="\vim"
 
-alias vsvim="NVIM_TUI_ENABLE_TRUE_COLOR=1 NVIM_APPNAME=nvim nvim"
+alias vsvim="NVIM_TUI_ENABLE_TRUE_COLOR=1 NVIM_APPNAME=vsvim nvim"
 
 # Close terminal with vim :q
 alias :q="exit"
