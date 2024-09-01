@@ -26,6 +26,8 @@
   "diagnostic.checkCurrentLine": true,
   "diagnostic.messageTarget": "float",
 
+  "Lua.diagnostics.globals": [ "vim" ],
+
   "javascript.preferences.quoteStyle": "single",
   "javascript.preferences.importModuleSpecifier": "relative",
   "javascript.format.insertSpaceAfterConstructor": true,
@@ -77,4 +79,23 @@
   "snippets.ultisnips.pythonPrompt": false,
 
   "yaml.validate": false,
+
+  "languageserver": {
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
+    },
+    "dockercompose": {
+      "command": "docker-compose-langserver",
+      "args": ["--stdio"],
+      "filetypes": ["dockercompose"],
+      "rootPatterns": [".git", ".env", "docker-compose.yml", "compose.yml"]
+    },
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform"],
+      "initializationOptions": {}
+    }
+  }
 }
