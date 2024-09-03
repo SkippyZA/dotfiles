@@ -102,6 +102,13 @@ brew-update:
 	@brew update
 
 
+## install-lsp: Install Language Servers
+install-lsp:
+	@brew install hashicorp/tap/terraform-ls
+	@npm install -g @microsoft/compose-language-service
+	@npm install -g dockerfile-language-server-nodejs
+
+
 ## :
 ## help: Print out available make targets.
 help: Makefile

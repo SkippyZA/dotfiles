@@ -65,3 +65,7 @@ vim.cmd("command! -bang WA wa<bang>")
 vim.cmd("command! -bang Q q<bang>")
 vim.cmd("command! -bang QA qa<bang>")
 vim.cmd("command! -bang Qa qa<bang>")
+
+function ExportNeorg()
+  vim.cmd([[Neorg export directory /Users/s.inskip/Library/Mobile\ Documents/com~apple~CloudDocs/neorg/notes markdown /Users/s.inskip/Library/Mobile\ Documents/com~apple~CloudDocs/neorg/notes-output ]])
+end

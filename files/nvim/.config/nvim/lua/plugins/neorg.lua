@@ -18,8 +18,8 @@ return {
           ["core.dirman"] = {
             config = {
               workspaces = {
-                notes = "/Users/skippy/Library/Mobile Documents/com~apple~CloudDocs/Documents/neorg/notes",
-                make = "/Users/skippy/Library/Mobile Documents/com~apple~CloudDocs/Documents/neorg/make",
+                notes = "/Users/s.inskip/Library/Mobile Documents/com~apple~CloudDocs/neorg/notes",
+                make = "/Users/s.inskip/Library/Mobile Documents/com~apple~CloudDocs/neorg/make",
               },
               default_workspace = "notes",
             },

@@ -93,8 +93,9 @@
       "rootPatterns": [".git", ".env", "docker-compose.yml", "compose.yml"]
     },
     "terraform": {
-      "command": "terraform-lsp",
-      "filetypes": ["terraform"],
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": ["terraform", "tf"],
       "initializationOptions": {}
     }
   }
