@@ -42,15 +42,9 @@
 
   cleanup = "!git remote prune origin && git gc && git clean -df && git stash clear"
 
-[url "git@github.com:"]
+[url "ssh://git@github.com/"]
   insteadOf = https://github.com/
 
-[url "git@gitlab.com:"]
-  insteadOf = https://gitlab.com/
-
-# Work
-[includeIf "gitdir:~/Development/newstore/"]
-	path = ~/.gitconfig-newstore
 [color]
   diff = auto
   status = auto
@@ -105,13 +99,13 @@
   prompt = false
   keepBackup = false
 
-[merge]
-  tool = vim_mergetool
-  conflictstyle = diff3
+; [merge]
+;   tool = vim_mergetool
+;   conflictstyle = diff3
 
-[mergetool "vim_mergetool"]
-  cmd = vim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
-  trustExitCode = true
+; [mergetool "vim_mergetool"]
+;   cmd = vim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
+;   trustExitCode = true
 
 [diff]
   tool = vimdiff
