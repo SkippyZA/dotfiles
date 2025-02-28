@@ -18,6 +18,13 @@ return {
       "tsakirist/telescope-lazy.nvim",
       "catgoose/do-the-needful.nvim",
       "folke/neoconf.nvim",
+      "jremmen/vim-ripgrep",
+      {
+        "fcying/telescope-ctags-outline.nvim",
+        config = function()
+        end,
+      }
+
     },
 
     keys = {
@@ -132,6 +139,9 @@ return {
                 open_lazy_root_find_files = "<C-r>f",
                 open_lazy_root_live_grep = "<C-r>g",
               },
+            },
+            ctags_outline = {
+              ctags = {'ctags'},
             },
           }
         }

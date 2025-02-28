@@ -22,6 +22,7 @@ local config = function()
       "javascript",
       "jq",
       "json",
+      "jsonnet",
       "jsonc",
       "lua",
       "luap",

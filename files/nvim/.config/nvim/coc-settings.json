@@ -78,7 +78,11 @@
   "snippets.ultisnips.enable": true,
   "snippets.ultisnips.pythonPrompt": false,
 
+
   "yaml.validate": false,
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.json": "openapi.yaml",
+  },
 
   "languageserver": {
     "dockerfile": {
@@ -91,6 +95,12 @@
       "args": ["--stdio"],
       "filetypes": ["dockercompose"],
       "rootPatterns": [".git", ".env", "docker-compose.yml", "compose.yml"]
+    },
+    "jsonnet": {
+      "command": "jsonnet-language-server",
+      "args": ["-t"],
+      "rootPatterns": [".git/", "jsonnetfile.json"],
+      "filetypes": ["jsonnet","libsonnet"]
     },
     "terraform": {
       "command": "terraform-ls",

@@ -49,7 +49,8 @@ vim.opt.mat=2                        -- how many tenths of a second to blink
 -- Folding
 vim.opt.foldmethod = "expr"                     -- treesiter time
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- treesiter
-vim.opt.foldtext = ''
+-- vim.opt.foldtext = ''
+vim.opt.foldenable = false                      --  Disable folding at startup.
 
 require("config.lazy")
 require("config.window")
@@ -69,3 +70,15 @@ vim.cmd("command! -bang Qa qa<bang>")
 function ExportNeorg()
   vim.cmd([[Neorg export directory /Users/s.inskip/Library/Mobile\ Documents/com~apple~CloudDocs/neorg/notes markdown /Users/s.inskip/Library/Mobile\ Documents/com~apple~CloudDocs/neorg/notes-output ]])
 end
+
+-- Setting filetypes for `helm`
+vim.filetype.add({
+  pattern = {
+    [".*/charts/.*/templates/.*%.yaml"] = "helm",
+    [".*/charts/.*/templates/.*%.tpl"] = "helm",
+    [".*/chart/.*/templates/.*%.yaml"] = "helm",
+    [".*/chart/.*/templates/.*%.tpl"] = "helm",
+    [".*/chart/templates/.*%.yaml"] = "helm",
+    [".*/chart/templates/.*%.tpl"] = "helm",
+  },
+})
