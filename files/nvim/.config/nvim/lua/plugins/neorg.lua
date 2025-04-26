@@ -18,8 +18,8 @@ return {
           ["core.dirman"] = {
             config = {
               workspaces = {
-                notes = "/Users/s.inskip/Library/Mobile Documents/com~apple~CloudDocs/neorg/notes",
-                make = "/Users/s.inskip/Library/Mobile Documents/com~apple~CloudDocs/neorg/make",
+                notes = vim.fn.expand("$HOME/Library/Mobile Documents/com~apple~CloudDocs/neorg/notes"),
+                make = vim.fn.expand("$HOME/Library/Mobile Documents/com~apple~CloudDocs/neorg/make"),
               },
               default_workspace = "notes",
             },
