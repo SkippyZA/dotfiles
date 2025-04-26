@@ -1,0 +1,64 @@
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--   pattern = "*.go",
+--   callback = function()
+--     local params = vim.lsp.util.make_range_params()
+--     params.context = { only = { "source.organizeImports" } }
+--     -- buf_request_sync defaults to a 1000ms timeout. Depending on your
+--     -- machine and codebase, you may want longer. Add an additional
+--     -- argument after params if you find that you have to write the file
+--     -- twice for changes to be saved.
+--     -- E.g., vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 3000)
+--     local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
+--     for cid, res in pairs(result or {}) do
+--       for _, r in pairs(res.result or {}) do
+--         if r.edit then
+--           local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
+--           vim.lsp.util.apply_workspace_edit(r.edit, enc)
+--         end
+--       end
+--     end
+--     vim.lsp.buf.format({ async = false })
+--   end,
+-- })
+--
+-- vim.keymap.set("n", "<leader>r", function()
+--   -- when rename opens the prompt, this autocommand will trigger
+--   -- it will "press" CTRL-F to enter the command-line window `:h cmdwin`
+--   -- in this window I can use normal mode keybindings
+--   local cmdId
+--   cmdId = vim.api.nvim_create_autocmd({ "CmdlineEnter" }, {
+--       callback = function()
+--         local key = vim.api.nvim_replace_termcodes("<C-f>", true, false, true)
+--         vim.api.nvim_feedkeys(key, "c", false)
+--         vim.api.nvim_feedkeys("0", "n", false)
+--         -- autocmd was triggered and so we can remove the ID and return true to delete the autocmd
+--         cmdId = nil
+--         return true
+--       end,
+--     })
+--   vim.lsp.buf.rename()
+--   -- if LPS couldn't trigger rename on the symbol, clear the autocmd
+--   vim.defer_fn(function()
+--       -- the cmdId is not nil only if the LSP failed to rename
+--       if cmdId then
+--         vim.api.nvim_del_autocmd(cmdId)
+--       end
+--     end, 500)
+-- end)
+
+return {
+  -- {
+  --   "ray-x/go.nvim",
+  --   dependencies = {  -- optional packages
+  --     "ray-x/guihua.lua",
+  --     "neovim/nvim-lspconfig",
+  --     "nvim-treesitter/nvim-treesitter",
+  --   },
+  --   config = function()
+  --     require("go").setup()
+  --   end,
+  --   event = {"CmdlineEnter"},
+  --   ft = {"go", 'gomod'},
+  --   build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+  -- }
+}
