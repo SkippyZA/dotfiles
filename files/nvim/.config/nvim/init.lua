@@ -24,14 +24,6 @@ vim.opt.scrolloff=5                  -- lines of text around cursor
 vim.opt.title=true                   -- set terminal title
 vim.opt.hidden=true                  -- current buffer can be put into background
 
--- Tab control
-vim.opt.expandtab=true               -- on pressing tab, insert spaces
-vim.opt.smarttab=true                -- tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
-vim.opt.tabstop=2                    -- the visible width of tabs
-vim.opt.softtabstop=2                -- edit as if the tabs are 2 characters wide
-vim.opt.shiftwidth=2                 -- number of spaces to use for indent and unindent
-vim.opt.shiftround=true              -- round indent to a multiple of 'shiftwidth'
-
 -- status
 vim.opt.laststatus=2
 vim.opt.cmdheight=2                  -- command bar height
@@ -46,15 +38,25 @@ vim.opt.magic=true                   -- Set magic on, for regex
 vim.opt.showmatch=true               -- show matching braces
 vim.opt.mat=2                        -- how many tenths of a second to blink
 
+require("config.lazy")
+require("config.window")
+require("config.keymap")
+
+-- Tab control
+vim.opt.expandtab=true               -- on pressing tab, insert spaces
+vim.opt.smarttab=true                -- tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
+vim.opt.tabstop=2                    -- the visible width of tabs
+vim.opt.softtabstop=2                -- edit as if the tabs are 2 characters wide
+vim.opt.shiftwidth=2                 -- number of spaces to use for indent and unindent
+vim.opt.shiftround=true              -- round indent to a multiple of 'shiftwidth'
+
+
 -- Folding
 vim.opt.foldmethod = "expr"                     -- treesiter time
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- treesiter
 -- vim.opt.foldtext = ''
 vim.opt.foldenable = false                      --  Disable folding at startup.
 
-require("config.lazy")
-require("config.window")
-require("config.keymap")
 
 -- Fix common typos
 vim.cmd("command! -bang -nargs=* -complete=file E e<bang> <args>")
