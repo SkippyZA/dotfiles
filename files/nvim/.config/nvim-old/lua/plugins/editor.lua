@@ -1,6 +1,15 @@
 local keyset = vim.keymap.set
 
 return {
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({})
+    end
+  },
+
   -- search inside files using ack. Same as command line ack utility, but use :Ack
   {
     "mileszs/ack.vim",
@@ -9,6 +18,14 @@ return {
       -- ack without opening the first match (replaces Ack with Ack!)
       vim.keymap.set('ca', 'Ack', [[Ack!]])
     end
+  },
+
+  -- Custom text objects to select parts of a variable
+  { 
+    "kana/vim-textobj-user",
+    dependencies = {
+      "Julian/vim-textobj-variable-segment",
+    }
   },
 
   -- Unix commands in vim

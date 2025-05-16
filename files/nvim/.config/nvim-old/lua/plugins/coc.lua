@@ -120,7 +120,8 @@ return {
     lazy = false,
     build = "npm ci",
     config = function()
-      vim.g.coc_global_extensions = { 'coc-json', 'coc-go', 'coc-yaml', 'coc-sh', 'coc-markdownlint', 'coc-snippets', 'coc-tsserver', 'coc-tslint-plugin', 'coc-swagger' }
+      -- vim.g.coc_global_extensions = { 'coc-json', 'coc-go', 'coc-yaml', 'coc-sh', 'coc-markdownlint', 'coc-snippets', 'coc-tsserver', 'coc-tslint-plugin', 'coc-swagger' }
+      vim.g.coc_global_extensions = { 'coc-json', 'coc-go', 'coc-yaml', 'coc-sh', 'coc-snippets', 'coc-tsserver', 'coc-tslint-plugin', 'coc-swagger' }
 
       vim.cmd("au FileType yaml if bufname(\"%\") =~# \"docker-compose.yml\" | set ft=yaml.docker-compose | endif")
       vim.cmd("au FileType yaml if bufname(\"%\") =~# \"compose.yml\" | set ft=yaml.docker-compose | endif")

@@ -16,6 +16,8 @@ set nomore
 
 set surround                " make use of ideavims surround plugin
 set commentary              " ideavims vim-commentary plugin
+set which-key               " use which-key for ideavim
+set notimeout               " no timeout for which-key
 
 set nocompatible            " not compatible with vi
 set number                  " show line numbers
@@ -37,6 +39,12 @@ set mat=2                   " how many tenths of a second to blink
 
 " shortcut to save
 nmap <leader>, :w<cr>
+
+" nerdtree
+nnoremap <leader>k :NERDTreeToggle<cr>
+nnoremap <leader>y :NERDTreeFind<cr>
+vim.g.NERDTreeQuitOnOpen = 1
+vim.g.NERDTreeAutoDeleteBuffer = 1
 
 nmap <leader>gd <Action>(GotoDeclaration)
 nmap <leader>gr <Action>(FindUsages)

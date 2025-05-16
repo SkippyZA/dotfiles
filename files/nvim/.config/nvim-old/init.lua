@@ -38,7 +38,6 @@ vim.opt.magic=true                   -- Set magic on, for regex
 vim.opt.showmatch=true               -- show matching braces
 vim.opt.mat=2                        -- how many tenths of a second to blink
 
-require("config.init")
 require("config.lazy")
 require("config.window")
 require("config.keymap")
@@ -70,18 +69,18 @@ vim.cmd("command! -bang Q q<bang>")
 vim.cmd("command! -bang QA qa<bang>")
 vim.cmd("command! -bang Qa qa<bang>")
 
--- function ExportNeorg()
---   vim.cmd([[Neorg export directory /Users/s.inskip/Library/Mobile\ Documents/com~apple~CloudDocs/neorg/notes markdown /Users/s.inskip/Library/Mobile\ Documents/com~apple~CloudDocs/neorg/notes-output ]])
--- end
---
--- -- Setting filetypes for `helm`
--- vim.filetype.add({
---   pattern = {
---     [".*/charts/.*/templates/.*%.yaml"] = "helm",
---     [".*/charts/.*/templates/.*%.tpl"] = "helm",
---     [".*/chart/.*/templates/.*%.yaml"] = "helm",
---     [".*/chart/.*/templates/.*%.tpl"] = "helm",
---     [".*/chart/templates/.*%.yaml"] = "helm",
---     [".*/chart/templates/.*%.tpl"] = "helm",
---   },
--- })
+function ExportNeorg()
+  vim.cmd([[Neorg export directory /Users/s.inskip/Library/Mobile\ Documents/com~apple~CloudDocs/neorg/notes markdown /Users/s.inskip/Library/Mobile\ Documents/com~apple~CloudDocs/neorg/notes-output ]])
+end
+
+-- Setting filetypes for `helm`
+vim.filetype.add({
+  pattern = {
+    [".*/charts/.*/templates/.*%.yaml"] = "helm",
+    [".*/charts/.*/templates/.*%.tpl"] = "helm",
+    [".*/chart/.*/templates/.*%.yaml"] = "helm",
+    [".*/chart/.*/templates/.*%.tpl"] = "helm",
+    [".*/chart/templates/.*%.yaml"] = "helm",
+    [".*/chart/templates/.*%.tpl"] = "helm",
+  },
+})

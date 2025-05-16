@@ -8,7 +8,7 @@
 
   "coc.preferences.messageLevel": "warning",
   "coc.preferences.maxFileSize": "1MB",
-  "coc.preferences.enableMarkdown": true,
+  "coc.preferences.enableMarkdown": false,
 
   "codeLens.enable": true,
   "codeLens.separator": " ",

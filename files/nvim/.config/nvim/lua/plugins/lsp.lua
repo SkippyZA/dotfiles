@@ -2,15 +2,7 @@ return {
   {
     "williamboman/mason.nvim",
     config = function()
-      require("mason").setup({
-      -- ensure_installed = {
-      --   "delve",
-      --   "goimports",
-      --   "gofumpt",
-      --   "gomodifytags",
-      --   "impl",
-      -- }
-    })
+      require("mason").setup({})
     end,
   },
 
@@ -26,6 +18,7 @@ return {
           "lua_ls",
           "terraformls",
           "ts_ls",
+          -- "sqlfluff",
         },
       })
     end
@@ -42,7 +35,7 @@ return {
       lspconfig.jsonnet_ls.setup({})
       lspconfig.lua_ls.setup({})
       lspconfig.terraformls.setup({})
-      lspconfig.ts_ls.setup({})
+      -- lspconfig.ts_ls.setup({})
 
       vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
       vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)

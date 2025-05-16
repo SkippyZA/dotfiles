@@ -1,202 +1,117 @@
-local config = function()
-  local opts = {
-    ensure_installed = {
-      "angular",
-      "awk",
-      "bash",
-      "c",
-      "cpp",
-      "css",
-      "csv",
-      "dockerfile",
-      "fish",
-      "git_config",
-      "git_rebase",
-      "gitattributes",
-      "gitcommit",
-      "gitignore",
-      "go",
-      "helm",
-      "html",
-      "http",
-      "javascript",
-      "jq",
-      "json",
-      "jsonnet",
-      "jsonc",
-      "lua",
-      "luap",
-      "make",
-      "markdown",
-      "markdown_inline",
-      "norg",
-      "python",
-      "query",
-      "regex",
-      "ruby",
-      "scheme",
-      "scss",
-      "sql",
-      "toml",
-      "typescript",
-      "terraform",
-      "vim",
-      "vimdoc",
-      "vue",
-      "yaml",
-    },
-    highlight = {
-      enable = true,
-      -- disable = { "norg" }
-    },
-    matchup = {
-      enable = true,
-    },
-    {
-      context_commentstring = {
-        enable = true,
-        enable_autocmd = true,
-      },
-    },
-    textobjects = {
-      lsp_interop = {
-        enable = true,
-        border = "rounded",
-        floating_preview_opts = {},
-        -- peek_definition_code = {
-        -- 	["<leader>df"] = "@function.outer",
-        -- 	["<leader>dF"] = "@class.outer",
-        -- },
-      },
-      move = {
-        enable = true,
-        set_jumps = true,
-        goto_next_start = {
-          ["]f"] = "@function.inner",
-          ["]e"] = "@function.outer",
-          ["]b"] = "@parameter.outer",
-          ["]d"] = "@block.inner",
-          ["]a"] = "@attribute.inner",
-          ["]m"] = "@this_method_call",
-          ["]s"] = { query = "@scope", query_group = "locals" },
-          --  TODO: 2024-01-08 - this is not working in typescript files
-          ["]c"] = "@method_object_call",
-          ["]o"] = "@object_declaration",
-          ["]k"] = "@object_key",
-          ["]v"] = "@object_value",
-          ["]w"] = "@method_parameter",
-        },
-        goto_next_end = {
-          ["]F"] = "@function.inner",
-          ["]E"] = "@function.outer",
-          ["]B"] = "@parameter.outer",
-          ["]D"] = "@block.inner",
-          ["]A"] = "@attribute.inner",
-          ["]M"] = "@this_method_call",
-          ["]S"] = { query = "@scope", query_group = "locals" },
-          ["]C"] = "@method_object_call",
-          ["]O"] = "@object_declaration",
-          ["]K"] = "@object_key",
-          ["]V"] = "@object_value",
-          ["]W"] = "@method_parameter",
-        },
-        goto_previous_start = {
-          ["[f"] = "@function.inner",
-          ["[e"] = "@function.outer",
-          ["[b"] = "@parameter.outer",
-          ["[d"] = "@block.inner",
-          ["[a"] = "@attribute.inner",
-          ["[m"] = "@this_method_call",
-          ["[s"] = { query = "@scope", query_group = "locals" },
-          ["[c"] = "@method_object_call",
-          ["[o"] = "@object_declaration",
-          ["[k"] = "@object_key",
-          ["[v"] = "@object_value",
-          ["[w"] = "@method_parameter",
-        },
-        goto_previous_end = {
-          ["[F"] = "@function.inner",
-          ["[E"] = "@function.outer",
-          ["[B"] = "@parameter.outer",
-          ["[D"] = "@block.inner",
-          ["[A"] = "@attribute.inner",
-          ["[M"] = "@this_method_call",
-          ["[S"] = { query = "@scope", query_group = "locals" },
-          ["[C"] = "@method_object_call",
-          ["[O"] = "@object_declaration",
-          ["[K"] = "@object_key",
-          ["[V"] = "@object_value",
-          ["[W"] = "@method_parameter",
-        },
-      },
-      select = {
-        enable = true,
-        lookahead = true,
-        keymaps = {
-          ["af"] = "@function.outer",
-          ["if"] = "@function.inner",
-          ["ac"] = "@call.outer",
-          ["ic"] = "@call.inner",
-          ["aC"] = "@class.outer",
-          ["iC"] = "@class.inner",
-          ["ib"] = "@parameter.inner",
-          ["ab"] = "@parameter.outer",
-          ["iB"] = "@block.inner",
-          ["aB"] = "@block.outer",
-          ["id"] = "@block.inner",
-          ["ad"] = "@block.outer",
-          ["il"] = "@loop.inner",
-          ["al"] = "@loop.outer",
-          ["ia"] = "@attribute.inner",
-          ["aa"] = "@attribute.outer",
-        },
-      },
-    },
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        node_incremental = "v",
-        node_decremental = "V",
-        init_selection = "<C-y>",
-        -- scope_incremental = "<C-v>",
-      },
-    },
-  }
-
-  require("nvim-treesitter.configs").setup(opts)
-
-  vim.treesitter.language.register("markdown", "octo")
-
-  local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
-  -- k({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
-  -- k({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
-end
-
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    lazy = false,
+    version = false, -- last release is way too old and doesn't work on Windows
     build = ":TSUpdate",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      "JoosepAlviste/nvim-ts-context-commentstring",
-      "CKolkey/ts-node-action",
-      "nvim-treesitter/nvim-treesitter-context",
-      {
-        "bennypowers/template-literal-comments.nvim",
-        opts = true,
-        ft = {
-          "javascript",
-          "typescript",
+    -- event = { "LazyFile", "VeryLazy" },
+    event = { "VeryLazy" },
+    lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
+    init = function(plugin)
+      -- PERF: add nvim-treesitter queries to the rtp and it's custom query predicates early
+      -- This is needed because a bunch of plugins no longer `require("nvim-treesitter")`, which
+      -- no longer trigger the **nvim-treesitter** module to be loaded in time.
+      -- Luckily, the only things that those plugins need are the custom queries, which we make available
+      -- during startup.
+      require("lazy.core.loader").add_to_rtp(plugin)
+      require("nvim-treesitter.query_predicates")
+    end,
+    cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
+    keys = {
+      { "<c-space>", desc = "Increment Selection" },
+      { "<bs>", desc = "Decrement Selection", mode = "x" },
+    },
+    opts_extend = { "ensure_installed" },
+    ---@type TSConfig
+    ---@diagnostic disable-next-line: missing-fields
+    opts = {
+      highlight = { enable = true },
+      indent = { enable = true },
+      ensure_installed = {
+        "bash",
+        "c",
+        "diff",
+        "dockerfile",
+        "git_config",
+        "git_rebase",
+        "gitattributes",
+        "gitcommit",
+        "gitignore",
+        "go",
+        "gomod",
+        "gosum",
+        "gowork",
+        "helm",
+        "html",
+        "javascript",
+        "jsdoc",
+        "json",
+        "jsonc",
+        "jsonnet",
+        "lua",
+        "luadoc",
+        "luap",
+        "markdown",
+        "markdown_inline",
+        "norg",
+        "printf",
+        "python",
+        "query",
+        "regex",
+        "sql",
+        "terraform",
+        "toml",
+        "tsx",
+        "typescript",
+        "vim",
+        "vimdoc",
+        "xml",
+        "yaml",
+      },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "<C-space>",
+          node_incremental = "<C-space>",
+          scope_incremental = false,
+          node_decremental = "<bs>",
         },
-        enabled = true,
+      },
+      textobjects = {
+        move = {
+          enable = true,
+          goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer", ["]a"] = "@parameter.inner" },
+          goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer", ["]A"] = "@parameter.inner" },
+          goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer", ["[a"] = "@parameter.inner" },
+          goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer", ["[A"] = "@parameter.inner" },
+        },
       },
     },
-    config = config,
+    ---@param opts TSConfig
+    config = function(_, opts)
+      -- if type(opts.ensure_installed) == "table" then
+      --   opts.ensure_installed = LazyVim.dedup(opts.ensure_installed)
+      -- end
+      require("nvim-treesitter.configs").setup(opts)
+    end,
   },
+
   {
     "nvim-treesitter/nvim-treesitter-context",
-    config = true,
-    event = "BufReadPre",
+    -- event = "LazyFile",
+    opts = function()
+      local tsc = require("treesitter-context")
+      Snacks.toggle({
+        name = "Treesitter Context",
+        get = tsc.enabled,
+        set = function(state)
+          if state then
+            tsc.enable()
+          else
+            tsc.disable()
+          end
+        end,
+      }):map("<leader>ut")
+      return { mode = "cursor", max_lines = 3 }
+    end,
   }
 }

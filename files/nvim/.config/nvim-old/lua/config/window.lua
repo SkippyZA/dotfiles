@@ -24,3 +24,4 @@ vim.keymap.set('n', '<C-l>', '<cmd>lua WinMove("l")<cr>', { silent = true, desc 
 vim.keymap.set('n', 'tn', '<cmd>tabnew<cr>', { silent = true, desc = "Create a new tab" })
 vim.keymap.set('n', 'H', 'gT', { silent = true, desc = "move to tab on the left" })
 vim.keymap.set('n', 'L', 'gt', { silent = true, desc = "move to tab on the right" })
+
