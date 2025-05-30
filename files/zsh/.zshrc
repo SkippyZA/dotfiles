@@ -1,3 +1,6 @@
+# Profile startup of zsh. Also needs "zprof" at the end of this file
+# zmodload zsh/zprof
+
 source ~/.zshrc.local
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
@@ -20,3 +23,5 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 eval "$(tmuxifier init -)"
+
+# zprof
