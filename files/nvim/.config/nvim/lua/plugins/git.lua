@@ -13,7 +13,6 @@ return {
     -- echo 'machine api.github.com login <user> password <token>' >> ~/.netrc
     "tpope/vim-rhubarb",
   },
-
   {
     "pwntester/octo.nvim",
     cmd = "Octo",
@@ -48,5 +47,11 @@ return {
       { "@", "@<C-x><C-o>", mode = "i", ft = "octo", silent = true },
       { "#", "#<C-x><C-o>", mode = "i", ft = "octo", silent = true },
     },
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup()
+    end
   }
 }
