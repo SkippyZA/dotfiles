@@ -1,9 +1,5 @@
 cask_args appdir: '/Applications'
 
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
-tap "homebrew/bundle"
-tap "homebrew/services"
 tap "goreleaser/tap"
 tap "caarlos0/tap"
 tap "johanhaleby/kubetail"
@@ -19,10 +15,10 @@ tap "noahgorstein/tap"
 
 # App essentials
 # cask "alacritty"
-cask "github"
+# cask "github"
 cask "gpg-suite"
-cask "ngrok"
-cask "transmission"
+# cask "ngrok"
+# cask "transmission"
 
 # Homebrew essentials
 brew "ack"
@@ -34,7 +30,6 @@ brew "cmake"
 brew "diff-so-fancy"
 brew "direnv"
 brew "dnsmasq"
-brew "fluxctl"
 brew "fzf"
 brew "git"
 brew "glab"
@@ -48,6 +43,7 @@ brew "highlight"
 brew "htop"
 brew "httpie"
 brew "hub" # Run the following to have vim-fugitive work with GitHub: echo 'machine api.github.com login <user> password <token>' >> ~/.netrc
+brew "jsonnet"
 brew "jq"
 brew "jqp" # tui playground for jq
 brew "k9s"
@@ -74,7 +70,6 @@ brew "saml2aws"
 brew "starship"
 brew "stern"
 brew "stow"
-brew "svn"
 brew "svu"
 brew "tfenv"
 brew "tig"

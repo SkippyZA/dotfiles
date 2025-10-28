@@ -1,79 +1,89 @@
 return {
   {
-    "hrsh7th/nvim-cmp",
-    version = false, -- last release is way too old
-    event = "InsertEnter",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
+    "saghen/blink.cmp",
+    version = not vim.g.lazyvim_blink_main and "*",
+    build = vim.g.lazyvim_blink_main and "cargo build --release",
+    opts_extend = {
+      "sources.completion.enabled_providers",
+      "sources.compat",
+      "sources.default",
     },
-    opts = function()
-      vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
-      local cmp = require("cmp")
-      local defaults = require("cmp.config.default")()
-      local auto_select = true
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+      {
+        "saghen/blink.compat",
+        optional = true, -- make optional so it's only enabled if any extras need it
+        opts = {},
+        version = not vim.g.lazyvim_blink_main and "*",
+      },
+    },
+    event = { "InsertEnter", "CmdlineEnter" },
 
-      return {
-        auto_brackets = {},
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
+    opts = {
+      appearance = {
+        use_nvim_cmp_as_default = false,
+        nerd_font_variant = "mono",
+      },
+
+      fuzzy = { implementation = "prefer_rust_with_warning" },
+
+      completion = {
+        accept = {
+          -- experimental auto-brackets support
+          auto_brackets = {
+            enabled = true,
+          },
+        },
+        list = {
+          selection = {
+            preselect = false,
+            auto_insert = false,
+          },
+        },
+        menu = {
+          draw = {
+            treesitter = { "lsp" },
+          },
+        },
+        documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 200,
+        },
+        ghost_text = {
+          enabled = vim.g.ai_cmp,
+        },
+      },
+
+      -- experimental signature help support
+      signature = { enabled = true },
+
+      sources = {
+        default = { "lsp", "path", "snippets", "buffer" },
+      },
+
+      cmdline = {
+        enabled = true,
+        keymap = { preset = "cmdline" },
         completion = {
-          completeopt = "menu,menuone,noinsert" .. (auto_select and "" or ",noselect"),
+          list = { selection = { preselect = false } },
+          menu = {
+            auto_show = function()
+              return vim.fn.getcmdtype() == ":"
+            end,
+          },
+          ghost_text = { enabled = true },
         },
-        preselect = auto_select and cmp.PreselectMode.Item or cmp.PreselectMode.None,
-        mapping = cmp.mapping.preset.insert({
-          -- ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-          -- ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-          ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-          ["<C-Space>"] = cmp.mapping.complete(),
-          ["<CR>"] = MyVim.cmp.confirm({ select = auto_select }),
-          ["<C-y>"] = MyVim.cmp.confirm({ select = true }),
-          ["<S-CR>"] = MyVim.cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-          -- ["<C-CR>"] = function(fallback)
-          --   cmp.abort()
-          --   fallback()
-          -- end,
-          -- ["<tab>"] = function(fallback)
-          --   return MyVim.cmp.map({ "snippet_forward", "ai_accept" }, fallback)()
-          -- end,
-        }),
-        sources = cmp.config.sources({
-          { name = "nvim_lsp" },
-          { name = "path" },
-          -- { name = "copilot" },
-        }, {
-          { name = "buffer" },
-        }),
-        formatting = {
-          format = function(entry, item)
-            local icons = MyVim.config.icons.kinds
-            if icons[item.kind] then
-              item.kind = icons[item.kind] .. item.kind
-            end
+      },
 
-            local widths = {
-              abbr = vim.g.cmp_widths and vim.g.cmp_widths.abbr or 40,
-              menu = vim.g.cmp_widths and vim.g.cmp_widths.menu or 30,
-            }
+      keymap = {
+        preset = "enter",
+        ["<C-y>"] = { "select_and_accept" },
+        ["<tab>"] = { "select_next", "fallback" },
+      },
+    },
 
-            for key, width in pairs(widths) do
-              if item[key] and vim.fn.strdisplaywidth(item[key]) > width then
-                item[key] = vim.fn.strcharpart(item[key], 0, width - 1) .. "…"
-              end
-            end
-
-            return item
-          end,
-        },
-        experimental = {
-          -- only show ghost text when we show ai completions
-          ghost_text = false
-          -- ghost_text = vim.g.ai_cmp and {
-          --   hl_group = "CmpGhostText",
-          -- } or false,
-        },
-        sorting = defaults.sorting,
-      }
-    end,
   },
+
 }

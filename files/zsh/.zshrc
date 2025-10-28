@@ -9,9 +9,9 @@ export PATH="/usr/local/opt/libpq/bin:$PATH"
 
 listening() {
   if [ $# -eq 0 ]; then
-    sudo lsof -iTCP -sTCP:LISTEN -n -P
+    sudo lsof -iTCP -sTCP:LISTEN -n -P +c 0
   elif [ $# -eq 1 ]; then
-    sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
+    sudo lsof -iTCP -sTCP:LISTEN -n -P +c 0 | grep -i --color $1
   else
     echo "Usage: listening [pattern]"
   fi

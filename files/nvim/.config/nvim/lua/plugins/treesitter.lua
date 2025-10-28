@@ -1,31 +1,26 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
     version = false, -- last release is way too old and doesn't work on Windows
-    build = ":TSUpdate",
-    -- event = { "LazyFile", "VeryLazy" },
-    event = { "VeryLazy" },
-    lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
-    init = function(plugin)
-      -- PERF: add nvim-treesitter queries to the rtp and it's custom query predicates early
-      -- This is needed because a bunch of plugins no longer `require("nvim-treesitter")`, which
-      -- no longer trigger the **nvim-treesitter** module to be loaded in time.
-      -- Luckily, the only things that those plugins need are the custom queries, which we make available
-      -- during startup.
-      require("lazy.core.loader").add_to_rtp(plugin)
-      require("nvim-treesitter.query_predicates")
+    build = function()
+      local TS = require("nvim-treesitter")
+      if not TS.get_installed then
+        MyVim.error("Please restart Neovim and run `:TSUpdate` to use the `nvim-treesitter` **main** branch.")
+        return
+      end
+      MyVim.treesitter.ensure_treesitter_cli(function()
+        TS.update(nil, { summary = true })
+      end)
     end,
-    cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
-    keys = {
-      { "<c-space>", desc = "Increment Selection" },
-      { "<bs>", desc = "Decrement Selection", mode = "x" },
-    },
+    lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
+    event = { "LazyFile", "VeryLazy" },
+    cmd = { "TSUpdate", "TSInstall", "TSLog", "TSUninstall" },
     opts_extend = { "ensure_installed" },
-    ---@type TSConfig
-    ---@diagnostic disable-next-line: missing-fields
     opts = {
-      highlight = { enable = true },
       indent = { enable = true },
+      highlight = { enable = true },
+      folds = { enable = true },
       ensure_installed = {
         "bash",
         "c",
@@ -67,32 +62,67 @@ return {
         "xml",
         "yaml",
       },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<C-space>",
-          node_incremental = "<C-space>",
-          scope_incremental = false,
-          node_decremental = "<bs>",
-        },
-      },
-      textobjects = {
-        move = {
-          enable = true,
-          goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer", ["]a"] = "@parameter.inner" },
-          goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer", ["]A"] = "@parameter.inner" },
-          goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer", ["[a"] = "@parameter.inner" },
-          goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer", ["[A"] = "@parameter.inner" },
-        },
-      },
     },
-    ---@param opts TSConfig
     config = function(_, opts)
-      -- if type(opts.ensure_installed) == "table" then
-      --   opts.ensure_installed = LazyVim.dedup(opts.ensure_installed)
-      -- end
-      require("nvim-treesitter.configs").setup(opts)
-    end,
+      local TS = require("nvim-treesitter")
+      --
+      -- some quick sanity checks
+      if not TS.get_installed then
+        return MyVim.error("Please use `:Lazy` and update `nvim-treesitter`")
+      elseif type(opts.ensure_installed) ~= "table" then
+        return MyVim.error("`nvim-treesitter` opts.ensure_installed must be a table")
+      end
+
+      -- setup treesitter
+      TS.setup(opts)
+
+      -- install missing parsers
+      local install = vim.tbl_filter(function(lang)
+        return not MyVim.treesitter.have(lang)
+      end, opts.ensure_installed or {})
+
+      if #install > 0 then
+        MyVim.treesitter.ensure_treesitter_cli(function()
+          TS.install(install, { summary = false }):await(function()
+            MyVim.treesitter.get_installed(true) -- refresh the installed langs
+          end)
+        end)
+      end
+
+      vim.api.nvim_create_autocmd("FileType", {
+        group = vim.api.nvim_create_augroup("lazyvim_treesitter", { clear = true }),
+        callback = function(ev)
+          if not MyVim.treesitter.have(ev.match) then
+            return
+          end
+
+          -- highlighting
+          if vim.tbl_get(opts, "highlight", "enable") ~= false then
+            pcall(vim.treesitter.start)
+          end
+
+          -- -- indents
+          -- if vim.tbl_get(opts, "indent", "enable") ~= false and LazyVim.treesitter.have(ev.match, "indents") then
+          --   LazyVim.set_default("indentexpr", "v:lua.LazyVim.treesitter.indentexpr()")
+          -- end
+          --
+          -- -- folds
+          -- if vim.tbl_get(opts, "folds", "enable") ~= false and LazyVim.treesitter.have(ev.match, "folds") then
+          --   if LazyVim.set_default("foldmethod", "expr") then
+          --     LazyVim.set_default("foldexpr", "v:lua.LazyVim.treesitter.foldexpr()")
+          --   end
+          -- end
+        end,
+      })
+    end
+
+    -- ---@param opts TSConfig
+    -- config = function(_, opts)
+    --   -- if type(opts.ensure_installed) == "table" then
+    --   --   opts.ensure_installed = LazyVim.dedup(opts.ensure_installed)
+    --   -- end
+    --   require("nvim-treesitter.configs").setup(opts)
+    -- end,
   },
 
   {
@@ -113,5 +143,12 @@ return {
       }):map("<leader>ut")
       return { mode = "cursor", max_lines = 3 }
     end,
-  }
+  },
+
+  -- Automatically add closing tags for HTML and JSX
+  {
+    "windwp/nvim-ts-autotag",
+    event = "LazyFile",
+    opts = {},
+  },
 }

@@ -1,4 +1,5 @@
 _G.MyVim = {}
+_G.MyVim.treesitter = require('utils.treesitter')
 
 _G.MyVim.CREATE_UNDO = vim.api.nvim_replace_termcodes("<c-G>u", true, true, true)
 function _G.MyVim.create_undo()
@@ -10,19 +11,19 @@ end
 local cmp = {
   actions = {
     -- Native Snippets
-    snippet_forward = function()
-      if vim.snippet.active({ direction = 1 }) then
-        vim.schedule(function()
-          vim.snippet.jump(1)
-        end)
-        return true
-      end
-    end,
-    snippet_stop = function()
-      if vim.snippet then
-        vim.snippet.stop()
-      end
-    end,
+    -- snippet_forward = function()
+    --   if vim.snippet.active({ direction = 1 }) then
+    --     vim.schedule(function()
+    --       vim.snippet.jump(1)
+    --     end)
+    --     return true
+    --   end
+    -- end,
+    -- snippet_stop = function()
+    --   if vim.snippet then
+    --     vim.snippet.stop()
+    --   end
+    -- end,
   },
 }
 
