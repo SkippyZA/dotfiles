@@ -1,10 +1,8 @@
-vim.wo.foldlevel = 99
-vim.wo.conceallevel = 2
-
 return {
   {
     "nvim-neorg/neorg",
-    lazy = true,
+    version = "*",
+    lazy = false,
     keys = {
       {"<leader>ww", ":Neorg workspace notes<cr>"},
       {"<leader>wwq", ":Neorg return<cr>"},
@@ -33,6 +31,9 @@ return {
           ["core.integrations.treesitter"] = {},
         },
       }
+
+      vim.wo.foldlevel = 99
+      vim.wo.conceallevel = 2
     end
   }
 }

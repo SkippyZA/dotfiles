@@ -23,7 +23,7 @@ return {
           "lua_ls",
           "prettier",
           "terraformls",
-          -- "ts_ls",
+          "tilt",
           "vtsls",
         },
       }

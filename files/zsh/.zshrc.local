@@ -282,4 +282,6 @@ export GREP_COLOR='1;32'
 export TZ="Europe/Prague"
 export USERDIR="/Users/skippy"
 
+export COMPOSE_PARALLEL_LIMIT=10
+
 # vim:fdm=marker foldlevel=0 foldenable
