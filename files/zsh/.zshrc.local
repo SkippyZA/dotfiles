@@ -243,6 +243,9 @@ alias lspvim="NVIM_APPNAME=nvim-old nvim"
 alias :q="exit"
 alias :Q="exit"
 
+# Neorg
+alias neorg="NVIM_APPNAME=nvim-neorg nvim -c \"Neorg index\""
+
 alias shrug="printf '¯\_(ツ)_/¯' | pbcopy"
 alias flipt="printf '(╯°□°)╯︵ ┻━┻' | pbcopy"
 alias fight="printf '(ง'̀-'́)ง' | pbcopy"
