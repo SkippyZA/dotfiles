@@ -7,6 +7,9 @@ return {
       {"<leader>ww", ":Neorg workspace notes<cr>"},
       {"<leader>wwq", ":Neorg return<cr>"},
     },
+    dependencies = {
+      "nvim-neorg/neorg-telescope"
+    },
     config = function()
       require("neorg").setup {
         load = {
@@ -29,6 +32,15 @@ return {
           },
           ["core.summary"] = {},
           ["core.integrations.treesitter"] = {},
+          ["core.integrations.telescope"] = {
+            config = {
+              insert_file_link = {
+                -- Whether to show the title preview in telescope. Affects performance with a large
+                -- number of files.
+                show_title_preview = true,
+              },
+            }
+          }
         },
       }
 
