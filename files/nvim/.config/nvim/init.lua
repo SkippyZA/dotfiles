@@ -92,3 +92,13 @@ vim.filetype.add({
     [".*%.k"] = "kcl",
   },
 })
+
+-- Setting filetype for Tilt
+vim.filetype.add({
+  filename = {
+    ["Tiltfile"] = "starlark",
+  },
+  pattern = {
+    [".*%.tiltfile"] = "starlark",
+  },
+})
