@@ -16,8 +16,22 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Set up both the traditional leader (for keymaps) as well as the local leader (for norg files)
-vim.g.mapleader = " "
-vim.g.maplocalleader = ","
+-- vim.g.mapleader = " "
+-- vim.g.maplocalleader = ","
+
+vim.g.mapleader = ","
+vim.g.maplocalleader = "\\"
+
+vim.keymap.set('i', 'jk', '<esc>', { silent = true, desc = "Escape" })
+vim.keymap.set('n', '<leader>,', ':w<cr>', { silent = true, desc = "Write the current file" })
+vim.keymap.set('n', '<leader>.', '<c-^>', { desc = "Switch between current and previous buffer" })
+
+vim.opt.clipboard="unnamed"
+
+vim.opt.number=true          -- show line numbers
+vim.opt.relativenumber=true  -- show relative line numbers
+vim.opt.cursorline=true      -- highlight the current line
+vim.opt.signcolumn="yes"
 
 -- Setup lazy.nvim
 require("lazy").setup({

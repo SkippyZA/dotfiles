@@ -12,6 +12,7 @@ tap "universal-ctags/universal-ctags"
 tap "versent/homebrew-taps"
 tap "weaveworks/tap"
 tap "noahgorstein/tap"
+tap "mdsakalu/tap" # macnetmon
 
 # App essentials
 # cask "alacritty"
@@ -53,6 +54,7 @@ brew "kubetail"
 brew "kustomize"
 brew "lazydocker"
 brew "lazygit"
+brew "macnetmon"
 brew "markdown"
 brew "mas"
 brew "minikube"

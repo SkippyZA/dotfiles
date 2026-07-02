@@ -53,8 +53,9 @@ vim.opt.shiftround=true              -- round indent to a multiple of 'shiftwidt
 
 
 -- Folding
-vim.opt.foldmethod = "expr"                     -- treesiter time
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- treesiter
+vim.opt.foldmethod = "syntax"
+-- vim.opt.foldmethod = "expr"                     -- treesiter time
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- treesiter
 -- vim.opt.foldtext = ''
 vim.opt.foldenable = false                      --  Disable folding at startup.
 
@@ -69,10 +70,6 @@ vim.cmd("command! -bang WA wa<bang>")
 vim.cmd("command! -bang Q q<bang>")
 vim.cmd("command! -bang QA qa<bang>")
 vim.cmd("command! -bang Qa qa<bang>")
-
--- function ExportNeorg()
---   vim.cmd([[Neorg export directory /Users/s.inskip/Library/Mobile\ Documents/com~apple~CloudDocs/neorg/notes markdown /Users/s.inskip/Library/Mobile\ Documents/com~apple~CloudDocs/neorg/notes-output ]])
--- end
 
 -- Setting filetypes for `helm`
 vim.filetype.add({

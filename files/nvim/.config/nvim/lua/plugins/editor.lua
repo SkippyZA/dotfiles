@@ -16,6 +16,11 @@ return {
     "tpope/vim-eunuch",
   },
 
+  -- surround with brackets, braces etc
+  {
+    "tpope/vim-surround",
+  },
+
   -- easily interact with tmux from vim
   {
     "preservim/vimux",
