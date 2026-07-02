@@ -1,18 +1,18 @@
 cask_args appdir: '/Applications'
 
-tap "goreleaser/tap"
-tap "caarlos0/tap"
-tap "johanhaleby/kubetail"
-tap "go-swagger/go-swagger"
+tap "goreleaser/tap", trusted: true
+tap "caarlos0/tap", trusted: true
+tap "johanhaleby/kubetail", trusted: true
+tap "go-swagger/go-swagger", trusted: true
 
 # Custom taps
-tap "datawire/blackbird"
-tap "derailed/k9s"
-tap "universal-ctags/universal-ctags"
-tap "versent/homebrew-taps"
-tap "weaveworks/tap"
-tap "noahgorstein/tap"
-tap "mdsakalu/tap" # macnetmon
+tap "datawire/blackbird", trusted: true
+tap "derailed/k9s", trusted: true
+tap "universal-ctags/universal-ctags", trusted: true
+tap "versent/homebrew-taps", trusted: true
+tap "weaveworks/tap", trusted: true
+tap "noahgorstein/tap", trusted: true
+tap "mdsakalu/tap", trusted: true # macnetmon
 
 # App essentials
 # cask "alacritty"
