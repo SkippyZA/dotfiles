@@ -32,7 +32,7 @@ symlinks:
 	@stow -v --stow --ignore ".DS_Store" --target="$(HOME)" --dir="$(DOTFILES)/files" tmuxinator
 	@stow -v --stow --ignore ".DS_Store" --target="$(HOME)" --dir="$(DOTFILES)/files" zsh
 	@stow -v --stow --ignore ".DS_Store" --target="$(HOME)" --dir="$(DOTFILES)/files" tmuxifier
-	# @stow -v --stow --ignore ".DS_Store" --target="$(HOME)" --dir="$(DOTFILES)/files" oh-my-zsh
+	@stow -v --stow --ignore ".DS_Store" --target="$(HOME)" --dir="$(DOTFILES)/files" herdr
 
 
 ## tmux: Setup tpm and run a new tmux server

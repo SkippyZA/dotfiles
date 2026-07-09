@@ -1,0 +1,25 @@
+[theme]
+name = "gruvbox"
+auto_switch = false
+
+[keys]
+prefix = "ctrl+a"
+
+previous_agent = "prefix+shift+up"
+next_agent = "prefix+shift+down"
+
+workspace_picker = ["prefix+w", "prefix+s"]
+navigate_workspace_up = ["up", "k"]
+navigate_workspace_down = ["down", "j"]
+previous_workspace = "prefix+up"
+next_workspace = "prefix+down"
+
+split_vertical = "prefix+|"
+split_horizontal = "prefix+minus"
+previous_tab = ["prefix+p", "prefix+ctrl+h"]
+next_tab = ["prefix+n", "prefix+ctrl+l"]
+last_pane = "prefix+a"
+
+switch_tab = "prefix+1..9"
+switch_workspace = "prefix+ctrl+1..9"
+focus_agent = "prefix+alt+1..9"

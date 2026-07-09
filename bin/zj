@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# abort if we're already inside a zellij session
+[ "$ZELLIJ" == "" ] || exit 0
+
+# present menu for user to choose which workspace to open
+PS3="Please choose your session: "
+options=($(zellij list-sessions -n -s 2>/dev/null) "New Session")
+echo "Available sessions"
+echo "------------------"
+echo " "
+select opt in "${options[@]}"
+do
+	case $opt in
+		"New Session")
+			read -p "Enter new session name: " SESSION_NAME
+			zellij attach -c "$SESSION_NAME"
+			break
+			;;
+		*)
+			zellij attach "$opt"
+			break
+			;;
+	esac
+done

@@ -23,3 +23,5 @@ tscommand*.txt
 .vim-bookmarks
 .solargraph.yml
 /tags
+
+**/.claude/settings.local.json
