@@ -1,0 +1,265 @@
+#!/usr/bin/env bash
+#
+# k8s-node-report.sh — per-node summary: age, running pods, taint count, selected metadata.
+#
+# Note on "annotations": keys such as `role` and `beta.kubernetes.io/instance-type`
+# are commonly *labels* rather than annotations. By default each requested key is
+# looked up in .metadata.annotations first, then .metadata.labels. Prefix a key
+# with `anno:` or `label:` to force a single source.
+
+set -euo pipefail
+
+PROG=${0##*/}
+
+CONTEXT=""
+SELECTOR=""
+DEFAULT_KEYS=(role beta.kubernetes.io/instance-type karpenter.sh/capacity-type)
+KEYS=("${DEFAULT_KEYS[@]}")
+ONLY_USED=false
+OUTPUT=table
+MAX_WIDTH=48
+SORT=""
+REVERSE=false
+COUNT_ALL_PODS=0
+SHOW_TAINT_DETAIL=false
+COUNT_PODS=true
+
+usage() {
+  cat <<EOF
+Usage: $PROG [options]
+
+Lists cluster nodes with their age, the number of pods scheduled on them, the
+number of taints, and the values of selected annotations/labels.
+
+Options:
+  -c, --context NAME     kube context to use (default: current context)
+  -a, --annotation KEY   extra key to report; repeatable, or comma-separated.
+                         Prefix with 'anno:' or 'label:' to force the source.
+                         Default keys: ${DEFAULT_KEYS[*]}
+      --only KEY         like -a but discards the default keys
+  -l, --selector SEL     label selector passed to 'kubectl get nodes'
+  -o, --output FORMAT    table (default), tsv, or json
+  -s, --sort COLUMN      sort by a column name, case-insensitive (e.g. PODS,
+                         age, role). AGE/PODS/TAINTS sort numerically, the rest
+                         lexically; ties break on node name
+  -r, --reverse          reverse the sort order (descending)
+  -w, --max-width N      truncate values longer than N chars (0 = no limit, default: $MAX_WIDTH)
+  -T, --taint-detail     add a column listing taint key=value:effect entries
+      --all-pods         count pods in every phase, not just Running
+      --no-pods          skip pod counting (avoids a cluster-wide pod list)
+  -h, --help             show this help
+
+Examples:
+  $PROG 
+  $PROG -a karpenter.sh/nodepool -a label:topology.kubernetes.io/zone
+  $PROG -s pods -r
+  $PROG -s age            # oldest nodes last
+  $PROG --only label:role -o json | jq .
+EOF
+}
+
+die() { printf '%s: %s\n' "$PROG" "$*" >&2; exit 1; }
+
+add_keys() {
+  local IFS=','
+  # shellcheck disable=SC2206 # intentional word splitting on commas
+  local parts=($1)
+  local p
+  for p in "${parts[@]}"; do
+    [[ -n $p ]] && KEYS+=("$p")
+  done
+}
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -c|--context)    [[ $# -ge 2 ]] || die "$1 requires a value"; CONTEXT=$2; shift 2 ;;
+    -l|--selector)   [[ $# -ge 2 ]] || die "$1 requires a value"; SELECTOR=$2; shift 2 ;;
+    -o|--output)     [[ $# -ge 2 ]] || die "$1 requires a value"; OUTPUT=$2; shift 2 ;;
+    -w|--max-width)  [[ $# -ge 2 ]] || die "$1 requires a value"; MAX_WIDTH=$2; shift 2 ;;
+    -s|--sort)       [[ $# -ge 2 ]] || die "$1 requires a value"; SORT=$2; shift 2 ;;
+    -r|--reverse)    REVERSE=true; shift ;;
+    -a|--annotation)
+      [[ $# -ge 2 ]] || die "$1 requires a value"
+      add_keys "$2"; shift 2 ;;
+    --only)
+      [[ $# -ge 2 ]] || die "$1 requires a value"
+      if [[ $ONLY_USED == false ]]; then KEYS=(); ONLY_USED=true; fi
+      add_keys "$2"; shift 2 ;;
+    -T|--taint-detail) SHOW_TAINT_DETAIL=true; shift ;;
+    --all-pods)        COUNT_ALL_PODS=1; shift ;;
+    --no-pods)         COUNT_PODS=false; shift ;;
+    -h|--help)         usage; exit 0 ;;
+    *) die "unknown argument: $1 (try --help)" ;;
+  esac
+done
+
+[[ $OUTPUT == table || $OUTPUT == tsv || $OUTPUT == json ]] \
+  || die "invalid --output '$OUTPUT' (expected table, tsv, or json)"
+[[ $MAX_WIDTH =~ ^[0-9]+$ ]] || die "--max-width must be a non-negative integer"
+
+command -v kubectl >/dev/null || die "kubectl not found in PATH"
+command -v jq >/dev/null      || die "jq not found in PATH"
+
+KUBECTL=(kubectl)
+[[ -n $CONTEXT ]] && KUBECTL+=(--context "$CONTEXT")
+
+node_args=(get nodes -o json)
+[[ -n $SELECTOR ]] && node_args+=(--selector "$SELECTOR")
+
+nodes_json=$("${KUBECTL[@]}" "${node_args[@]}") \
+  || die "failed to list nodes${CONTEXT:+ in context '$CONTEXT'}"
+
+# Pod counts per node. Only the node name column comes back, so the payload
+# stays small even on large clusters.
+pods_json='{}'
+if [[ $COUNT_PODS == true ]]; then
+  pod_args=(get pods --all-namespaces --no-headers -o custom-columns=NODE:.spec.nodeName)
+  (( COUNT_ALL_PODS )) || pod_args+=(--field-selector=status.phase=Running)
+
+  if ! pod_nodes=$("${KUBECTL[@]}" "${pod_args[@]}" 2>&1); then
+    printf '%s: failed to list pods: %s\n' "$PROG" "$pod_nodes" >&2
+    die "re-run with --no-pods to skip pod counting"
+  fi
+
+  pods_json=$(printf '%s\n' "$pod_nodes" \
+    | awk 'NF && $1 != "<none>" { print $1 }' \
+    | sort | uniq -c \
+    | awk '{ printf "%s\t%s\n", $2, $1 }' \
+    | jq -Rn '[inputs | split("\t") | {(.[0]): (.[1] | tonumber)}] | add // {}')
+fi
+
+keys_json=$(printf '%s\n' "${KEYS[@]+"${KEYS[@]}"}" | jq -Rn '[inputs | select(length > 0)]')
+
+jq -r \
+  --argjson pods "$pods_json" \
+  --argjson keys "$keys_json" \
+  --argjson maxw "$MAX_WIDTH" \
+  --argjson taintdetail "$SHOW_TAINT_DETAIL" \
+  --argjson countpods "$COUNT_PODS" \
+  --argjson reverse "$REVERSE" \
+  --arg sort "$SORT" \
+  --arg output "$OUTPUT" '
+  def parse_key:
+    if   startswith("annotation:") then {src: "annotation", key: .[11:]}
+    elif startswith("anno:")       then {src: "annotation", key: .[5:]}
+    elif startswith("label:")      then {src: "label",      key: .[6:]}
+    else                                {src: "any",        key: .}
+    end;
+
+  def clean:
+    if . == null then "-"
+    else (tostring | gsub("[\\n\\t]+"; " "))
+      | if $maxw > 0 and (length > $maxw) then .[0:$maxw - 1] + "…" else . end
+      | if . == "" then "-" else . end
+    end;
+
+  # Compact duration matching the AGE column of kubectl get nodes.
+  def human_age($secs):
+    if $secs == null then "-"
+    else ($secs | if . < 0 then 0 else . end | floor) as $s
+      | (($s / 60) | floor)       as $m
+      | (($s / 3600) | floor)     as $h
+      | (($s / 86400) | floor)    as $d
+      | (($d / 365) | floor)      as $y
+      | ($s - $m * 60)  as $rs
+      | ($m - $h * 60)  as $rm
+      | ($h - $d * 24)  as $rh
+      | ($d - $y * 365) as $rd
+      | if   $s < 120     then "\($s)s"
+        elif $m < 10      then (if $rs > 0 then "\($m)m\($rs)s" else "\($m)m" end)
+        elif $m < 180     then "\($m)m"
+        elif $h < 8       then (if $rm > 0 then "\($h)h\($rm)m" else "\($h)h" end)
+        elif $h < 48      then "\($h)h"
+        elif $d < 8       then (if $rh > 0 then "\($d)d\($rh)h" else "\($d)d" end)
+        elif $d < 365 * 2 then "\($d)d"
+        elif $d < 365 * 8 then (if $rd > 0 then "\($y)y\($rd)d" else "\($y)y" end)
+        else "\($y)y"
+        end
+    end;
+
+  def lookup($node; $spec):
+    ($node.metadata.annotations // {}) as $a
+    | ($node.metadata.labels // {}) as $l
+    | if   $spec.src == "annotation" then $a[$spec.key]
+      elif $spec.src == "label"      then $l[$spec.key]
+      else ($a[$spec.key] // $l[$spec.key])
+      end;
+
+  def taint_list($node):
+    ($node.spec.taints // [])
+    | map(.key + (if .value == null or .value == "" then "" else "=" + .value end)
+          + ":" + (.effect // "?"))
+    | if length == 0 then "-" else join(",") end;
+
+  # Row rendered as a positional array, aligned with $header, so a column name
+  # can be resolved to an index for sorting.
+  def rowvals($row):
+    [$row.name, $row.ready, $row.age_seconds]
+    + (if $countpods then [$row.pods] else [] end)
+    + [$row.taints]
+    + $row.values
+    + (if $taintdetail then [$row.taint_detail] else [] end);
+
+  ($keys | map(parse_key)) as $specs
+  | [.items[] | {
+      name:   .metadata.name,
+      ready:  ((.status.conditions // []) | map(select(.type == "Ready")) | (.[0].status // "Unknown")
+               | if . == "True" then "Ready" elif . == "False" then "NotReady" else "Unknown" end),
+      age_seconds: (.metadata.creationTimestamp
+                    | if . == null then null else (now - fromdateiso8601) end),
+      pods:   ($pods[.metadata.name] // 0),
+      taints: ((.spec.taints // []) | length),
+      taint_detail: taint_list(.),
+      values: (. as $n | [$specs[] | lookup($n; .)])
+    }] as $rows
+
+  | ( ["NODE", "STATUS", "AGE"]
+      + (if $countpods then ["PODS"] else [] end)
+      + ["TAINTS"]
+      + ($specs | map(.key | ascii_upcase))
+      + (if $taintdetail then ["TAINT_DETAIL"] else [] end)
+    ) as $header
+
+  | ( if $sort == "" then $rows
+      else
+        ($header | map(ascii_downcase) | index($sort | ascii_downcase)) as $idx
+        | if $idx == null then
+            ("unknown sort column \"" + $sort + "\"; available: "
+             + ($header | join(", ")) + "\n" | halt_error(2))
+          else
+            $rows | sort_by([rowvals(.)[$idx], .name])
+          end
+      end
+      | if $reverse then reverse else . end
+    ) as $rows
+
+  | if $output == "json" then
+      ($rows | map({
+        name: .name,
+        status: .ready,
+        age: human_age(.age_seconds),
+        ageSeconds: (.age_seconds | if . == null then null else floor end),
+        pods: (if $countpods then .pods else null end),
+        taints: .taints,
+        taintDetail: .taint_detail,
+        metadata: ([$specs, .values] | transpose | map({(.[0].key): .[1]}) | add // {})
+      } | if $taintdetail then . else del(.taintDetail) end
+        | if $countpods then . else del(.pods) end))
+    else
+      ([$header] + ($rows | map(
+          [.name, .ready, human_age(.age_seconds)]
+          + (if $countpods then [.pods | tostring] else [] end)
+          + [.taints | tostring]
+          + (.values | map(clean))
+          + (if $taintdetail then [.taint_detail] else [] end)
+        )))
+      | .[] | @tsv
+    end
+  ' <<<"$nodes_json" \
+| {
+    if [[ $OUTPUT == table ]]; then
+      column -t -s $'\t'
+    else
+      cat
+    fi
+  }
