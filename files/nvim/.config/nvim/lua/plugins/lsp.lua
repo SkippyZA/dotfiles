@@ -189,6 +189,19 @@ return {
       vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
       vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
       vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+
+      -- Code lenses render as virtual lines above the code (nvim 0.12+) and are off
+      -- by default, except that nvim-lspconfig's bundled `lsp/terraformls.lua` calls
+      -- `vim.lsp.codelens.enable()` in its own `on_attach`. Override that to keep
+      -- terraform buffers quiet; the reference-count lenses are still available on
+      -- demand via the toggle below, since `showReferencesCommandId` is left intact.
+      vim.lsp.config('terraformls', {
+        on_attach = function() end,
+      })
+
+      vim.keymap.set('n', '<leader>uc', function()
+        vim.lsp.codelens.enable(not vim.lsp.codelens.is_enabled({ bufnr = 0 }), { bufnr = 0 })
+      end, { desc = "Toggle code lenses (current buffer)" })
       -- Use LspAttach autocommand to only map the following keys
       -- after the language server attaches to the current buffer
       vim.api.nvim_create_autocmd('LspAttach', {

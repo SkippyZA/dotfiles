@@ -53,11 +53,10 @@ vim.opt.shiftround=true              -- round indent to a multiple of 'shiftwidt
 
 
 -- Folding
-vim.opt.foldmethod = "syntax"
--- vim.opt.foldmethod = "expr"                     -- treesiter time
--- vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- treesiter
--- vim.opt.foldtext = ''
-vim.opt.foldenable = false                      --  Disable folding at startup.
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.MyVim.treesitter.foldexpr()"  -- falls back to "0" without a parser
+vim.opt.foldtext = ""
+vim.opt.foldlevel = 99                          -- folds computed, but all open at startup
 
 
 -- Fix common typos

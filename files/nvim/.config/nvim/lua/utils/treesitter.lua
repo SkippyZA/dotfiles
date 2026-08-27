@@ -6,13 +6,17 @@ M._queries = {} ---@type table<string,boolean>
 
 ---@param update boolean?
 function M.get_installed(update)
-  if update then
+  if update or not M._installed then
+    local ok, TS = pcall(require, "nvim-treesitter")
+    if not ok then
+      return M._installed or {} -- don't cache an empty list before the plugin loads
+    end
     M._installed, M._queries = {}, {}
-    for _, lang in ipairs(require("nvim-treesitter").get_installed("parsers")) do
+    for _, lang in ipairs(TS.get_installed("parsers")) do
       M._installed[lang] = true
     end
   end
-  return M._installed or {}
+  return M._installed
 end
 
 ---@param lang string

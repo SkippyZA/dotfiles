@@ -29,7 +29,8 @@ usage() {
 Usage: $PROG [options]
 
 Lists cluster nodes with their age, the number of pods scheduled on them, the
-number of taints, and the values of selected annotations/labels.
+number of taints, and the values of selected annotations/labels. The total node
+count is printed as a footer (table) or as .nodeCount (json).
 
 Options:
   -c, --context NAME     kube context to use (default: current context)
@@ -54,7 +55,7 @@ Examples:
   $PROG -a karpenter.sh/nodepool -a label:topology.kubernetes.io/zone
   $PROG -s pods -r
   $PROG -s age            # oldest nodes last
-  $PROG --only label:role -o json | jq .
+  $PROG --only label:role -o json | jq .nodes
 EOF
 }
 
@@ -108,6 +109,9 @@ node_args=(get nodes -o json)
 
 nodes_json=$("${KUBECTL[@]}" "${node_args[@]}") \
   || die "failed to list nodes${CONTEXT:+ in context '$CONTEXT'}"
+
+# Reflects --selector filtering, so it matches the rows printed below.
+node_count=$(jq '.items | length' <<<"$nodes_json")
 
 # Pod counts per node. Only the node name column comes back, so the payload
 # stays small even on large clusters.
@@ -234,7 +238,7 @@ jq -r \
     ) as $rows
 
   | if $output == "json" then
-      ($rows | map({
+      {nodeCount: ($rows | length), nodes: ($rows | map({
         name: .name,
         status: .ready,
         age: human_age(.age_seconds),
@@ -244,7 +248,7 @@ jq -r \
         taintDetail: .taint_detail,
         metadata: ([$specs, .values] | transpose | map({(.[0].key): .[1]}) | add // {})
       } | if $taintdetail then . else del(.taintDetail) end
-        | if $countpods then . else del(.pods) end))
+        | if $countpods then . else del(.pods) end))}
     else
       ([$header] + ($rows | map(
           [.name, .ready, human_age(.age_seconds)]
@@ -263,3 +267,9 @@ jq -r \
       cat
     fi
   }
+
+# Footer only for the human-readable format; tsv stays parseable and json
+# carries the count in its .nodeCount field.
+if [[ $OUTPUT == table ]]; then
+  printf '\nNodes: %s\n' "$node_count"
+fi
