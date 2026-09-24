@@ -1,0 +1,57 @@
+# --- Font -------------------------------------------------------------------
+font-family = SauceCodePro Nerd Font Mono
+font-size = 12
+
+# --- Window -----------------------------------------------------------------
+# Alacritty: window.dimensions = { columns = 265, lines = 75 }
+window-width = 265
+window-height = 75
+
+# Alacritty: window.position = { x = 80, y = 0 }
+window-position-x = 80
+window-position-y = 0
+
+# Alacritty's default padding is 0; Ghostty's is 2.
+window-padding-x = 0
+window-padding-y = 0
+
+# --- Keyboard / environment -------------------------------------------------
+# Alacritty: window.option_as_alt = "Both"
+macos-option-as-alt = true
+
+# --- Mouse ------------------------------------------------------------------
+# Alacritty does not copy selections to the system clipboard by default.
+copy-on-select = true
+
+# # --- Colors: Alacritty's default theme (Base16 Default Dark) ----------------
+# background = #181818
+# foreground = #d8d8d8
+#
+# # Cursor and selection are left unset so they invert the cell colors, which is
+# # what Alacritty does by default.
+#
+# # normal
+# palette = 0=#181818
+# palette = 1=#ac4242
+# palette = 2=#90a959
+# palette = 3=#f4bf75
+# palette = 4=#6a9fb5
+# palette = 5=#aa759f
+# palette = 6=#75b5aa
+# palette = 7=#d8d8d8
+# # bright
+# palette = 8=#6b6b6b
+# palette = 9=#c55555
+# palette = 10=#aac474
+# palette = 11=#feca88
+# palette = 12=#82b8c8
+# palette = 13=#c28cb8
+# palette = 14=#93d3c3
+# palette = 15=#f8f8f8
+
+# --- Keybinds ---------------------------------------------------------------
+# Ghostty already matches Alacritty for cmd+c/v, cmd+k (clear), cmd+n,
+# cmd+q, cmd+f (search), cmd+0/=/- (font size) and shift+page_up/down.
+# These two are the only gaps:
+keybind = ctrl+super+f=toggle_fullscreen
+keybind = super+b=start_search
